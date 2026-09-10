@@ -1,7 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="3rd and Long">
-  <rect width="512" height="512" fill="#F2C74A"/>
-  <text x="256" y="404"
-        font-family="'Barlow Condensed','Arial Narrow',Helvetica,sans-serif"
-        font-size="470" font-weight="700" letter-spacing="-18"
-        text-anchor="middle" fill="#101418">3</text>
+  <rect width="512" height="512" fill="#101418"/>
+  <g fill="#F2C74A">
+    <rect x="112" y="70" width="88" height="185"/>
+    <rect x="312" y="70" width="88" height="185"/>
+    <rect x="112" y="255" width="288" height="88"/>
+    <rect x="212" y="343" width="88" height="99"/>
+  </g>
 </svg>

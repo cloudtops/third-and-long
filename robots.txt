@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://thirdandlong.vercel.app/sitemap.xml
+Sitemap: https://third-and-long.vercel.app/sitemap.xml

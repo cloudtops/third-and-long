@@ -105,6 +105,27 @@ else needs touching.
 
 ---
 
+## Team colors
+
+`_src/teams.py` holds all 32 palettes and the contrast math. Two things use it:
+
+**Per-entry accent (always on).** Every team's rank numeral and left spine take
+that club's primary. The class is emitted at build time from the team name in
+the copy, so a typo in a team name fails the build loudly rather than silently
+losing the color.
+
+**The picker (opt-in).** The control in the masthead stores a choice in
+`localStorage` and sets `--pick` and the `--hero-*` tokens from that team's
+palette. Conference crimson/navy is deliberately left alone so the standings
+still read AFC vs NFC at a glance.
+
+Every color is contrast-fitted, not used raw: each palette is nudged in
+lightness until it clears 4.5:1 against the light ground and again against the
+dark ground, and hero text picks ink or chalk by luminance — with the hero
+ground itself walked a few steps if neither clears. That's why the Steelers
+render as `#8F6200` on white and `#FFB612` on black rather than one unreadable
+gold. Colors only, no logos or wordmarks.
+
 ## How the CSS works
 
 Everything is driven by custom properties at the top of `styles.css`. Three
@@ -116,5 +137,7 @@ Conference color is set per-section by `.conf--afc` / `.conf--nfc`, which
 define a local `--conf` that rank numerals, team names, and division kickers
 all read from. Restyle a conference by changing one variable.
 
-Type is Newsreader (display + body) and Barlow Condensed (team names, numerals,
-labels), both from Google Fonts.
+Type is Zilla Slab (headlines + body) and Archivo Narrow (team names, numerals,
+labels), both from Google Fonts. Swap them via `--f-display` and `--f-cond` in
+`_src/core.css` — but the rank rail and team-name sizes are tuned to Archivo
+Narrow's width, so a much narrower or wider face needs those clamps retuned.

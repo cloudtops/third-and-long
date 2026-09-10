@@ -9,22 +9,22 @@ TMP = HERE / ".cards"; TMP.mkdir(exist_ok=True)
 CARD = """<!doctype html><html lang="en"><head><meta charset="utf-8">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@500;600;700&family=Zilla+Slab:wght@400;600;700&display=swap">
 <style>
 *{{box-sizing:border-box;margin:0;padding:0}}
 body{{width:1200px;height:630px;overflow:hidden;background:#101418;color:#EDEEE9;
-  font-family:"Newsreader",Georgia,serif;display:flex;flex-direction:column;
+  font-family:"Zilla Slab",Georgia,serif;display:flex;flex-direction:column;
   justify-content:space-between;padding:64px 72px 0}}
 .top{{display:flex;align-items:baseline;justify-content:space-between}}
-.mast{{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:26px;
+.mast{{font-family:"Archivo Narrow",sans-serif;font-weight:700;font-size:26px;
   text-transform:uppercase;letter-spacing:.28em}}
-.edition{{font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:22px;
+.edition{{font-family:"Archivo Narrow",sans-serif;font-weight:600;font-size:22px;
   text-transform:uppercase;letter-spacing:.2em;color:#F2C74A}}
 h1{{font-weight:600;font-size:{size}px;line-height:1.0;letter-spacing:-.025em;
   max-width:16ch;margin-top:56px}}
 .foot{{display:flex;align-items:center;justify-content:space-between;
   border-top:1px solid #2C333A;margin-top:auto;padding:26px 0;
-  font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:23px;
+  font-family:"Archivo Narrow",sans-serif;font-weight:600;font-size:23px;
   text-transform:uppercase;letter-spacing:.16em}}
 .foot .dim{{color:#8B9490;font-weight:500}}
 .bars{{display:flex;height:10px;margin:0 -72px}}
@@ -38,15 +38,19 @@ h1{{font-weight:600;font-size:{size}px;line-height:1.0;letter-spacing:-.025em;
 </body></html>"""
 
 ICON = """<!doctype html><html lang="en"><head><meta charset="utf-8">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&display=swap">
 <style>*{box-sizing:border-box;margin:0;padding:0}
-body{width:512px;height:512px;overflow:hidden;background:#F2C74A;display:flex;
-  align-items:center;justify-content:center}
-.num{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:470px;
-  line-height:1;color:#101418;letter-spacing:-.04em;transform:translateY(14px)}
-</style></head><body><span class="num">3</span></body></html>"""
+html,body{width:512px;height:512px;overflow:hidden}
+svg{display:block}</style></head><body>
+<!-- Goalposts head-on. Pure geometry, no webfont: favicons never load one. -->
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <rect width="512" height="512" fill="#101418"/>
+  <g fill="#F2C74A">
+    <rect x="112" y="70" width="88" height="185"/>
+    <rect x="312" y="70" width="88" height="185"/>
+    <rect x="112" y="255" width="288" height="88"/>
+    <rect x="212" y="343" width="88" height="99"/>
+  </g>
+</svg></body></html>"""
 
 CARDS = [
  ("og.png", "3rd &amp; Long", "NFL Reports", "Adam Long", "Four editions", 104),
