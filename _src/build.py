@@ -15,6 +15,7 @@ import midseason2024 as MS24
 import preseason2025 as PS25
 import midseason2025 as MS25
 import preseason2026 as PS26
+from posts import POSTS
 
 ROOT = HERE.parent
 
@@ -26,16 +27,16 @@ SITE_NAME = "3rd &amp; Long"
 EDITIONS = [
     dict(slug="2026-preseason", kind="Preseason",
          title="2026&ndash;2027 NFL Preseason Report", season="2026",
-         type="divisions", mod=PS26, extras=False),
+         type="divisions", mod=PS26, extras=True, rec_label="2025", author="Adam Long"),
     dict(slug="2025-midseason", kind="Midseason",
          title="2025 NFL Midseason Report", season="2025",
-         type="rankings", mod=MS25, sub="Power Rankings"),
+         type="rankings", mod=MS25, sub="Power Rankings", author="Adam Long"),
     dict(slug="2025-preseason", kind="Preseason",
          title="2025&ndash;2026 NFL Preseason Report", season="2025",
-         type="divisions", mod=PS25, extras=True),
+         type="divisions", mod=PS25, extras=True, rec_label="2024", author="Adam Long"),
     dict(slug="2024-midseason", kind="Midseason",
          title="2024 NFL Midseason Report", season="2024",
-         type="rankings", mod=MS24, sub="Week 10 Power Rankings"),
+         type="rankings", mod=MS24, sub="Week 10 Power Rankings", author="Adam Long"),
 ]
 
 DIV_ORDER = ["North", "East", "South", "West"]
@@ -79,7 +80,7 @@ def render_standings_grid(mod):
             '<h2>Division Standings</h2>'
             f'<div class="grid">{"".join(cards)}</div></div></section>')
 
-def render_divisions(mod, extras):
+def render_divisions(mod, extras, rec_label="2024"):
     out = []
     by_conf = {"afc": [], "nfc": []}
     for conf, name, teams in mod.DIVISIONS:
@@ -99,7 +100,7 @@ def render_divisions(mod, extras):
                 if extras:
                     rank, team, record, breakout, text = t
                     meta = ('<dl class="tmeta">'
-                            f'<div><dt>2024</dt><dd>{record}</dd></div>'
+                            f'<div><dt>{rec_label}</dt><dd>{record}</dd></div>'
                             f'<div><dt>Breakout Candidate</dt><dd>{breakout}</dd></div>'
                             '</dl>')
                 else:
@@ -148,22 +149,16 @@ def render_rankings(mod):
     out.append("</div></div>")
     return "".join(out)
 
-def render_awards_single(awards):
-    items = "".join(
-        f'<div class="award"><dt>{label}</dt><dd>{award_dd(*pick)}</dd></div>'
-        for label, pick in awards)
-    return ('<section class="section awards" id="awards"><div class="wrap">'
-            '<h2>Awards</h2>'
-            f'<dl class="award-list">{items}</dl></div></section>')
-
-def render_awards_pair(awards):
+def render_awards(awards):
     items = []
-    for label, pick, runner in awards:
-        items.append(
-            f'<div class="award"><dt>{label}</dt>'
-            f'<dd>{award_dd(*pick)}</dd>'
-            f'<dd class="runner"><span class="rlabel">Runner-up</span>'
-            f'{award_dd(*runner)}</dd></div>')
+    for entry in awards:
+        label, pick = entry[0], entry[1]
+        runner = entry[2] if len(entry) > 2 else None
+        block = f'<div class="award"><dt>{label}</dt><dd>{award_dd(*pick)}</dd>'
+        if runner:
+            block += (f'<dd class="runner"><span class="rlabel">Runner-up</span>'
+                      f'{award_dd(*runner)}</dd>')
+        items.append(block + "</div>")
     return ('<section class="section awards" id="awards"><div class="wrap">'
             '<h2>Awards</h2>'
             f'<dl class="award-list">{"".join(items)}</dl></div></section>')
@@ -179,14 +174,14 @@ def render_body(ed):
     parts = [render_lede(mod)]
     if ed["type"] == "divisions":
         parts.append(render_standings_grid(mod))
-        parts.append(render_divisions(mod, ed["extras"]))
+        parts.append(render_divisions(mod, ed["extras"], ed.get("rec_label", "2024")))
         if hasattr(mod, "SEEDING"):
             parts.append(render_seeding(mod))
-        parts.append(render_awards_single(mod.AWARDS))
+        parts.append(render_awards(mod.AWARDS))
     else:
         parts.append(render_rankings_grid(mod))
         parts.append(render_rankings(mod))
-        parts.append(render_awards_pair(mod.AWARDS))
+        parts.append(render_awards(mod.AWARDS))
     return "".join(parts)
 
 def nav_links(ed):
@@ -204,6 +199,49 @@ def nav_links(ed):
     return ('<nav class="nav" aria-label="Sections"><div class="nav-inner">'
             + "".join(f'<a href="{h}">{t}</a>' for h, t in links)
             + "</div></nav>")
+
+def matchup(post):
+    """Two-team colour strip for a game breakdown."""
+    pair = post.get("teams")
+    if not pair:
+        return ""
+    pal = TEAMS_MOD.palette()
+    cells = []
+    for slug in pair:
+        d = pal.get(slug)
+        if not d:
+            raise SystemExit(f"Unknown team slug in post {post['slug']!r}: {slug!r}")
+        cells.append(f'<div class="mu-team tc t-{slug}"><span class="mu-bar"></span>'
+                     f'<span class="mu-name">{d["name"]}</span></div>')
+    return f'<div class="matchup">{cells[0]}<span class="mu-v">at</span>{cells[1]}</div>'
+
+def post_classes(post):
+    pair = post.get("teams")
+    return f" tc t-{pair[0]}" if pair else ""
+
+def build_post(post):
+    url = f"{SITE}/posts/{post['slug']}"
+    author = post.get("author", "Adam Long")
+    plain = strip_tags(post["title"])
+    desc = f"{plain} by {author}."
+    body = "".join(f"<p>{para}</p>" for para in post["body"])
+    html = (
+        head(f"{plain} &mdash; 3rd &amp; Long", desc, url, "og.png")
+        + site_bar()
+        + f'<div class="hero hero--post{post_classes(post)}"><div class="wrap">'
+          f'<p class="hero-eyebrow">{post["kind"]}</p>'
+          f'<h1>{post["title"]}</h1>'
+          f'<p class="byline"><span>By {author}</span>'
+          f'<span class="sep">/</span><span class="dim">{post["date"]}</span></p>'
+          '</div></div><div class="hash"></div>'
+        + f'<main id="main"><section class="section post-body"><div class="wrap">'
+          f'{matchup(post)}{body}</div></section></main>'
+        + FOOT
+        + '<script src="/assets/js/nav.js" defer></script>\n</body>\n</html>\n')
+    d = ROOT / "posts" / post["slug"]
+    d.mkdir(parents=True, exist_ok=True)
+    (d / "index.html").write_text(html, encoding="utf-8")
+    return len(html)
 
 # ---------------------------------------------------------------- page shell
 
@@ -284,7 +322,7 @@ FOOT = ('<div class="wrap"><footer class="foot">'
 def build_edition(ed):
     url = f"{SITE}/{ed['slug']}"
     plain = strip_tags(ed["title"])
-    desc = f"{plain} by Adam Long."
+    desc = f'{plain} by {ed.get("author", "Adam Long")}.'
     sub = f'<p class="hero-sub">{ed["sub"]}</p>' if ed.get("sub") else ""
     html = (
         head(f"{plain} &mdash; 3rd &amp; Long", desc, url, f"og-{ed['slug']}.png")
@@ -292,7 +330,7 @@ def build_edition(ed):
         + '<div class="hero"><div class="wrap">'
           f'<p class="hero-eyebrow">{ed["kind"]}</p>'
           f'<h1>{ed["title"]}</h1>{sub}'
-          '<p class="byline"><span>By Adam Long</span></p>'
+          f'<p class="byline"><span>By {ed.get("author", "Adam Long")}</span></p>'
           '</div></div><div class="hash"></div>'
         + nav_links(ed)
         + f'<main id="main">{render_body(ed)}</main>'
@@ -311,6 +349,22 @@ def hero_photo():
         return "", ""
     return (" has-photo",
             f'<div class="hero-photo" style="background-image:url(/assets/img/{HERO_PHOTO})"></div>')
+
+def posts_section():
+    """Only renders once there is something to show."""
+    if not POSTS:
+        return ""
+    rows = []
+    for p in POSTS:
+        rows.append(
+            f'<a class="ed" href="/posts/{p["slug"]}">'
+            f'<span class="when">{p["date"]} &middot; {p["kind"]}</span>'
+            f'<h3>{p["title"]}</h3>'
+            f'<span class="go">By {p.get("author", "Adam Long")}</span></a>')
+    return ('<section class="section editions"><div class="wrap">'
+            '<h2>Posts</h2>'
+            f'<div class="ed-list">{"".join(rows)}</div>'
+            '</div></section>')
 
 def build_landing():
     cards = []
@@ -331,7 +385,9 @@ def build_landing():
         + '<main id="main"><section class="section editions"><div class="wrap">'
           '<h2>Reports</h2>'
           f'<div class="ed-list">{"".join(cards)}</div>'
-          '</div></section></main>'
+          '</div></section>'
+        + posts_section()
+        + '</main>'
         + FOOT + "\n</body>\n</html>\n")
     (ROOT / "index.html").write_text(html, encoding="utf-8")
     return len(html)
@@ -624,6 +680,34 @@ __TEAMCSS__
   }
 }
 
+
+/* ---------- short posts ---------- */
+
+.hero--post h1{max-width:20ch}
+.post-body p{
+  max-width:var(--measure);margin:0 0 1.15rem;color:var(--ink-2);
+  font-size:1.08rem;line-height:1.68;
+}
+.post-body p:last-child{margin-bottom:0}
+.post-body p:first-of-type{font-size:1.2rem;line-height:1.6;color:var(--ink)}
+
+.matchup{
+  display:flex;align-items:stretch;gap:1.1rem;flex-wrap:wrap;
+  margin:0 0 2.2rem;padding-bottom:1.6rem;
+  border-bottom:1px solid var(--rule);
+}
+.mu-team{display:flex;align-items:center;gap:.7rem}
+.mu-bar{width:6px;align-self:stretch;min-height:2rem;background:var(--team)}
+.mu-name{
+  font-family:var(--f-cond);font-weight:700;
+  font-size:clamp(1.05rem,2.8vw,1.35rem);
+  text-transform:uppercase;letter-spacing:.015em;
+}
+.mu-v{
+  align-self:center;font-family:var(--f-cond);font-weight:600;font-size:.8rem;
+  text-transform:uppercase;letter-spacing:.18em;color:var(--muted);
+}
+
 a.ed .go{
   margin-top:.5rem;font-family:var(--f-cond);font-weight:600;font-size:.78rem;
   text-transform:uppercase;letter-spacing:.16em;color:var(--pick);
@@ -702,11 +786,16 @@ def main():
         n = build_edition(ed)
         print(f"{ed['slug']}/index.html  {n:>7,} bytes")
 
+    for post in POSTS:
+        n = build_post(post)
+        print(f"posts/{post['slug']}/index.html  {n:>7,} bytes")
+
     art = build_artifact(css)
     (HERE / "artifact.html").write_text(art, encoding="utf-8")
     print(f"artifact.html             {len(art):>7,} bytes")
 
-    urls = [f"{SITE}/"] + [f"{SITE}/{e['slug']}" for e in EDITIONS]
+    urls = ([f"{SITE}/"] + [f"{SITE}/{e['slug']}" for e in EDITIONS]
+            + [f"{SITE}/posts/{p['slug']}" for p in POSTS])
     sm = ['<?xml version="1.0" encoding="UTF-8"?>',
           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for u in urls:

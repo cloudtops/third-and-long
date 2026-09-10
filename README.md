@@ -105,6 +105,25 @@ else needs touching.
 
 ---
 
+## Posts (game of the week, blog entries, guest pieces)
+
+Short pieces live in `_src/content/posts.py` as a list of dicts, newest first,
+and publish to `/posts/<slug>`. The file has the full field reference at the
+top. Add an entry, run `python3 _src/build.py`, done — the landing page grows a
+"Posts" section, the sitemap picks it up, nothing else to touch.
+
+The `Posts` section is hidden entirely while the list is empty, so the site
+doesn't advertise a section with nothing in it.
+
+**Guest writers:** set `author` on the post and the byline follows through to
+the page, the meta description, and the landing card. Same field works on the
+big reports in `EDITIONS`.
+
+**Game breakdowns:** set `teams=("lions", "bears")` using slugs from
+`teams.py`, and the post gets a matchup strip with both clubs' colors. An
+unknown slug fails the build with the offending value rather than rendering
+a colorless strip.
+
 ## Team colors
 
 `_src/teams.py` holds all 32 palettes and the contrast math. Two things use it:
