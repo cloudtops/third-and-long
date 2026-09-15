@@ -16,11 +16,19 @@ import preseason2025 as PS25
 import midseason2025 as MS25
 import preseason2026 as PS26
 from posts import POSTS
+import standings as STANDINGS
+import leaders as LEADERS_MOD
+import power as POWER_MOD
 
 ROOT = HERE.parent
 
 SITE = "https://third-and-long.vercel.app"
 SITE_NAME = "3rd &amp; Long"
+
+# cache-busting suffixes, filled in by main() from the built file contents.
+# Without these, the year-long immutable cache header pins visitors to a
+# stale stylesheet and there is no way for them to know to hard-reload.
+V = {"css": "", "team": "", "nav": ""}
 
 # ---------------------------------------------------------------- editions
 
@@ -213,7 +221,9 @@ def matchup(post):
             raise SystemExit(f"Unknown team slug in post {post['slug']!r}: {slug!r}")
         cells.append(f'<div class="mu-team tc t-{slug}"><span class="mu-bar"></span>'
                      f'<span class="mu-name">{d["name"]}</span></div>')
-    return f'<div class="matchup">{cells[0]}<span class="mu-v">at</span>{cells[1]}</div>'
+    # "vs", not "at": the pair is written winner-first, which says nothing
+    # about who hosted
+    return f'<div class="matchup">{cells[0]}<span class="mu-v">vs</span>{cells[1]}</div>'
 
 def post_classes(post):
     pair = post.get("teams")
@@ -237,7 +247,7 @@ def build_post(post):
         + f'<main id="main"><section class="section post-body"><div class="wrap">'
           f'{matchup(post)}{body}</div></section></main>'
         + FOOT
-        + '<script src="/assets/js/nav.js" defer></script>\n</body>\n</html>\n')
+        + f'<script src="/assets/js/nav.js{V["nav"]}" defer></script>\n</body>\n</html>\n')
     d = ROOT / "posts" / post["slug"]
     d.mkdir(parents=True, exist_ok=True)
     (d / "index.html").write_text(html, encoding="utf-8")
@@ -281,8 +291,8 @@ def head(title, desc, url, og_img, extra=""):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@500;600;700&family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap">
-<link rel="stylesheet" href="/assets/css/styles.css">
-<script src="/assets/js/team.js"></script>
+<link rel="stylesheet" href="/assets/css/styles.css{V["css"]}">
+<script src="/assets/js/team.js{V["team"]}"></script>
 {extra}</head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -335,7 +345,7 @@ def build_edition(ed):
         + nav_links(ed)
         + f'<main id="main">{render_body(ed)}</main>'
         + FOOT
-        + '<script src="/assets/js/nav.js" defer></script>\n</body>\n</html>\n')
+        + f'<script src="/assets/js/nav.js{V["nav"]}" defer></script>\n</body>\n</html>\n')
     d = ROOT / ed["slug"]
     d.mkdir(parents=True, exist_ok=True)
     (d / "index.html").write_text(html, encoding="utf-8")
@@ -350,6 +360,232 @@ def hero_photo():
     return (" has-photo",
             f'<div class="hero-photo" style="background-image:url(/assets/img/{HERO_PHOTO})"></div>')
 
+def resolve_team(name, where):
+    """Nickname or full club name -> palette slug. Loud on a miss."""
+    n = name.strip().lower().rstrip(",")
+    by_nick = {k: k for k in TEAMS_MOD.TEAMS}
+    by_full = {v[0].lower(): k for k, v in TEAMS_MOD.TEAMS.items()}
+    slug = by_full.get(n) or by_nick.get(n)
+    if not slug:
+        slug = next((k for k in by_nick if n.endswith(k)), None)
+    if not slug:
+        raise SystemExit(f"{where}: unknown team {name.strip()!r}")
+    return slug
+
+
+def team_exact(name):
+    """Exact club lookup — nickname or full name. None on a miss, no guessing.
+
+    Deliberately stricter than resolve_team(): this one runs against things that
+    are usually player names, so the endswith fallback would be a liability.
+    """
+    n = name.strip().lower().rstrip(",.")
+    if n in TEAMS_MOD.TEAMS:
+        return n
+    for k, v in TEAMS_MOD.TEAMS.items():
+        if v[0].lower() == n:
+            return k
+    return None
+
+
+RANK_RE = re.compile(r"^(T-)?(\d+)\.\s+(.*)$")
+
+
+def parse_power():
+    """The weekly 1-32 board, in the order it was typed."""
+    raw = (POWER_MOD.RANKS or "").strip()
+    if not raw or not (POWER_MOD.WEEK or "").strip():
+        return None
+
+    pal = TEAMS_MOD.palette()
+    rows, seen = [], {}
+    for lineno, line in enumerate(raw.splitlines(), 1):
+        line = line.strip().rstrip(",")
+        if not line:
+            continue
+        line = re.sub(r"^\d+\.\s*", "", line)          # leading rank is decoration
+        rec = ""
+        m = re.match(r"^(.*?)\s*\(([^)]*)\)\s*$", line)
+        if m:
+            line, rec = m.group(1).strip(), m.group(2).strip()
+        slug = resolve_team(line, f"power.py line {lineno}")
+        if slug in seen:
+            raise SystemExit(f"power.py: {pal[slug]['name']} listed twice "
+                             f"(lines {seen[slug]} and {lineno})")
+        seen[slug] = lineno
+        d = pal[slug]
+        rows.append((len(rows) + 1, slug, d["name"], rec, d["conf"]))
+
+    missing = [TEAMS_MOD.TEAMS[k][0] for k in TEAMS_MOD.TEAMS if k not in seen]
+    if missing:
+        raise SystemExit(f"power.py is missing {len(missing)} teams: "
+                         + ", ".join(sorted(missing)))
+    return rows
+
+
+def power_section():
+    rows = parse_power()
+    if not rows:
+        return ""
+    items = "".join(
+        f'<li class="tc t-{slug} conf--{conf}"><b>{rank}</b><span>{name}</span>'
+        + (f"<i>{rec}</i>" if rec else "")
+        + "</li>"
+        for rank, slug, name, rec, conf in rows)
+    return ('<section class="section power-now" id="power"><div class="wrap">'
+            '<h2>Power Rankings</h2>'
+            f'<p class="stand-week">{POWER_MOD.WEEK}</p>'
+            f'<ol class="rgrid pr-grid">{items}</ol>'
+            '</div></section>')
+
+
+def parse_leaders():
+    """Blocks of 'Category' then 'Player, Team, Value' lines. Order preserved."""
+    raw = (LEADERS_MOD.LEADERS or "").strip()
+    if not raw or not (LEADERS_MOD.WEEK or "").strip():
+        return None
+
+    pal = TEAMS_MOD.palette()
+    blocks, current = [], None
+    for lineno, line in enumerate(raw.splitlines(), 1):
+        line = line.strip()
+        if not line:
+            # a blank line closes a block only once that block has leaders in it,
+            # so a heading can sit on its own line with air underneath
+            if current and current[1]:
+                current = None
+            continue
+        if current is None:
+            current = (line, [])
+            blocks.append(current)
+            continue
+
+        rank = ""
+        m = RANK_RE.match(line)
+        if m:
+            rank = ("T-" if m.group(1) else "") + m.group(2)
+            line = m.group(3)
+
+        parts = [p.strip() for p in line.split(",") if p.strip()]
+        if len(parts) < 2:
+            raise SystemExit(f"leaders.py line {lineno}: can't read {line!r} "
+                             "(expected at least 'Player, Value')")
+        value, rest = parts[-1], parts[:-1]
+
+        # last field before the value is a club -> it's the team column.
+        # a lone field that IS a club -> the row is a team, colored, no sub-line.
+        slug, club = "", ""
+        if len(rest) > 1 and team_exact(rest[-1]):
+            slug = team_exact(rest[-1])
+            club = pal[slug]["name"]
+            rest = rest[:-1]
+        elif len(rest) == 1 and team_exact(rest[0]):
+            slug = team_exact(rest[0])
+
+        current[1].append((slug, rank, ", ".join(rest), club, value))
+
+    blocks = [b for b in blocks if b[1]]
+    if not blocks:
+        raise SystemExit("leaders.py: WEEK is set but no leaders were listed")
+    return blocks
+
+
+def leaders_section():
+    blocks = parse_leaders()
+    if not blocks:
+        return ""
+    cards = []
+    for title, rows in blocks:
+        items = []
+        for i, (slug, rank, player, club, value) in enumerate(rows, 1):
+            open_tag = f'<li class="tc t-{slug}">' if slug else "<li>"
+            sub_line = f"<em>{club}</em>" if club else ""
+            items.append(f'{open_tag}<b>{rank or i}</b>'
+                         f'<span class="ld-who">{player}{sub_line}</span>'
+                         f'<i>{value}</i></li>')
+        items = "".join(items)
+        cards.append(f'<div class="gcard ld-card"><h3>{title}</h3>'
+                     f'<ol class="ld-list">{items}</ol></div>')
+    return ('<section class="section leaders-now" id="leaders"><div class="wrap">'
+            '<h2>Stat Leaders</h2>'
+            f'<p class="stand-week">{LEADERS_MOD.WEEK}</p>'
+            f'<div class="grid">{"".join(cards)}</div>'
+            '</div></section>')
+
+
+def parse_standings():
+    """Turn the pasted record block into division tables, or None if not set up yet.
+
+    Accepts full club names or nicknames, in any order. Sorting is done here so
+    the weekly update is only ever a list of records.
+    """
+    raw = (STANDINGS.RECORDS or "").strip()
+    if not raw or not (STANDINGS.WEEK or "").strip():
+        return None
+
+    by_nick = {k: k for k in TEAMS_MOD.TEAMS}
+    by_full = {v[0].lower(): k for k, v in TEAMS_MOD.TEAMS.items()}
+
+    found = {}
+    for lineno, line in enumerate(raw.splitlines(), 1):
+        line = line.strip().rstrip(",")
+        if not line:
+            continue
+        m = re.match(r"^(.*?)[\s,]+(\d+)-(\d+)(?:-(\d+))?$", line)
+        if not m:
+            raise SystemExit(f"standings.py line {lineno}: can't read {line!r} "
+                             "(expected e.g. 'Bills 4-1')")
+        name = m.group(1).strip().lower().rstrip(",")
+        w, l, t = int(m.group(2)), int(m.group(3)), int(m.group(4) or 0)
+
+        slug = resolve_team(m.group(1), f"standings.py line {lineno}")
+        if slug in found:
+            raise SystemExit(f"standings.py: {TEAMS_MOD.TEAMS[slug][0]} listed twice")
+        found[slug] = (w, l, t)
+
+    missing = [TEAMS_MOD.TEAMS[k][0] for k in TEAMS_MOD.TEAMS if k not in found]
+    if missing:
+        raise SystemExit("standings.py is missing " + str(len(missing)) + " teams: "
+                         + ", ".join(sorted(missing)))
+
+    pal = TEAMS_MOD.palette()
+    groups = []
+    for conf in ("afc", "nfc"):
+        for div in DIV_ORDER:
+            rows = []
+            for slug, (w, l, t) in found.items():
+                d = pal[slug]
+                if d["conf"] != conf or d["div"] != div:
+                    continue
+                played = w + l + t
+                pct = (w + 0.5 * t) / played if played else 0.0
+                rec = f"{w}-{l}" + (f"-{t}" if t else "")
+                rows.append((slug, d["name"], rec, pct, w, w - l))
+            # win pct, then win differential, then wins. The differential
+            # matters early: 0-0 must outrank 0-1, and both are .000.
+            rows.sort(key=lambda r: (-r[3], -r[5], -r[4], r[1]))
+            groups.append((conf, f"{conf.upper()} {div}", rows))
+    return groups
+
+
+def standings_section():
+    groups = parse_standings()
+    if not groups:
+        return ""
+    cards = []
+    for conf, label, rows in groups:
+        items = "".join(
+            f'<li class="tc t-{slug}"><b>{i}</b><span>{name}</span><i>{rec}</i></li>'
+            for i, (slug, name, rec, _pct, _w, _d) in enumerate(rows, 1))
+        cards.append(f'<div class="gcard conf--{conf}">'
+                     f'<h3>{label}</h3><ol class="stand-list">{items}</ol></div>')
+    return ('<section class="section standings-now" id="standings"><div class="wrap">'
+            '<h2>Current Standings</h2>'
+            f'<p class="stand-week">{STANDINGS.WEEK}</p>'
+            f'<div class="grid">{"".join(cards)}</div>'
+            '</div></section>')
+
+
 def posts_section():
     """Only renders once there is something to show."""
     if not POSTS:
@@ -361,10 +597,24 @@ def posts_section():
             f'<span class="when">{p["date"]} &middot; {p["kind"]}</span>'
             f'<h3>{p["title"]}</h3>'
             f'<span class="go">By {p.get("author", "Adam Long")}</span></a>')
-    return ('<section class="section editions"><div class="wrap">'
+    return ('<section class="section editions" id="posts"><div class="wrap">'
             '<h2>Posts</h2>'
             f'<div class="ed-list">{"".join(rows)}</div>'
             '</div></section>')
+
+def home_nav(sections):
+    """Sticky section tabs for the landing page.
+
+    Built from the sections that actually rendered, so a blank WEEK or an empty
+    posts list can never leave a tab pointing at nothing.
+    """
+    links = [(a, t) for a, t, body in sections if body]
+    if len(links) < 2:
+        return ""
+    return ('<nav class="nav" aria-label="Sections"><div class="nav-inner">'
+            + "".join(f'<a href="#{a}">{t}</a>' for a, t in links)
+            + "</div></nav>")
+
 
 def build_landing():
     cards = []
@@ -374,6 +624,17 @@ def build_landing():
             f'<span class="when">{ed["season"]} &middot; {ed["kind"]}</span>'
             f'<h3>{ed["title"]}</h3>'
             f'<span class="go">Read</span></a>')
+    reports = ('<section class="section editions" id="reports"><div class="wrap">'
+               '<h2>Reports</h2>'
+               f'<div class="ed-list">{"".join(cards)}</div>'
+               '</div></section>')
+    sections = [
+        ("power", "Power Rankings", power_section()),
+        ("standings", "Standings", standings_section()),
+        ("leaders", "Stat Leaders", leaders_section()),
+        ("reports", "Reports", reports),
+        ("posts", "Posts", posts_section()),
+    ]
     html = (
         head("3rd &amp; Long", "NFL reports by Adam Long.", f"{SITE}/", "og.png")
         + site_bar(home=True)
@@ -382,13 +643,13 @@ def build_landing():
           '<p class="byline"><span>Adam Long</span></p>'
           '<p class="hero-blurb">Your football roadmap for the next six months. Detailed analysis, predictions, and sleeper picks for the current NFL season. Fan written, fan created.</p>'
           '</div></div><div class="hash"></div>'
-        + '<main id="main"><section class="section editions"><div class="wrap">'
-          '<h2>Reports</h2>'
-          f'<div class="ed-list">{"".join(cards)}</div>'
-          '</div></section>'
-        + posts_section()
+        + home_nav(sections)
+        + '<main id="main">'
+        + "".join(body for _a, _t, body in sections)
         + '</main>'
-        + FOOT + "\n</body>\n</html>\n")
+        + FOOT
+        + f'<script src="/assets/js/nav.js{V["nav"]}" defer></script>'
+          "\n</body>\n</html>\n")
     (ROOT / "index.html").write_text(html, encoding="utf-8")
     return len(html)
 
@@ -708,6 +969,83 @@ __TEAMCSS__
   text-transform:uppercase;letter-spacing:.18em;color:var(--muted);
 }
 
+
+/* ---------- weekly power rankings ---------- */
+
+.editions,.power-now,.standings-now,.leaders-now{scroll-margin-top:3.4rem}
+.power-now .rgrid{margin-top:1.4rem}
+/* The in-report grid flows left to right. A weekly board should read straight
+   down the column instead: 1 under 2 under 3. CSS columns fill top-to-bottom,
+   so the rules go on the rows and on the column gutter, not through a grid gap.
+   Wider tracks than the in-report grid too, so "Washington Commanders" still
+   sits on one line next to its record. */
+.pr-grid{
+  display:block;columns:3;column-gap:1px;gap:0;
+  column-rule:1px solid var(--rule);
+  background:var(--surface);border-bottom:0;
+}
+.pr-grid li{break-inside:avoid;border-bottom:1px solid var(--rule)}
+@media (max-width:900px){.pr-grid{columns:2}}
+@media (max-width:620px){.pr-grid{columns:1}}
+.pr-grid b{color:var(--team,var(--conf))}
+.pr-grid li{font-weight:600;color:var(--ink-2)}
+.pr-grid span{min-width:0}
+
+
+/* ---------- weekly standings ---------- */
+
+.standings-now .grid{margin-top:1.4rem}
+.stand-week{
+  font-family:var(--f-cond);font-weight:600;font-size:.82rem;
+  text-transform:uppercase;letter-spacing:.16em;color:var(--muted);
+  margin:.6rem 0 0;
+}
+.stand-list{list-style:none;margin:0;padding:0;display:grid;gap:.32rem}
+.stand-list li{
+  display:grid;grid-template-columns:1.35rem 1fr auto;gap:.5rem;align-items:baseline;
+  font-family:var(--f-cond);font-size:1rem;font-weight:500;color:var(--muted);
+}
+.stand-list li b{font-variant-numeric:tabular-nums;font-weight:600;color:var(--rule)}
+.stand-list li i{
+  font-style:normal;font-variant-numeric:tabular-nums;
+  font-size:.92rem;color:var(--muted);
+}
+.stand-list li:first-child{color:var(--ink);font-weight:700}
+.stand-list li:first-child b{color:var(--team,var(--conf))}
+.stand-list li:first-child i{color:var(--ink-2);font-weight:600}
+
+
+/* ---------- stat leaders ---------- */
+
+.leaders-now .grid{margin-top:1.4rem}
+.ld-list{list-style:none;margin:0;padding:0;display:grid;gap:.55rem}
+.ld-list li{
+  display:grid;grid-template-columns:minmax(1.35rem,auto) 1fr auto;gap:.55rem;
+  align-items:baseline;
+  font-family:var(--f-cond);font-size:1rem;color:var(--ink-2);
+}
+.ld-list li b{
+  font-variant-numeric:tabular-nums;font-weight:700;
+  color:var(--team,var(--muted));
+}
+.ld-who{display:flex;flex-direction:column;min-width:0;overflow-wrap:break-word;line-height:1.28}
+.ld-who em{
+  font-style:normal;font-size:.82rem;color:var(--muted);
+  letter-spacing:.06em;text-transform:uppercase;margin-top:.05rem;
+}
+.ld-list li i{
+  font-style:normal;font-variant-numeric:tabular-nums;
+  font-weight:700;color:var(--ink);
+}
+.ld-list li:first-child{color:var(--ink);font-weight:600}
+/* .gcard li:first-child b paints the top row with --conf, which these cards
+   don't have. The club color is the point here, so take it back. */
+.ld-list li:first-child b{color:var(--team,var(--muted))}
+/* the category count is yours, so the last row can end short — same trick as
+   the power grid: rules on the cards, not through the gaps */
+.leaders-now .grid{background:var(--surface)}
+.leaders-now .ld-card{outline:1px solid var(--rule)}
+
 a.ed .go{
   margin-top:.5rem;font-family:var(--f-cond);font-weight:600;font-size:.78rem;
   text-transform:uppercase;letter-spacing:.16em;color:var(--pick);
@@ -779,6 +1117,14 @@ def main():
     (ROOT / "assets/js/nav.js").write_text(
         "/* Highlights the current section in the sticky nav while you scroll. */\n"
         + js + "\n", encoding="utf-8")
+
+    import hashlib
+    def ver(path):
+        h = hashlib.md5((ROOT / path).read_bytes()).hexdigest()[:8]
+        return f"?v={h}"
+    V["css"] = ver("assets/css/styles.css")
+    V["team"] = ver("assets/js/team.js")
+    V["nav"] = ver("assets/js/nav.js")
 
     n = build_landing()
     print(f"index.html                {n:>7,} bytes")

@@ -664,6 +664,28 @@ a.ed h3{
 }
 
 
+/* ---------- weekly power rankings ---------- */
+
+.editions,.power-now,.standings-now,.leaders-now{scroll-margin-top:3.4rem}
+.power-now .rgrid{margin-top:1.4rem}
+/* The in-report grid flows left to right. A weekly board should read straight
+   down the column instead: 1 under 2 under 3. CSS columns fill top-to-bottom,
+   so the rules go on the rows and on the column gutter, not through a grid gap.
+   Wider tracks than the in-report grid too, so "Washington Commanders" still
+   sits on one line next to its record. */
+.pr-grid{
+  display:block;columns:3;column-gap:1px;gap:0;
+  column-rule:1px solid var(--rule);
+  background:var(--surface);border-bottom:0;
+}
+.pr-grid li{break-inside:avoid;border-bottom:1px solid var(--rule)}
+@media (max-width:900px){.pr-grid{columns:2}}
+@media (max-width:620px){.pr-grid{columns:1}}
+.pr-grid b{color:var(--team,var(--conf))}
+.pr-grid li{font-weight:600;color:var(--ink-2)}
+.pr-grid span{min-width:0}
+
+
 /* ---------- weekly standings ---------- */
 
 .standings-now .grid{margin-top:1.4rem}
@@ -685,6 +707,38 @@ a.ed h3{
 .stand-list li:first-child{color:var(--ink);font-weight:700}
 .stand-list li:first-child b{color:var(--team,var(--conf))}
 .stand-list li:first-child i{color:var(--ink-2);font-weight:600}
+
+
+/* ---------- stat leaders ---------- */
+
+.leaders-now .grid{margin-top:1.4rem}
+.ld-list{list-style:none;margin:0;padding:0;display:grid;gap:.55rem}
+.ld-list li{
+  display:grid;grid-template-columns:minmax(1.35rem,auto) 1fr auto;gap:.55rem;
+  align-items:baseline;
+  font-family:var(--f-cond);font-size:1rem;color:var(--ink-2);
+}
+.ld-list li b{
+  font-variant-numeric:tabular-nums;font-weight:700;
+  color:var(--team,var(--muted));
+}
+.ld-who{display:flex;flex-direction:column;min-width:0;overflow-wrap:break-word;line-height:1.28}
+.ld-who em{
+  font-style:normal;font-size:.82rem;color:var(--muted);
+  letter-spacing:.06em;text-transform:uppercase;margin-top:.05rem;
+}
+.ld-list li i{
+  font-style:normal;font-variant-numeric:tabular-nums;
+  font-weight:700;color:var(--ink);
+}
+.ld-list li:first-child{color:var(--ink);font-weight:600}
+/* .gcard li:first-child b paints the top row with --conf, which these cards
+   don't have. The club color is the point here, so take it back. */
+.ld-list li:first-child b{color:var(--team,var(--muted))}
+/* the category count is yours, so the last row can end short — same trick as
+   the power grid: rules on the cards, not through the gaps */
+.leaders-now .grid{background:var(--surface)}
+.leaders-now .ld-card{outline:1px solid var(--rule)}
 
 a.ed .go{
   margin-top:.5rem;font-family:var(--f-cond);font-weight:600;font-size:.78rem;

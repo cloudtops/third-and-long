@@ -15,7 +15,7 @@ the templates.
 
 ```
 .
-├── index.html                  landing page — list of reports
+├── index.html                  landing page — weekly sections + list of reports
 ├── 2026-preseason/index.html
 ├── 2025-midseason/index.html
 ├── 2025-preseason/index.html
@@ -37,6 +37,8 @@ the templates.
     ├── build.py
     ├── render.py               regenerates the og cards and icons
     └── content/*.py            one module per report — the actual writing
+                                plus power.py / standings.py / leaders.py,
+                                the three weekly updates
 ```
 
 The icon is a sideline down marker: yellow ground, black numeral. High contrast
@@ -103,6 +105,9 @@ Test the preview at [opengraph.dev](https://opengraph.dev).
 The landing page, sitemap, and nav all generate from `EDITIONS`, so nothing
 else needs touching.
 
+The landing page's own tabs generate from whichever sections rendered, so a
+blank `WEEK` or an empty posts list never leaves a tab pointing at nothing.
+
 ---
 
 ## Posts (game of the week, blog entries, guest pieces)
@@ -123,6 +128,73 @@ big reports in `EDITIONS`.
 `teams.py`, and the post gets a matchup strip with both clubs' colors. An
 unknown slug fails the build with the offending value rather than rendering
 a colorless strip.
+
+## Weekly power rankings
+
+`_src/content/power.py`. Set `WEEK`, then list all 32 teams in your order, one
+per line. The leading number is decoration — the build renumbers from the order
+you typed, so moving a team up is a cut and paste, never a renumber. The record
+in parentheses is optional.
+
+```
+1. Seattle Seahawks (1-0)
+Buffalo Bills (1-0)
+49ers
+```
+
+Blank `WEEK` hides the section; a missing or misspelled team stops the build and
+names it.
+
+## Weekly standings
+
+`_src/content/standings.py` is the one file you touch during the season. Set
+`WEEK` to the dateline, paste the 32 records into `RECORDS`, one per line.
+Nicknames or full names, any order:
+
+```
+Bills 4-1
+Miami Dolphins 1-4
+Packers 3-1-1
+```
+
+The build sorts each division by win percentage (a tie counts as half a win),
+so you never reorder anything — you are only ever updating numbers. Then
+`python3 _src/build.py` and push.
+
+Two guards, both deliberate: leaving `WEEK` blank hides the whole section, so
+the site never shows stale standings; and if any of the 32 teams is missing or
+misspelled the build stops and names it, rather than publishing a table with
+holes in it.
+
+## Stat leaders
+
+`_src/content/leaders.py`, same rhythm as standings. Set `WEEK`, then blocks
+separated by a blank line — first line is the category, the rest are leaders:
+
+```
+Passing Yards
+Sam Darnold, Seahawks, 253
+Drake Maye, Patriots, 241
+
+Sacks
+Maxx Crosby, Raiders, 2.0
+```
+
+You pick the categories; they aren't fixed in the code. The team is optional
+and colors the row — drop it and write `Player, Value` instead. If the whole row
+*is* a club (`San Francisco 49ers, 70.3%`), it gets that club's color too.
+
+Rank is optional. Start a line with `1.` or `T-1.` and it prints exactly that;
+leave it off and the build numbers down the list. For a tie, put every name on
+one line with the value last:
+
+```
+T-1. Derrick Henry, D&rsquo;Andre Swift, 3
+```
+
+Nothing is re-sorted. Your typed order is the published order, which is why
+values can be anything: `1,204`, `4.5`, `12 (T-1st)`. Blank `WEEK` hides the
+section; a misspelled team stops the build and names it.
 
 ## Team colors
 
