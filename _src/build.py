@@ -632,8 +632,8 @@ def build_landing():
         ("power", "Power Rankings", power_section()),
         ("standings", "Standings", standings_section()),
         ("leaders", "Stat Leaders", leaders_section()),
-        ("reports", "Reports", reports),
         ("posts", "Posts", posts_section()),
+        ("reports", "Reports", reports),
     ]
     html = (
         head("3rd &amp; Long", "NFL reports by Adam Long.", f"{SITE}/", "og.png")

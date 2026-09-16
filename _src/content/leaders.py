@@ -57,6 +57,9 @@ Receiving Yards
 Receiving TDs
 T-1. Jalen Coker, Isaiah Likely, Justin Jefferson, Ashton Jeanty, Dallas Goedert, Amon-Ra St. Brown, Christian Watson, 2
 
+Sacks
+T-1. Za&rsquo;Darius Smith, T.J. Watt, Alex Highsmith, Kwity Paye, Greg Rousseau, Aidan Hutchinson, 2.0
+
 Team Defense - DVOA
 1. San Francisco 49ers, 70.3%
 2. Jacksonville Jaguars, 66.7%
