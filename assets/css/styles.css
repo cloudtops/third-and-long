@@ -504,37 +504,69 @@ a.ed h3{
 :root[data-theme="dark"] .tc{--team:var(--team-d)}
 
 .t-49ers{--team-l:#AA0000;--team-d:#FF0505}
+.th-49ers{--hero-bg:#AA0000;--hero-fg:#F2F3EF;--hero-muted:#E3C0BD;--hero-accent:#E3C0BD;--hero-rule:#BB3A39}
 .t-bears{--team-l:#0B162A;--team-d:#2878FF}
+.th-bears{--hero-bg:#0B162A;--hero-fg:#F2F3EF;--hero-muted:#91969C;--hero-accent:#91969C;--hero-rule:#424B59}
 .t-bengals{--team-l:#C53204;--team-d:#FB4F14}
+.th-bengals{--hero-bg:#FB4F14;--hero-fg:#101418;--hero-muted:#331D17;--hero-accent:#331D17;--hero-rule:#C34115}
 .t-bills{--team-l:#00338D;--team-d:#2476FF}
+.th-bills{--hero-bg:#00338D;--hero-fg:#F2F3EF;--hero-muted:#94A8C9;--hero-accent:#94A8C9;--hero-rule:#3A61A5}
 .t-broncos{--team-l:#C53204;--team-d:#FB4F14}
+.th-broncos{--hero-bg:#FB4F14;--hero-fg:#101418;--hero-muted:#331D17;--hero-accent:#331D17;--hero-rule:#C34115}
 .t-browns{--team-l:#C33000;--team-d:#FF3C00}
+.th-browns{--hero-bg:#FF3C00;--hero-fg:#101418;--hero-muted:#341A14;--hero-accent:#341A14;--hero-rule:#C63206}
 .t-buccaneers{--team-l:#D50A0A;--team-d:#FD0000}
+.th-buccaneers{--hero-bg:#D50A0A;--hero-fg:#F2F3EF;--hero-muted:#F1ECE8;--hero-accent:#F1ECE8;--hero-rule:#DC4241}
 .t-cardinals{--team-l:#97233F;--team-d:#F70B45}
+.th-cardinals{--hero-bg:#97233F;--hero-fg:#F2F3EF;--hero-muted:#DCC1C5;--hero-accent:#DCC1C5;--hero-rule:#AD5569}
 .t-chargers{--team-l:#006BA8;--team-d:#0087D0}
+.th-chargers{--hero-bg:#0087D0;--hero-fg:#101418;--hero-muted:#10171E;--hero-accent:#10171E;--hero-rule:#046BA4}
 .t-chiefs{--team-l:#D11633;--team-d:#FB1E41}
+.th-chiefs{--hero-bg:#DA1735;--hero-fg:#F2F3EF;--hero-muted:#F2F3EF;--hero-accent:#F2F3EF;--hero-rule:#E04C62}
 .t-colts{--team-l:#002C5F;--team-d:#007CFF}
+.th-colts{--hero-bg:#002C5F;--hero-fg:#F2F3EF;--hero-muted:#8C9FB3;--hero-accent:#8C9FB3;--hero-rule:#3A5C82}
 .t-commanders{--team-l:#5A1414;--team-d:#FC0000}
+.th-commanders{--hero-bg:#5A1414;--hero-fg:#F2F3EF;--hero-muted:#B29593;--hero-accent:#B29593;--hero-rule:#7E4A49}
 .t-cowboys{--team-l:#003594;--team-d:#2B7AFF}
+.th-cowboys{--hero-bg:#003594;--hero-fg:#F2F3EF;--hero-muted:#94A9CC;--hero-accent:#94A9CC;--hero-rule:#3A63AA}
 .t-dolphins{--team-l:#007179;--team-d:#008E97}
+.th-dolphins{--hero-bg:#008E97;--hero-fg:#101418;--hero-muted:#10181C;--hero-accent:#10181C;--hero-rule:#047179}
 .t-eagles{--team-l:#004C54;--team-d:#008B9A}
+.th-eagles{--hero-bg:#004C54;--hero-fg:#F2F3EF;--hero-muted:#9BB7B7;--hero-accent:#9BB7B7;--hero-rule:#3A7479}
 .t-falcons{--team-l:#A71930;--team-d:#FC002B}
+.th-falcons{--hero-bg:#A71930;--hero-fg:#F2F3EF;--hero-muted:#E2C5C7;--hero-accent:#E2C5C7;--hero-rule:#B94D5E}
 .t-giants{--team-l:#0B2265;--team-d:#4476FF}
+.th-giants{--hero-bg:#0B2265;--hero-fg:#F2F3EF;--hero-muted:#919BB5;--hero-accent:#919BB5;--hero-rule:#425486}
 .t-jaguars{--team-l:#006778;--team-d:#008BA0}
+.th-jaguars{--hero-bg:#006778;--hero-fg:#F2F3EF;--hero-muted:#CEDEDD;--hero-accent:#CEDEDD;--hero-rule:#3A8995}
 .t-jets{--team-l:#125740;--team-d:#099365}
+.th-jets{--hero-bg:#125740;--hero-fg:#F2F3EF;--hero-muted:#AFC4BB;--hero-accent:#AFC4BB;--hero-rule:#487C6A}
 .t-lions{--team-l:#006FAC;--team-d:#0084CA}
+.th-lions{--hero-bg:#006FAC;--hero-fg:#F2F3EF;--hero-muted:#EBEFED;--hero-accent:#EBEFED;--hero-rule:#3A8FBC}
 .t-packers{--team-l:#203731;--team-d:#339478}
+.th-packers{--hero-bg:#203731;--hero-fg:#F2F3EF;--hero-muted:#9AA49F;--hero-accent:#9AA49F;--hero-rule:#52645F}
 .t-panthers{--team-l:#0070AC;--team-d:#0085CA}
+.th-panthers{--hero-bg:#0085CA;--hero-fg:#101418;--hero-muted:#101418;--hero-accent:#101418;--hero-rule:#046A9F}
 .t-patriots{--team-l:#002244;--team-d:#007CF8}
+.th-patriots{--hero-bg:#002244;--hero-fg:#F2F3EF;--hero-muted:#8C9BA7;--hero-accent:#8C9BA7;--hero-rule:#3A546D}
 .t-raiders{--team-l:#646B6E;--team-d:#A5ACAF}
+.th-raiders{--hero-bg:#A5ACAF;--hero-fg:#101418;--hero-muted:#383D41;--hero-accent:#383D41;--hero-rule:#81888B}
 .t-rams{--team-l:#003594;--team-d:#2B7AFF}
+.th-rams{--hero-bg:#003594;--hero-fg:#F2F3EF;--hero-muted:#94A9CC;--hero-accent:#94A9CC;--hero-rule:#3A63AA}
 .t-ravens{--team-l:#241773;--team-d:#8068FF}
+.th-ravens{--hero-bg:#241773;--hero-fg:#F2F3EF;--hero-muted:#9B97BB;--hero-accent:#9B97BB;--hero-rule:#554C91}
 .t-saints{--team-l:#7C6330;--team-d:#D3BC8D}
+.th-saints{--hero-bg:#D3BC8D;--hero-fg:#101418;--hero-muted:#504B3F;--hero-accent:#504B3F;--hero-rule:#A49471}
 .t-seahawks{--team-l:#002244;--team-d:#007CF8}
+.th-seahawks{--hero-bg:#002244;--hero-fg:#F2F3EF;--hero-muted:#8C9BA7;--hero-accent:#8C9BA7;--hero-rule:#3A546D}
 .t-steelers{--team-l:#8F6200;--team-d:#FFB612}
+.th-steelers{--hero-bg:#FFB612;--hero-fg:#101418;--hero-muted:#5F4916;--hero-accent:#5F4916;--hero-rule:#C68F13}
 .t-texans{--team-l:#03202F;--team-d:#0089C8}
+.th-texans{--hero-bg:#03202F;--hero-fg:#F2F3EF;--hero-muted:#8E9A9E;--hero-accent:#8E9A9E;--hero-rule:#3C535D}
 .t-titans{--team-l:#0C2340;--team-d:#1678FF}
+.th-titans{--hero-bg:#0C2340;--hero-fg:#F2F3EF;--hero-muted:#919CA6;--hero-accent:#919CA6;--hero-rule:#43556A}
 .t-vikings{--team-l:#4F2683;--team-d:#A256FF}
+.th-vikings{--hero-bg:#4F2683;--hero-fg:#F2F3EF;--hero-muted:#B2A3C5;--hero-accent:#B2A3C5;--hero-rule:#76579D}
 
 .team.tc{gap:clamp(.6rem,2vw,1.05rem)}
 .team.tc .rank{color:var(--team)}
@@ -685,6 +717,83 @@ a.ed h3{
 .pr-grid li{font-weight:600;color:var(--ink-2)}
 .pr-grid span{min-width:0}
 
+
+
+/* ---------- team pages ---------- */
+
+.anch{display:block;height:0;scroll-margin-top:4.5rem}
+.tp{padding-top:clamp(2rem,4vw,3rem)}
+.tp-entry{
+  max-width:var(--measure);
+  padding-bottom:clamp(1.6rem,3vw,2.2rem);
+  margin-bottom:clamp(1.6rem,3vw,2.2rem);
+  border-bottom:1px solid var(--rule);
+}
+.tp-entry:last-of-type{border-bottom:0}
+.tp-when{
+  margin:0;font-family:var(--f-cond);font-weight:700;font-size:.78rem;
+  text-transform:uppercase;letter-spacing:.16em;color:var(--team,var(--pick));
+}
+.tp-meta{
+  margin:.25rem 0 .9rem;font-family:var(--f-cond);font-size:.85rem;
+  color:var(--muted);letter-spacing:.03em;
+}
+.tp-entry p{margin:0}
+.tp-more{margin-top:.9rem!important}
+.tp-more a{
+  font-family:var(--f-cond);font-weight:600;font-size:.78rem;
+  text-transform:uppercase;letter-spacing:.14em;
+  color:var(--pick);text-decoration:none;
+}
+.tp-more a:hover{text-decoration:underline}
+.tp-posts{margin-top:clamp(1.5rem,3vw,2.2rem)}
+.tp-posts h2{margin-bottom:1rem}
+.tp-empty{color:var(--muted)}
+
+.tix-grid{grid-template-columns:repeat(auto-fill,minmax(360px,1fr))}
+.tix{list-style:none;margin:0;padding:0;display:grid;gap:.4rem}
+.tix li{
+  /* .gcard li is a two-column grid for numbered lists; these rows are just a name */
+  display:block;
+  font-family:var(--f-cond);font-size:1rem;font-weight:600;
+  border-left:3px solid var(--team,var(--rule));padding-left:.6rem;
+}
+.tix a{color:var(--ink-2);text-decoration:none}
+.tix a:hover{color:var(--ink);text-decoration:underline}
+
+.team{scroll-margin-top:4.5rem}
+
+/* movement against last week's archived board */
+.mv{
+  text-decoration:none;font-style:normal;
+  font-family:var(--f-cond);font-weight:700;font-size:.78rem;
+  font-variant-numeric:tabular-nums;letter-spacing:.02em;
+  margin-left:.5rem;white-space:nowrap;
+}
+.mv--up{color:var(--up)}
+.mv--down{color:var(--down)}
+.mv--flat{color:var(--rule)}
+
+.wk-archive{
+  margin:1.1rem 0 0;font-family:var(--f-cond);font-size:.82rem;
+  text-transform:uppercase;letter-spacing:.13em;color:var(--muted);
+  display:flex;flex-wrap:wrap;gap:.2rem 1rem;
+}
+.wk-archive a{color:var(--pick);text-decoration:none}
+.wk-archive a:hover{text-decoration:underline}
+.wk-archive b{color:var(--ink)}
+
+/* team names on the weekly boards link to that club's page */
+.pr-grid span a,.stand-list span a{color:inherit;text-decoration:none}
+.pr-grid span a:hover,.stand-list span a:hover{text-decoration:underline}
+.pr-grid li{grid-template-columns:1.85rem 1fr auto auto}
+.pr-grid--nomv li{grid-template-columns:1.85rem 1fr auto}
+
+:root{--up:#1F7A3D;--down:#C0392B}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--up:#1B9D46;--down:#EF4231}
+}
+:root[data-theme="dark"]{--up:#1B9D46;--down:#EF4231}
 
 /* ---------- weekly standings ---------- */
 

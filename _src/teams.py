@@ -105,6 +105,20 @@ def mix(a, b, t):
 
 # ------------------------------------------------------------------ derived
 
+def hero_muted(fg, hero):
+    """The hero's secondary text: dimmed toward the ground, but never past 4.5:1.
+
+    A flat 42% mix reads fine on the near-black default ground and fails on ten
+    of the club colours, so the mix backs off until it clears.
+    """
+    t = 0.42
+    out = mix(fg, hero, t)
+    while contrast(out, hero) < 4.5 and t > 0.02:
+        t -= 0.03
+        out = mix(fg, hero, t)
+    return out
+
+
 def palette():
     """slug -> every color the site needs for that team, precomputed."""
     out = {}
@@ -130,7 +144,7 @@ def palette():
             name=name, conf=conf, div=div,
             light=light, dark=dark,
             hero=hero, heroFg=fg,
-            heroMuted=mix(fg, hero, 0.42),
+            heroMuted=hero_muted(fg, hero),
             heroRule=mix(fg, hero, 0.76),
         )
     return out

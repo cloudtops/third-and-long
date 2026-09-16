@@ -145,6 +145,14 @@ Buffalo Bills (1-0)
 Blank `WEEK` hides the section; a missing or misspelled team stops the build and
 names it.
 
+**The archive runs itself.** Every build writes the current board into
+`_src/content/power_history.json`, keyed on `WEEK`, and publishes it at
+`/rankings/<week>`. Rebuilding the same week corrects that entry rather than
+adding a duplicate, so fixing a typo is safe. Once there are two weeks on file
+each team gets a movement chip against the previous one, and a row of links to
+past weeks appears under the board. Don't hand-edit the JSON; change `power.py`
+and rebuild.
+
 ## Weekly standings
 
 `_src/content/standings.py` is the one file you touch during the season. Set
@@ -195,6 +203,17 @@ T-1. Derrick Henry, D&rsquo;Andre Swift, 3
 Nothing is re-sorted. Your typed order is the published order, which is why
 values can be anything: `1,204`, `4.5`, `12 (T-1st)`. Blank `WEEK` hides the
 section; a misspelled team stops the build and names it.
+
+## Team pages
+
+`/teams/<slug>` collects every paragraph written about a club across all four
+reports, newest first, each linking back to its place in the full report, plus
+any posts tagged with that team. `/teams` is the index, linked from the masthead
+on every page, and the team names on the power rankings and standings link
+straight through.
+
+Nothing here is authored. The pages re-cut `_src/content/*.py` at build time, so
+a new report shows up on all 32 team pages the moment it's added to `EDITIONS`.
 
 ## Team colors
 

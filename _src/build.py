@@ -116,7 +116,8 @@ def render_divisions(mod, extras, rec_label="2024"):
                     meta = ""
                 first = " team--1" if rank == 1 else ""
                 out.append(
-                    f'<article class="team tc {tslug(team)}{first}">'
+                    f'<article class="team tc {tslug(team)}{first}"'
+                    f' id="{tslug(team)}">'
                     f'<div class="rank" aria-hidden="true">{rank}</div>'
                     f'<div class="team-body"><div class="team-head"><h3>{team}</h3></div>'
                     f'{meta}<p>{text}</p></div></article>')
@@ -150,6 +151,7 @@ def render_rankings(mod):
         anchor = f' id="r{rank}"' if rank in (1, 9, 17, 25) else ""
         out.append(
             f'<article class="team tc {tslug(team)} conf--{conf}"{anchor}>'
+            f'<i class="anch" id="{tslug(team)}" aria-hidden="true"></i>'
             f'<div class="rank" aria-hidden="true">{rank}</div>'
             f'<div class="team-body"><div class="team-head">'
             f'<h3>{team}</h3><span class="rec">{rec}</span></div>'
@@ -315,7 +317,9 @@ def picker_panel():
 def site_bar(home=False):
     name = (f'<p class="site-name">{SITE_NAME}</p>' if home
             else f'<a class="site-name" href="/">{SITE_NAME}</a>')
-    back = "" if home else '<a class="bar-link" href="/">All reports</a>'
+    back = ('<a class="bar-link" href="/teams">Teams</a>' if home else
+            '<a class="bar-link" href="/teams">Teams</a>'
+            '<a class="bar-link" href="/">All reports</a>')
     btn = ('<button type="button" class="pick-btn" id="pickBtn" aria-expanded="false" '
            'aria-controls="pickPanel"><span class="dot" aria-hidden="true"></span>'
            '<span id="pickLabel">Pick your team</span></button>')
@@ -326,6 +330,120 @@ def site_bar(home=False):
 FOOT = ('<div class="wrap"><footer class="foot">'
         f'<span>{SITE_NAME}</span><span>Adam Long</span>'
         '</footer></div>')
+
+def team_entries():
+    """Every paragraph Adam has written about each club, oldest edition last.
+
+    Reads the same content modules the reports are built from, so a team page
+    is a re-cut of his writing, never a summary of it.
+    """
+    out = {slug: [] for slug in TEAMS_MOD.TEAMS}
+    for ed in EDITIONS:
+        mod = ed["mod"]
+        if ed["type"] == "divisions":
+            for conf, div, teams in mod.DIVISIONS:
+                for t in teams:
+                    if ed.get("extras"):
+                        rank, team, record, breakout, text = t
+                    else:
+                        rank, team, text = t
+                        record = breakout = ""
+                    meta = [f'{div} #{rank}']
+                    if record:
+                        meta.append(f'{ed.get("rec_label","")} {record}'.strip())
+                    if breakout:
+                        meta.append(f'Breakout: {breakout}')
+                    out[tslug(team)[2:]].append((ed, " &middot; ".join(meta), text))
+        else:
+            for rank, team, rec, conf, text in mod.TEAMS:
+                meta = [f'Ranked #{rank}']
+                if rec:
+                    meta.append(rec)
+                out[tslug(team)[2:]].append((ed, " &middot; ".join(meta), text))
+    return out
+
+
+def team_posts(slug):
+    return [p for p in POSTS if slug in (p.get("teams") or ())]
+
+
+def build_team(slug, entries):
+    pal = TEAMS_MOD.palette()[slug]
+    url = f"{SITE}/teams/{slug}"
+    name = pal["name"]
+    desc = f"Everything Adam Long has written about the {name}."
+
+    blocks = []
+    for ed, meta, text in entries:
+        anchor = f'/{ed["slug"]}#t-{slug}'
+        blocks.append(
+            '<article class="tp-entry"><header>'
+            f'<p class="tp-when">{ed["season"]} &middot; {ed["kind"]}</p>'
+            f'<p class="tp-meta">{meta}</p></header>'
+            f'<p>{text}</p>'
+            f'<p class="tp-more"><a href="{anchor}">Read the full '
+            f'{ed["season"]} {ed["kind"].lower()} report</a></p></article>')
+
+    posts = team_posts(slug)
+    if posts:
+        cards = "".join(
+            f'<a class="ed" href="/posts/{p["slug"]}">'
+            f'<span class="when">{p["date"]} &middot; {p["kind"]}</span>'
+            f'<h3>{p["title"]}</h3>'
+            f'<span class="go">By {p.get("author", "Adam Long")}</span></a>'
+            for p in posts)
+        blocks.append('<div class="tp-posts"><h2>Posts</h2>'
+                      f'<div class="ed-list">{cards}</div></div>')
+
+    body = ("".join(blocks) if blocks
+            else '<p class="tp-empty">No entries yet.</p>')
+
+    html = (
+        head(f"{name} &mdash; 3rd &amp; Long", desc, url, "og.png")
+        + site_bar()
+        + f'<div class="hero hero--post tc t-{slug} th-{slug}"><div class="wrap">'
+          '<p class="hero-eyebrow">Team</p>'
+          f'<h1>{name}</h1>'
+          f'<p class="byline"><span>{len(entries)} report '
+          f'{"entry" if len(entries) == 1 else "entries"}</span></p>'
+          '</div></div><div class="hash"></div>'
+        + f'<main id="main"><section class="section tp"><div class="wrap">'
+          f'{body}</div></section></main>'
+        + FOOT + "\n</body>\n</html>\n")
+    d = ROOT / "teams" / slug
+    d.mkdir(parents=True, exist_ok=True)
+    (d / "index.html").write_text(html, encoding="utf-8")
+    return len(html)
+
+
+def build_teams_index():
+    pal = TEAMS_MOD.palette()
+    cols = []
+    for label, members in TEAMS_MOD.by_division():
+        rows = "".join(
+            f'<li class="tc t-{slug}"><a href="/teams/{slug}">{d["name"]}</a></li>'
+            for slug, d in members)
+        cols.append(f'<div class="gcard"><h3>{label}</h3>'
+                    f'<ul class="tix">{rows}</ul></div>')
+    # wider tracks than the default grid: full club names shouldn't wrap
+    url = f"{SITE}/teams"
+    html = (
+        head("Teams &mdash; 3rd &amp; Long",
+             "Every club, and everything Adam Long has written about them.",
+             url, "og.png")
+        + site_bar()
+        + '<div class="hero hero--post"><div class="wrap">'
+          '<p class="hero-eyebrow">Index</p><h1>Teams</h1>'
+          '</div></div><div class="hash"></div>'
+        + '<main id="main"><section class="section"><div class="wrap">'
+          f'<div class="grid tix-grid">{"".join(cols)}</div>'
+          '</div></section></main>'
+        + FOOT + "\n</body>\n</html>\n")
+    d = ROOT / "teams"
+    d.mkdir(parents=True, exist_ok=True)
+    (d / "index.html").write_text(html, encoding="utf-8")
+    return len(html)
+
 
 # ---------------------------------------------------------------- pages
 
@@ -391,6 +509,61 @@ def team_exact(name):
 RANK_RE = re.compile(r"^(T-)?(\d+)\.\s+(.*)$")
 
 
+HIST, PREV = [], None
+
+HISTORY = HERE / "content" / "power_history.json"
+
+
+def week_slug(week):
+    """'After Week 1' -> 'week-1'. Stable enough to be a URL for the season."""
+    sl = re.sub(r"[^a-z0-9]+", "-", week.strip().lower()).strip("-")
+    return re.sub(r"^after-", "", sl) or "week"
+
+
+def load_history():
+    if not HISTORY.exists():
+        return []
+    return json.loads(HISTORY.read_text(encoding="utf-8"))
+
+
+def record_week(rows):
+    """Append this week's board to the archive, or update it if already there.
+
+    Keyed on WEEK, so rebuilding after a typo fix corrects that week rather than
+    stacking a duplicate. The file is the only state the site keeps between
+    builds, and it lives in _src, so it travels with the repo.
+    """
+    hist = load_history()
+    if not rows:
+        return hist, None
+    entry = {"week": POWER_MOD.WEEK.strip(),
+             "slug": week_slug(POWER_MOD.WEEK),
+             "order": [slug for _r, slug, _n, _rec, _c in rows],
+             "records": {slug: rec for _r, slug, _n, rec, _c in rows}}
+    if hist and hist[-1]["week"] == entry["week"]:
+        hist[-1] = entry
+    else:
+        hist.append(entry)
+    HISTORY.write_text(json.dumps(hist, indent=1) + "\n", encoding="utf-8")
+    prev = hist[-2] if len(hist) > 1 else None
+    return hist, prev
+
+
+def movement(slug, rank, prev):
+    """+n / -n against the previous archived week. Blank for a team's first week."""
+    if not prev or slug not in prev["order"]:
+        return ""
+    was = prev["order"].index(slug) + 1
+    d = was - rank
+    if d == 0:
+        return '<s class="mv mv--flat" title="No change">&ndash;</s>'
+    arrow = "&#9650;" if d > 0 else "&#9660;"
+    cls = "up" if d > 0 else "down"
+    word = "up" if d > 0 else "down"
+    return (f'<s class="mv mv--{cls}" title="{word.capitalize()} {abs(d)} from {prev["week"]}">'
+            f'{arrow}{abs(d)}</s>')
+
+
 def parse_power():
     """The weekly 1-32 board, in the order it was typed."""
     raw = (POWER_MOD.RANKS or "").strip()
@@ -423,20 +596,74 @@ def parse_power():
     return rows
 
 
-def power_section():
+def power_board(rows, prev, linked=True):
+    """The 1-32 list itself, shared by the landing page and the archive pages."""
+    out = []
+    for rank, slug, name, rec, conf in rows:
+        label = (f'<a href="/teams/{slug}">{name}</a>') if linked else name
+        out.append(f'<li class="tc t-{slug} conf--{conf}"><b>{rank}</b>'
+                   f'<span>{label}</span>'
+                   f'<i>{rec}</i>'
+                   + (movement(slug, rank, prev) if prev else "") + "</li>")
+    # no previous week on file means no movement column at all, rather than a
+    # row of blanks that still eats width
+    cls = "rgrid pr-grid" + ("" if prev else " pr-grid--nomv")
+    return f'<ol class="{cls}">{"".join(out)}</ol>'
+
+
+def archive_links(hist, current=None):
+    """Only worth showing once there is more than one week on file."""
+    if len(hist) < 2:
+        return ""
+    links = []
+    for h in hist:
+        if h["slug"] == current:
+            links.append(f'<b>{h["week"]}</b>')
+        else:
+            links.append(f'<a href="/rankings/{h["slug"]}">{h["week"]}</a>')
+    return f'<p class="wk-archive">{" ".join(links)}</p>'
+
+
+def power_section(hist, prev):
     rows = parse_power()
     if not rows:
         return ""
-    items = "".join(
-        f'<li class="tc t-{slug} conf--{conf}"><b>{rank}</b><span>{name}</span>'
-        + (f"<i>{rec}</i>" if rec else "")
-        + "</li>"
-        for rank, slug, name, rec, conf in rows)
     return ('<section class="section power-now" id="power"><div class="wrap">'
             '<h2>Power Rankings</h2>'
             f'<p class="stand-week">{POWER_MOD.WEEK}</p>'
-            f'<ol class="rgrid pr-grid">{items}</ol>'
+            f'{power_board(rows, prev)}'
+            f'{archive_links(hist, week_slug(POWER_MOD.WEEK))}'
             '</div></section>')
+
+
+def build_week_page(hist, i):
+    """One archived week, with the movement it had at the time."""
+    h = hist[i]
+    prev = hist[i - 1] if i else None
+    pal = TEAMS_MOD.palette()
+    rows = [(n + 1, slug, pal[slug]["name"], h.get("records", {}).get(slug, ""),
+             pal[slug]["conf"])
+            for n, slug in enumerate(h["order"])]
+    url = f"{SITE}/rankings/{h['slug']}"
+    title = f"Power Rankings &mdash; {h['week']}"
+    html = (
+        head(f"{title} &mdash; 3rd &amp; Long",
+             f"NFL power rankings, {h['week']}, by Adam Long.", url, "og.png")
+        + site_bar()
+        + '<div class="hero hero--post"><div class="wrap">'
+          '<p class="hero-eyebrow">Power Rankings</p>'
+          f'<h1>{h["week"]}</h1>'
+          '<p class="byline"><span>By Adam Long</span></p>'
+          '</div></div><div class="hash"></div>'
+        + '<main id="main"><section class="section power-now"><div class="wrap">'
+        + power_board(rows, prev)
+        + archive_links(hist, h["slug"])
+        + '</div></section></main>'
+        + FOOT + "\n</body>\n</html>\n")
+    d = ROOT / "rankings" / h["slug"]
+    d.mkdir(parents=True, exist_ok=True)
+    (d / "index.html").write_text(html, encoding="utf-8")
+    return len(html)
 
 
 def parse_leaders():
@@ -575,7 +802,8 @@ def standings_section():
     cards = []
     for conf, label, rows in groups:
         items = "".join(
-            f'<li class="tc t-{slug}"><b>{i}</b><span>{name}</span><i>{rec}</i></li>'
+            f'<li class="tc t-{slug}"><b>{i}</b>'
+            f'<span><a href="/teams/{slug}">{name}</a></span><i>{rec}</i></li>'
             for i, (slug, name, rec, _pct, _w, _d) in enumerate(rows, 1))
         cards.append(f'<div class="gcard conf--{conf}">'
                      f'<h3>{label}</h3><ol class="stand-list">{items}</ol></div>')
@@ -629,7 +857,7 @@ def build_landing():
                f'<div class="ed-list">{"".join(cards)}</div>'
                '</div></section>')
     sections = [
-        ("power", "Power Rankings", power_section()),
+        ("power", "Power Rankings", power_section(HIST, PREV)),
         ("standings", "Standings", standings_section()),
         ("leaders", "Stat Leaders", leaders_section()),
         ("posts", "Posts", posts_section()),
@@ -992,6 +1220,83 @@ __TEAMCSS__
 .pr-grid span{min-width:0}
 
 
+
+/* ---------- team pages ---------- */
+
+.anch{display:block;height:0;scroll-margin-top:4.5rem}
+.tp{padding-top:clamp(2rem,4vw,3rem)}
+.tp-entry{
+  max-width:var(--measure);
+  padding-bottom:clamp(1.6rem,3vw,2.2rem);
+  margin-bottom:clamp(1.6rem,3vw,2.2rem);
+  border-bottom:1px solid var(--rule);
+}
+.tp-entry:last-of-type{border-bottom:0}
+.tp-when{
+  margin:0;font-family:var(--f-cond);font-weight:700;font-size:.78rem;
+  text-transform:uppercase;letter-spacing:.16em;color:var(--team,var(--pick));
+}
+.tp-meta{
+  margin:.25rem 0 .9rem;font-family:var(--f-cond);font-size:.85rem;
+  color:var(--muted);letter-spacing:.03em;
+}
+.tp-entry p{margin:0}
+.tp-more{margin-top:.9rem!important}
+.tp-more a{
+  font-family:var(--f-cond);font-weight:600;font-size:.78rem;
+  text-transform:uppercase;letter-spacing:.14em;
+  color:var(--pick);text-decoration:none;
+}
+.tp-more a:hover{text-decoration:underline}
+.tp-posts{margin-top:clamp(1.5rem,3vw,2.2rem)}
+.tp-posts h2{margin-bottom:1rem}
+.tp-empty{color:var(--muted)}
+
+.tix-grid{grid-template-columns:repeat(auto-fill,minmax(360px,1fr))}
+.tix{list-style:none;margin:0;padding:0;display:grid;gap:.4rem}
+.tix li{
+  /* .gcard li is a two-column grid for numbered lists; these rows are just a name */
+  display:block;
+  font-family:var(--f-cond);font-size:1rem;font-weight:600;
+  border-left:3px solid var(--team,var(--rule));padding-left:.6rem;
+}
+.tix a{color:var(--ink-2);text-decoration:none}
+.tix a:hover{color:var(--ink);text-decoration:underline}
+
+.team{scroll-margin-top:4.5rem}
+
+/* movement against last week's archived board */
+.mv{
+  text-decoration:none;font-style:normal;
+  font-family:var(--f-cond);font-weight:700;font-size:.78rem;
+  font-variant-numeric:tabular-nums;letter-spacing:.02em;
+  margin-left:.5rem;white-space:nowrap;
+}
+.mv--up{color:var(--up)}
+.mv--down{color:var(--down)}
+.mv--flat{color:var(--rule)}
+
+.wk-archive{
+  margin:1.1rem 0 0;font-family:var(--f-cond);font-size:.82rem;
+  text-transform:uppercase;letter-spacing:.13em;color:var(--muted);
+  display:flex;flex-wrap:wrap;gap:.2rem 1rem;
+}
+.wk-archive a{color:var(--pick);text-decoration:none}
+.wk-archive a:hover{text-decoration:underline}
+.wk-archive b{color:var(--ink)}
+
+/* team names on the weekly boards link to that club's page */
+.pr-grid span a,.stand-list span a{color:inherit;text-decoration:none}
+.pr-grid span a:hover,.stand-list span a:hover{text-decoration:underline}
+.pr-grid li{grid-template-columns:1.85rem 1fr auto auto}
+.pr-grid--nomv li{grid-template-columns:1.85rem 1fr auto}
+
+:root{--up:#1F7A3D;--down:#C0392B}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--up:#1B9D46;--down:#EF4231}
+}
+:root[data-theme="dark"]{--up:#1B9D46;--down:#EF4231}
+
 /* ---------- weekly standings ---------- */
 
 .standings-now .grid{margin-top:1.4rem}
@@ -1108,7 +1413,12 @@ def main():
 
     pal = TEAMS_MOD.palette()
     tcss = "\n".join(
-        f'.t-{k}{{--team-l:{v["light"]};--team-d:{v["dark"]}}}' for k, v in sorted(pal.items()))
+        f'.t-{k}{{--team-l:{v["light"]};--team-d:{v["dark"]}}}\n'
+        # the club's hero ground, already walked until its text clears 4.5:1
+        f'.th-{k}{{--hero-bg:{v["hero"]};--hero-fg:{v["heroFg"]};'
+        f'--hero-muted:{v["heroMuted"]};--hero-accent:{v["heroMuted"]};'
+        f'--hero-rule:{v["heroRule"]}}}'
+        for k, v in sorted(pal.items()))
     css = BASE + core + "\n" + EXTRA.replace("__TEAMCSS__", tcss)
     (ROOT / "assets/css/styles.css").write_text(css, encoding="utf-8")
     (ROOT / "assets/js/team.js").write_text(
@@ -1126,6 +1436,9 @@ def main():
     V["team"] = ver("assets/js/team.js")
     V["nav"] = ver("assets/js/nav.js")
 
+    global HIST, PREV
+    HIST, PREV = record_week(parse_power())
+
     n = build_landing()
     print(f"index.html                {n:>7,} bytes")
     for ed in EDITIONS:
@@ -1136,12 +1449,26 @@ def main():
         n = build_post(post)
         print(f"posts/{post['slug']}/index.html  {n:>7,} bytes")
 
+    for i, h in enumerate(HIST):
+        n = build_week_page(HIST, i)
+        print(f"rankings/{h['slug']}/index.html  {n:>7,} bytes")
+
+    entries = team_entries()
+    for slug in sorted(entries):
+        build_team(slug, entries[slug])
+    print(f"teams/*/index.html        {len(entries)} clubs")
+    n = build_teams_index()
+    print(f"teams/index.html          {n:>7,} bytes")
+
     art = build_artifact(css)
     (HERE / "artifact.html").write_text(art, encoding="utf-8")
     print(f"artifact.html             {len(art):>7,} bytes")
 
     urls = ([f"{SITE}/"] + [f"{SITE}/{e['slug']}" for e in EDITIONS]
-            + [f"{SITE}/posts/{p['slug']}" for p in POSTS])
+            + [f"{SITE}/posts/{p['slug']}" for p in POSTS]
+            + [f"{SITE}/rankings/{h['slug']}" for h in HIST]
+            + [f"{SITE}/teams"]
+            + [f"{SITE}/teams/{slug}" for slug in sorted(TEAMS_MOD.TEAMS)])
     sm = ['<?xml version="1.0" encoding="UTF-8"?>',
           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for u in urls:
