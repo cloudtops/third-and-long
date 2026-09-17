@@ -30,7 +30,7 @@ POSTS = [
         kind="Guest Column",
         title="The Nirv Column",
         author="Noah Irving",
-        date="Week 1",
+        date="2026 Week 1",
         noindex=True,   # the piece ends with a real phone number
         body=[
             "Well well well, who do we have here! Some poor soul that stumbled "
@@ -133,7 +133,9 @@ POSTS = [
             "the Curd Crew. A bunch of short guys and gals, dressed as cheese "
             "curds, rocking berets and turning a blind eye to any off-field RB "
             "scandals (or on field terrible QB play). Either that, or just make "
-            "Brett Favre the face of the team.",
+            "Favre the face of the team. He&rsquo;s been a model citizen off the "
+            "field and deeply cares about the welfare of the city. Or was that "
+            "the one in Mississippi&hellip;",
 
             "<strong>The Giants</strong>",
 
@@ -187,6 +189,7 @@ POSTS = [
     ),
     dict(
         slug="nirv-super-mario-world",
+        unlisted=True,   # linked from the column, kept off the index
         kind="Guest Column",
         title="The Complete Guide to Super Mario World (SNES)",
         author="Noah Irving",
@@ -247,6 +250,7 @@ POSTS = [
     ),
     dict(
         slug="nirv-wsu-cougar-football",
+        unlisted=True,   # linked from the column, kept off the index
         kind="Guest Column",
         title="The Complete Guide to WSU Cougar Football",
         author="Noah Irving",

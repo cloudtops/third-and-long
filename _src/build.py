@@ -825,10 +825,12 @@ def standings_section():
 
 def posts_section():
     """Only renders once there is something to show."""
-    if not POSTS:
+    if not [p for p in POSTS if not p.get("unlisted")]:
         return ""
     rows = []
     for p in POSTS:
+        if p.get("unlisted"):   # reachable by link, just not on the index
+            continue
         rows.append(
             f'<a class="ed" href="/posts/{p["slug"]}">'
             f'<span class="when">{p["date"]} &middot; {p["kind"]}</span>'
