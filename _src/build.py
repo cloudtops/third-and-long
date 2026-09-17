@@ -237,8 +237,17 @@ def build_post(post):
     plain = strip_tags(post["title"])
     desc = f"{plain} by {author}."
     body = "".join(f"<p>{para}</p>" for para in post["body"])
+    if post.get("image"):
+        src, alt = post["image"]
+        body += (f'<figure class="post-fig">'
+                 f'<img src="/assets/img/{src}" alt="{esc_attr(alt)}" '
+                 f'loading="lazy"></figure>')
+    # noindex keeps a page out of search results; the link still works for
+    # anyone you send it to
+    extra = ('<meta name="robots" content="noindex, nofollow">\n'
+             if post.get("noindex") else "")
     html = (
-        head(f"{plain} &mdash; 3rd &amp; Long", desc, url, "og.png")
+        head(f"{plain} &mdash; 3rd &amp; Long", desc, url, "og.png", extra)
         + site_bar()
         + f'<div class="hero hero--post{post_classes(post)}"><div class="wrap">'
           f'<p class="hero-eyebrow">{post["kind"]}</p>'
@@ -1221,6 +1230,10 @@ __TEAMCSS__
 
 
 
+
+.post-fig{margin:1.8rem 0 0;max-width:var(--measure)}
+.post-fig img{display:block;width:100%;height:auto;border:1px solid var(--rule)}
+
 /* ---------- team pages ---------- */
 
 .anch{display:block;height:0;scroll-margin-top:4.5rem}
@@ -1465,7 +1478,7 @@ def main():
     print(f"artifact.html             {len(art):>7,} bytes")
 
     urls = ([f"{SITE}/"] + [f"{SITE}/{e['slug']}" for e in EDITIONS]
-            + [f"{SITE}/posts/{p['slug']}" for p in POSTS]
+            + [f"{SITE}/posts/{p['slug']}" for p in POSTS if not p.get("noindex")]
             + [f"{SITE}/rankings/{h['slug']}" for h in HIST]
             + [f"{SITE}/teams"]
             + [f"{SITE}/teams/{slug}" for slug in sorted(TEAMS_MOD.TEAMS)])
