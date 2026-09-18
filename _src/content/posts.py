@@ -26,6 +26,102 @@
 
 POSTS = [
     dict(
+        slug="rookie-radar-antonio-williams",
+        kind="Rookie Radar",
+        title="Antonio Williams, WR, Washington Commanders",
+        author="Noah Labao",
+        date="Week 1",
+        team="commanders",
+        body=[
+            "Attentive eyes during the Commanders opener in Philly may have "
+            "locked in on a wideout who may be on track to become one of "
+            "5&rsquo;s go-to targets. In a role that Brandon Aiyuk was so sure he "
+            "was going to get in the offseason, the third-round rookie caught all "
+            "four of his targets for 64 yards and a touchdown, which was good "
+            "enough to earn props with PFF. They graded him as the highest-graded "
+            "rookie in all of football for Week 1 at 91.2, with 5.82 yards per "
+            "route run. Among receivers with double-digit snaps, only Zay Flowers "
+            "beat that number.",
+
+            "## College Bio: Clemson Tigers (2022 to 2025)",
+
+            "Williams was a four-year contributor at Clemson and left as a "
+            "two-time All-ACC pick (first team in 2024, third team in 2025). He "
+            "showed up ready to roll, leading the Tigers as a true freshman in "
+            "2022 with 56 catches for 604 yards and four scores while earning "
+            "Freshman All-America honors. He finished his college run with 208 "
+            "catches, 2,336 receiving yards, and 21 touchdowns across 42 games, "
+            "with his 2024 season (75 catches, 904 yards, 11 TDs) as the clear "
+            "high point. Best part for a wideout: he barely put the ball on the "
+            "ground, reportedly dropping under 2 percent of his targets in his "
+            "final Clemson season.",
+
+            "His year-by-year college line: 56 catches, 604 yards, and 4 TDs in "
+            "2022; 22 catches, 224 yards, and 2 TDs in an injury-shortened 2023; "
+            "a monster 75 catches, 904 yards, and 11 TDs in 2024; and 55 catches, "
+            "604 yards, and 4 TDs in 2025.",
+
+            "## High School Recruiting Profile: Dutch Fork HS (Irmo, SC)",
+
+            "Williams was a stud, winning three state titles and losing just one "
+            "game across his high-school career while piling up 137 catches for "
+            "2,458 yards and 23 touchdowns. The consensus four-star and top-100 "
+            "national prospect was a heavily recruited target, at one point "
+            "ranking Georgia, Auburn, Florida State, Notre Dame, Ole Miss, and "
+            "South Carolina in his top six. South Carolina was long viewed as the "
+            "favorite until Clemson swept in with a late offer and landed his "
+            "commitment.",
+
+            "On the athletic side, he backed up the tape at his pre-draft workouts "
+            "with a 4.41 forty, a 39.5-inch vertical, and a 10-foot-4 broad jump, "
+            "all at 5-foot-11 and a half, 187 pounds, with a 6-foot-4 wingspan.",
+
+            "## Scheme Fit: Why He Works in Washington",
+
+            "Washington&rsquo;s offense runs on Jayden Daniels&rsquo; quick-game "
+            "rhythm and a ton of motion, and that setup rewards receivers who can "
+            "separate early and finish clean. That&rsquo;s Williams in a nutshell. "
+            "Just look at how they used him in the opener: a 16-yard grab that set "
+            "up the offense&rsquo;s first touchdown of the year, and a 33-yard "
+            "pickup on third-and-14 where he simply ran away from the "
+            "Eagles&rsquo; secondary. With Terry McLaurin pulling coverage and "
+            "gadget looks flying around the formation, Williams fits as the "
+            "efficient underneath-to-intermediate separator who makes defenses pay "
+            "for single coverage on the back side. His target quality is already "
+            "highly productive on one of the more impressive rookie WR debuts in "
+            "recent history.",
+
+            "## Similarity Comp: Darnell Mooney",
+
+            "Picture Darnell Mooney: a compact, sub-4.45 separator who wins with "
+            "clean routes and real vertical juice instead of size. Like Mooney, "
+            "Williams isn&rsquo;t the biggest guy in the huddle, but he stacks "
+            "defenders, tracks the deep ball, and gives his quarterback that "
+            "reliable &ldquo;just find a way to get open&rdquo; option when it "
+            "matters. If Washington keeps feeding him the way the arrow is "
+            "pointing, the Mooney comp might end up underselling how high this "
+            "ceiling really is.",
+
+            "## On The Radar",
+
+            "A few more rookies worth keeping an eye on in the coming weeks:",
+
+            [
+                "Caleb Douglas, WR, Miami Dolphins - 5 catches on 7 targets for "
+                "94 yards (a franchise record for receiving yards in a Dolphins "
+                "debut).",
+
+                "Josiah Trotter, LB, Tampa Bay Buccaneers - 10 tackles (2 for "
+                "loss), 1 sack, and a 38-yard pick-six (the first player in NFL "
+                "history with a pick-six and a sack in his debut).",
+
+                "Kaelon Black, RB, San Francisco 49ers - 65 yards on 14 carries, "
+                "emerged as Christian McCaffrey&rsquo;s primary backup, chipping "
+                "in on the ground in the Niners&rsquo; win.",
+            ],
+        ],
+    ),
+    dict(
         slug="nirv-column-mascots",
         kind="Guest Column",
         title="The Nirv Column",

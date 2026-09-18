@@ -724,6 +724,19 @@ a.ed h3{
 
 
 
+
+.post-h{
+  font-family:var(--f-display);font-weight:700;
+  font-size:clamp(1.25rem,2.4vw,1.55rem);line-height:1.2;letter-spacing:-.015em;
+  max-width:var(--measure);margin:2.4rem 0 .9rem;
+}
+.post-body p + .post-h{margin-top:2.4rem}
+.post-list{
+  max-width:var(--measure);margin:1rem 0 0;padding-left:1.1rem;
+  display:grid;gap:.7rem;
+}
+.post-list li{padding-left:.2rem}
+
 .post-fig{margin:1.8rem 0 0;max-width:var(--measure)}
 .post-fig img{display:block;width:100%;height:auto;border:1px solid var(--rule)}
 

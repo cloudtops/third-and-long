@@ -228,15 +228,32 @@ def matchup(post):
     return f'<div class="matchup">{cells[0]}<span class="mu-v">vs</span>{cells[1]}</div>'
 
 def post_classes(post):
+    """Two teams colour from the first; one team also takes over the hero ground."""
     pair = post.get("teams")
-    return f" tc t-{pair[0]}" if pair else ""
+    if pair:
+        return f" tc t-{pair[0]}"
+    solo = post.get("team")
+    if solo:
+        if solo not in TEAMS_MOD.TEAMS:
+            raise SystemExit(f"Unknown team in post {post['slug']!r}: {solo!r}")
+        return f" tc t-{solo} th-{solo}"
+    return ""
 
 def build_post(post):
     url = f"{SITE}/posts/{post['slug']}"
     author = post.get("author", "Adam Long")
     plain = strip_tags(post["title"])
     desc = f"{plain} by {author}."
-    body = "".join(f"<p>{para}</p>" for para in post["body"])
+    out = []
+    for para in post["body"]:
+        if isinstance(para, (list, tuple)):
+            items = "".join(f"<li>{x}</li>" for x in para)
+            out.append(f'<ul class="post-list">{items}</ul>')
+        elif para.startswith("## "):
+            out.append(f'<h2 class="post-h">{para[3:]}</h2>')
+        else:
+            out.append(f"<p>{para}</p>")
+    body = "".join(out)
     if post.get("image"):
         src, alt = post["image"]
         body += (f'<figure class="post-fig">'
@@ -373,7 +390,8 @@ def team_entries():
 
 
 def team_posts(slug):
-    return [p for p in POSTS if slug in (p.get("teams") or ())]
+    return [p for p in POSTS
+            if slug in (p.get("teams") or ()) or p.get("team") == slug]
 
 
 def build_team(slug, entries):
@@ -1232,6 +1250,19 @@ __TEAMCSS__
 
 
 
+
+
+.post-h{
+  font-family:var(--f-display);font-weight:700;
+  font-size:clamp(1.25rem,2.4vw,1.55rem);line-height:1.2;letter-spacing:-.015em;
+  max-width:var(--measure);margin:2.4rem 0 .9rem;
+}
+.post-body p + .post-h{margin-top:2.4rem}
+.post-list{
+  max-width:var(--measure);margin:1rem 0 0;padding-left:1.1rem;
+  display:grid;gap:.7rem;
+}
+.post-list li{padding-left:.2rem}
 
 .post-fig{margin:1.8rem 0 0;max-width:var(--measure)}
 .post-fig img{display:block;width:100%;height:auto;border:1px solid var(--rule)}
