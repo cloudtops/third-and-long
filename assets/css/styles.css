@@ -157,7 +157,7 @@ a{color:inherit}
   height:14px;
   background-image:repeating-linear-gradient(
     to right,
-    var(--hero-rule) 0 2px,
+    var(--hash-tick, var(--hero-rule)) 0 2px,
     transparent 2px 22px
   );
   background-color:var(--hero-bg);
@@ -325,7 +325,7 @@ a{color:inherit}
 /* ---------- awards ---------- */
 
 .awards{
-  border-top:3px solid var(--pick);
+  border-top:3px solid var(--pick2, var(--pick));
   background:color-mix(in srgb,var(--pick) 8%,var(--ground));
 }
 .award-list{
@@ -482,7 +482,7 @@ a.ed{
   display:flex;flex-direction:column;gap:.35rem;
   border:1px solid var(--rule);background:var(--surface);
   padding:1.15rem 1.2rem 1.25rem;text-decoration:none;color:inherit;
-  border-left:3px solid var(--pick);
+  border-left:3px solid var(--pick2);
   transition:border-color .15s ease,transform .15s ease;
 }
 a.ed:hover{transform:translateY(-2px)}
@@ -792,6 +792,10 @@ a.ed h3{
 .pr-grid span a:hover,.stand-list span a:hover{text-decoration:underline}
 .pr-grid li{grid-template-columns:1.85rem 1fr auto auto}
 .pr-grid--nomv li{grid-template-columns:1.85rem 1fr auto}
+
+/* the club's second colour, and the tick strip under the hero. Both default
+   to what the site already used, so nothing changes until a team is picked. */
+:root{--pick2:var(--pick);--hash-tick:var(--hero-rule)}
 
 :root{--up:#1F7A3D;--down:#C0392B}
 @media (prefers-color-scheme:dark){

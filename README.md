@@ -225,8 +225,16 @@ the copy, so a typo in a team name fails the build loudly rather than silently
 losing the color.
 
 **The picker (opt-in).** The control in the masthead stores a choice in
-`localStorage` and sets `--pick` and the `--hero-*` tokens from that team's
-palette. Conference crimson/navy is deliberately left alone so the standings
+`localStorage` and sets `--pick`, `--pick2`, `--hash-tick` and the `--hero-*`
+tokens from that team's palette. `--pick` is the primary and carries labels and
+links; `--pick2` is the club's second colour and carries card spines and the
+award rules; `--hash-tick` puts it in the tick strip under the hero, which is
+where the two-tone reads most like a team.
+
+Eleven clubs' "second colour" is black, white or silver, which as an accent just
+looks like the accent broke. Those fall back to the primary, decided by raw
+chroma (max minus min channel) rather than HLS saturation, because saturation
+calls #101820 a blue. Conference crimson/navy is deliberately left alone so the standings
 still read AFC vs NFC at a glance.
 
 Every color is contrast-fitted, not used raw: each palette is nudged in

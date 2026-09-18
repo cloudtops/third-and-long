@@ -105,6 +105,22 @@ def mix(a, b, t):
 
 # ------------------------------------------------------------------ derived
 
+def chroma(color):
+    """Raw colourfulness, 0-1. Cheap, and it does the one job needed here.
+
+    HLS saturation lies about near-blacks: #101820 reads 0.33 because it is a
+    very dark blue, but on screen it is black. Max minus min channel doesn't.
+    _rgb returns 0-1 floats, so this is on that scale too.
+    """
+    r, g, b = _rgb(color)
+    return max(r, g, b) - min(r, g, b)
+
+
+# below this, a "second colour" is really black, white or silver, and using it
+# as an accent just looks like the accent broke
+CHROMA_FLOOR = 0.16
+
+
 def hero_muted(fg, hero):
     """The hero's secondary text: dimmed toward the ground, but never past 4.5:1.
 
@@ -140,9 +156,23 @@ def palette():
             if contrast(fg, hero) >= 4.5:
                 break
             hero = _shift(hero, 0.02 if fg == "#101418" else -0.02)
+        # the second accent: only when the club actually has one
+        if chroma(secondary) >= CHROMA_FLOOR:
+            pick2_l = fit(secondary, GROUND_LIGHT, 4.5, lighten=False)
+            pick2_d = fit(secondary, GROUND_DARK, 4.5, lighten=True)
+            # the hash strip sits on the club's own hero ground, and it is a
+            # graphic rather than text, so 3:1 is the bar
+            tick = fit(secondary, hero, 3.0, lighten=(fg != "#101418"))
+            if contrast(tick, hero) < 3.0:
+                tick = mix(fg, hero, 0.76)
+        else:
+            pick2_l, pick2_d = light, dark
+            tick = mix(fg, hero, 0.76)
+
         out[slug] = dict(
             name=name, conf=conf, div=div,
             light=light, dark=dark,
+            pick2L=pick2_l, pick2D=pick2_d, hashTick=tick,
             hero=hero, heroFg=fg,
             heroMuted=hero_muted(fg, hero),
             heroRule=mix(fg, hero, 0.76),

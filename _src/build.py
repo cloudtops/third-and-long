@@ -1058,7 +1058,7 @@ a.ed{
   display:flex;flex-direction:column;gap:.35rem;
   border:1px solid var(--rule);background:var(--surface);
   padding:1.15rem 1.2rem 1.25rem;text-decoration:none;color:inherit;
-  border-left:3px solid var(--pick);
+  border-left:3px solid var(--pick2);
   transition:border-color .15s ease,transform .15s ease;
 }
 a.ed:hover{transform:translateY(-2px)}
@@ -1306,6 +1306,10 @@ __TEAMCSS__
 .pr-grid li{grid-template-columns:1.85rem 1fr auto auto}
 .pr-grid--nomv li{grid-template-columns:1.85rem 1fr auto}
 
+/* the club's second colour, and the tick strip under the hero. Both default
+   to what the site already used, so nothing changes until a team is picked. */
+:root{--pick2:var(--pick);--hash-tick:var(--hero-rule)}
+
 :root{--up:#1F7A3D;--down:#C0392B}
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){--up:#1B9D46;--down:#EF4231}
@@ -1376,11 +1380,12 @@ def team_js():
     import json
     pal = TEAMS_MOD.palette()
     table = {k: {"name": v["name"], "l": v["light"], "d": v["dark"],
+                 "l2": v["pick2L"], "d2": v["pick2D"], "tk": v["hashTick"],
                  "bg": v["hero"], "fg": v["heroFg"],
                  "mu": v["heroMuted"], "ru": v["heroRule"]}
              for k, v in pal.items()}
     return "(function(){var T=" + json.dumps(table, separators=(",", ":")) + ";" + r"""
-var root=document.documentElement,KEY="tal.team",VARS=["--pick","--hero-bg","--hero-fg","--hero-muted","--hero-rule","--hero-accent"];
+var root=document.documentElement,KEY="tal.team",VARS=["--pick","--pick2","--hash-tick","--hero-bg","--hero-fg","--hero-muted","--hero-rule","--hero-accent"];
 function isDark(){var a=root.getAttribute("data-theme");
   if(a==="dark")return true; if(a==="light")return false;
   try{return matchMedia("(prefers-color-scheme: dark)").matches}catch(e){return false}}
@@ -1391,6 +1396,8 @@ function apply(slug){
   var t=T[slug],st=root.style;
   if(!t){VARS.forEach(function(p){st.removeProperty(p)});root.removeAttribute("data-team");label("Pick your team");return}
   st.setProperty("--pick",isDark()?t.d:t.l);
+  st.setProperty("--pick2",isDark()?t.d2:t.l2);
+  st.setProperty("--hash-tick",t.tk);
   st.setProperty("--hero-bg",t.bg);
   st.setProperty("--hero-fg",t.fg);
   st.setProperty("--hero-muted",t.mu);

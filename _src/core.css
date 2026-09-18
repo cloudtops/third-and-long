@@ -136,7 +136,7 @@ a{color:inherit}
   height:14px;
   background-image:repeating-linear-gradient(
     to right,
-    var(--hero-rule) 0 2px,
+    var(--hash-tick, var(--hero-rule)) 0 2px,
     transparent 2px 22px
   );
   background-color:var(--hero-bg);
@@ -304,7 +304,7 @@ a{color:inherit}
 /* ---------- awards ---------- */
 
 .awards{
-  border-top:3px solid var(--pick);
+  border-top:3px solid var(--pick2, var(--pick));
   background:color-mix(in srgb,var(--pick) 8%,var(--ground));
 }
 .award-list{
