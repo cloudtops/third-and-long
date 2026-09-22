@@ -29,39 +29,41 @@
 # "1,204" and "12 (T-1st)" all work as values. List as many or as few per
 # category as you like. A misspelled team stops the build and names it.
 
-WEEK = "After Week 1"
+WEEK = "After Week 2"
 
 LEADERS = """
 Passing Yards
-1. Tyler Shough, 410
-2. Jordan Love, 387
-3. Bryce Young, 361
+1. Tyler Shough, 662
+2. Bryce Young, 648
+3. CJ Stroud, 627
 
 Passing TDs
-1. Trevor Lawrence, 4
-T-2. Kirk Cousins, Jaxson Dart, Brock Purdy, Jalen Hurts, Bryce Young, Carson Wentz, Tyler Shough, 3
+T-1. Kirk Cousins, Jared Goff, Bryce Young, Dak Prescott, 6
 
 Rushing Yards
-1. Kenneth Walker III, 173
-2. Jahmyr Gibbs, 156
-3. Derrick Henry, 144
+1. Kenneth Walker III, 290
+2. Derrick Henry, 212
+3. Jahmyr Gibbs, 208
 
 Rushing TDs
-T-1. Derrick Henry, D&rsquo;Andre Swift, 3
+T-1. Josh Allen, Derrick Henry, Jonathan Taylor, 4
 
 Receiving Yards
-1. Chris Olave, 182
-2. Zay Flowers, 150
-3. Christian Watson, 147
+1. Jaxon Smith-Njigba, 277
+2. Chris Olave, 268
+3. Dalton Kincaid, 225
 
 Receiving TDs
-T-1. Jalen Coker, Isaiah Likely, Justin Jefferson, Ashton Jeanty, Dallas Goedert, Amon-Ra St. Brown, Christian Watson, 2
+T-1. Jaxon Smith-Njigba, Amon-Ra St. Brown, 4
+T-3. Stefon Diggs, CeeDee Lamb, Christian Watson, 3
 
 Sacks
-T-1. Za&rsquo;Darius Smith, T.J. Watt, Alex Highsmith, Kwity Paye, Greg Rousseau, Aidan Hutchinson, 2.0
+1. Greg Rousseau, 4.0
+2. T.J. Watt, 3.5
+T-3. Alex Highsmith, Aidan Hutchinson, Dallas Turner, 3.0
 
 Team Defense - DVOA
-1. San Francisco 49ers, 70.3%
-2. Jacksonville Jaguars, 66.7%
-3. Baltimore Ravens, 64.9%
+1. San Francisco 49ers, 78.0%
+2. Buffalo Bills, 52.7%
+3. Baltimore Ravens, 38.3%
 """
