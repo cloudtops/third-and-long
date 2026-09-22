@@ -26,6 +26,53 @@
 
 POSTS = [
     dict(
+        slug="week-2-chiefs-colts",
+        kind="Game of the Week",
+        title="Kansas City 33, Indianapolis 30",
+        author="Adam Long",
+        date="Week 2",
+        teams=("chiefs", "colts"),
+        body=[
+            "So, in the preseason, I wrote about how the NFL&rsquo;s latest "
+            "dynastic reign had finally come to an end, and parity had finally "
+            "returned to the game&rsquo;s biggest stage without the looming "
+            "specter of doom that is Patrick Mahomes II and Andy Reid. Fast "
+            "forward two weeks and this take is aging like milk. Sunday "
+            "night&rsquo;s bout between the Colts and the Chiefs had all the "
+            "classic hallmarks of an early 2020s Kansas City Devil Magic Bowl. "
+            "After an early strike from QB Daniel Jones to second-year man TE "
+            "Tyler Warren put Indy up a score, Mahomes and Co. answered back with "
+            "a field goal and a touchdown to the ageless wonder TE Travis "
+            "Swift-Kelce. The Colts responded with two field goals of their own "
+            "before Mahomes again drove down the field and hit WR Xavier Worthy "
+            "in the end zone to take the lead. Lead changes abounded in this "
+            "contest, lending to the exciting nature of this primetime matchup, "
+            "and All-Pro RB Jonathan Taylor scampered in on a 24-yard touchdown "
+            "rush to put the Colts ahead just before the half. Kansas City tacked "
+            "on a field goal and a score (to WR Jalen Royals) in the second half, "
+            "which was matched by Taylor&rsquo;s second touchdown run of the game "
+            "with five minutes remaining to even the score in regulation.",
+
+            "Overtime starts, our first primetime matchup of the season to go to "
+            "extra innings. Kansas City opened the period with a ho-hum field goal "
+            "drive. Indy got the ball back, and QB Daniel Jones hit WR Laquon "
+            "Treadwell on a deep bomb that the beleaguered wideout promptly "
+            "fumbled. Wait, let&rsquo;s see that one again. Oh, he got touched by "
+            "Chiefs&rsquo; DB L&rsquo;Jarius Sneed before getting up? Nice! The "
+            "Colts were now in the red area, and after getting stopped behind the "
+            "sticks by the Kansas City defense, they elected to kick a field goal. "
+            "I think most Indianapolis fans would tell you, and most NFL fans in "
+            "general, that if you give the football back to Mahomes in Arrowhead "
+            "with only a field goal needed for the win and three minutes on the "
+            "clock that the game is essentially already over. Colts&rsquo; HC "
+            "Shane Steichen has to go for the score there. The Chiefs got the win "
+            "at home on a Harrison Butker 40-yard field goal as time expired, "
+            "because of course they did. P.S. Patrick Mahomes now holds the NFL "
+            "record for regular season overtime winning streak with an 8-0 mark. "
+            "This shit isn&rsquo;t ever going to end, is it.",
+        ],
+    ),
+    dict(
         slug="rookie-radar-antonio-williams",
         kind="Rookie Radar",
         title="Antonio Williams, WR, Washington Commanders",
