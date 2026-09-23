@@ -32,7 +32,7 @@ the templates.
 ├── assets/
 │   ├── css/styles.css          all styling, token-driven
 │   ├── js/nav.js               sticky-nav scroll spy (the only JS on the site)
-│   └── img/og-*.png            1200×630 link preview card per report
+│   └── img/og-*.png            1200×630 link preview card per page
 └── _src/                       the generator
     ├── build.py
     ├── render.py               regenerates the og cards and icons
@@ -99,7 +99,7 @@ Test the preview at [opengraph.dev](https://opengraph.dev).
 3. Add an entry to the `EDITIONS` list at the top of `_src/build.py` — slug,
    kind (Preseason / Midseason), title, season, and type
    (`divisions` or `rankings`).
-4. Add a card to `CARDS` in `_src/render.py` so it gets a link preview.
+4. Nothing. `_src/render.py` reads `EDITIONS` and makes the card itself.
 5. Run `python3 _src/build.py && python3 _src/render.py`.
 
 The landing page, sitemap, and nav all generate from `EDITIONS`, so nothing
@@ -214,6 +214,25 @@ straight through.
 
 Nothing here is authored. The pages re-cut `_src/content/*.py` at build time, so
 a new report shows up on all 32 team pages the moment it's added to `EDITIONS`.
+
+## Link preview cards
+
+`python3 _src/render.py`, after a build. It reads the site's own content and
+writes one 1200×630 card per page, 47 of them, in four shapes:
+
+- **The board.** Home and the weekly archive get this week's top six with the
+  rank numerals in club colors. The reports get their division picks, or their
+  top eight for a midseason edition.
+- **The scoreboard.** A post whose title parses as `Team 33, Team 30` and that
+  names two clubs gets both teams' colors split down the middle with the score
+  at scale.
+- **The club field.** Team pages and any post with a single `team` get a
+  full-bleed card in that club's color.
+- **The title card.** Everything else, with the 32-club stripe along the bottom.
+
+The cards carry content rather than just a headline, which is what keeps them
+from looking like a template. They regenerate from live data, so the home card
+always shows the current week's top six.
 
 ## Team colors
 

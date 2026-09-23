@@ -26,6 +26,117 @@
 
 POSTS = [
     dict(
+        slug="rookie-radar-hezekiah-masses",
+        kind="Rookie Radar",
+        title="Hezekiah Masses, CB, Las Vegas Raiders",
+        author="Noah Labao",
+        date="Week 2",
+        team="raiders",
+        body=[
+            {"quote": "&ldquo;Liberation is seized by the masses with their own "
+                      "hands&rdquo;",
+             "cite": "Frantz Fanon, A Dying Colonialism (1959)"},
+
+            "The Raiders have often been associated with an exclusive culture "
+            "that only a few teams in the National Football League can trace "
+            "their lineage to. Misfits. Renegades. Brash. A team of second "
+            "chances. So when starting corner Darien Porter went down and the "
+            "rookie was handed his first NFL start, Hezekiah &ldquo;Zeek&rdquo; "
+            "Masses answered by turning the Chargers game into his personal "
+            "audition. The more &ldquo;If&rdquo; Man/Captain Hypothetical (Justin "
+            "Herbert for those not chronically online) kept coming after him, "
+            "Zeek Masses kept answering back - two interceptions, five total "
+            "tackles, two pass breakups, a tackle for loss, and a stingy 33.3 "
+            "percent completion rate allowed when the ball came his direction. "
+            "Across 50 of 68 defensive snaps in a 26-14 Raiders win, the only "
+            "damage he surrendered was a single 13-yard catch. Add it up and you "
+            "get a Pepsi NFL Rookie of the Week nomination, plus a name Raider "
+            "Nation should probably learn to spell now.",
+
+            "## College Bio: FIU (2022 to 2024), California (2025)",
+
+            "Nobody handed Masses a shortcut. Three seasons at Florida "
+            "International produced 105 tackles, 12 pass breakups, and two "
+            "interceptions, solid work that convinced him he was worth a bigger "
+            "stage, so he transferred to Cal for a final ride. That gamble turned "
+            "into a coming-out party. Starting all 13 games as a 2025 senior, he "
+            "paced the entire country with 18 passes defended, folding together "
+            "13 breakups and five picks, and collected Second Team All-America "
+            "nods from Walter Camp, the AP, and the AFCA on top of a First Team "
+            "All-ACC selection. That 1.38 passes-defended-per-game clip tied for "
+            "the FBS lead, and only one other FBS player joined him in the "
+            "10-breakup, 5-interception club that year. Tally the whole college "
+            "run and it comes to 152 tackles, seven interceptions (one taken to "
+            "the house), and 25 passes defensed over 49 games.",
+
+            "## High School Recruiting Profile: Deerfield Beach HS "
+            "(Deerfield Beach, FL)",
+
+            "If you love an overlooked-kid story, this one delivers, because the "
+            "recruiting industry essentially ignored Masses. Rated a two-star in "
+            "the 2022 class out of Deerfield Beach, he sat somewhere past No. "
+            "2,000 in the 247Sports national rankings, nowhere near the blue "
+            "bloods&rsquo; radar. For most of his prep days he lined up as a "
+            "burner at receiver, only switching to defense as a senior, and he "
+            "took to it instantly, pacing the team with four interceptions and "
+            "steering Deerfield Beach to a 10-win campaign and a 2021 district "
+            "crown. FIU was the school that actually came calling; everything "
+            "after that he earned himself, culminating in a transfer to Cal to "
+            "round out his collegiate career. The measurables tell the "
+            "boundary-corner story: roughly 6-foot-1 and 179 pounds with 4.46 "
+            "speed, the kind of length and range NFL staffs want on the outside.",
+
+            "## Scheme Fit: Why He Works in Las Vegas",
+
+            "Las Vegas was shopping for secondary help, and Masses landed as "
+            "precisely the takeaway machine a ball-starved defense covets. His "
+            "receiver background bleeds through on film, where he plays the ball "
+            "in the air like a pass-catcher, breaks on routes with anticipation, "
+            "and converts would-be completions into picks. Porter&rsquo;s injury "
+            "cracks the door open for him to hang onto an outside role, and the "
+            "playmaking he brings hands the Raiders the splash element their "
+            "secondary has been missing. He&rsquo;s still proving it as a run "
+            "defender, but the coverage tape already belongs.",
+
+            "## Similarity Comp: Sam Shields",
+
+            "The sharpest match isn&rsquo;t a current star, it&rsquo;s a name "
+            "from 2010: Sam Shields. An undrafted corner out of Miami who&rsquo;d "
+            "spent most of college at receiver and had barely a season on "
+            "defense, Shields talked his way onto the Packers, seized the nickel "
+            "job as a rookie, and parlayed pure ball skills into a Super Bowl ring "
+            "and 19 career interceptions. Swap the names and the r&eacute;sum&eacute; "
+            "is nearly identical, an under-recruited defensive back with wideout "
+            "instincts, dismissed on draft weekend, thriving because he attacks "
+            "the football rather than because anyone anointed him. Masses "
+            "diagnoses routes with the eyes of the receiver he once was and "
+            "cashes contested throws into takeaways, exactly Shields&rsquo;s "
+            "calling card. Let those hands travel the way Shields&rsquo;s did and "
+            "a fifth-round tag will read like grand theft.",
+
+            "## On The Radar",
+
+            "Three more rookies worth circling before this week&rsquo;s slate:",
+
+            [
+                "Josiah Trotter, LB, Tampa Bay Buccaneers - Week 2: paced Tampa "
+                "Bay with 11-plus stops against Cleveland, following up a "
+                "historic debut and looking every bit like a fixture at the "
+                "center of the Bucs&rsquo; front seven.",
+
+                "Jonah Coleman, RB, Denver Broncos - Week 2: 13 touches, 58 total "
+                "yards (39 on 10 carries), and the first touchdown of his career, "
+                "out-touching the veterans while Denver&rsquo;s backfield nursed "
+                "injuries.",
+
+                "Denzel Boston, WR, Cleveland Browns - Week 2: hauled in 5 balls "
+                "for 95 yards with a 55-yard score, joining a club no Browns "
+                "rookie had entered since 2002 by finding the end zone through "
+                "the air in each of his first two games.",
+            ],
+        ],
+    ),
+    dict(
         slug="week-2-chiefs-colts",
         kind="Game of the Week",
         title="Kansas City 33, Indianapolis 30",

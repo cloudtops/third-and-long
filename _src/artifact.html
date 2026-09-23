@@ -725,6 +725,22 @@ a.ed h3{
 
 
 
+
+.post-quote{
+  max-width:var(--measure);margin:1.6rem 0 1.8rem;
+  padding-left:clamp(.9rem,2vw,1.4rem);
+  border-left:3px solid var(--team,var(--pick));
+}
+.post-quote p{
+  font-size:clamp(1.05rem,2vw,1.2rem);font-style:italic;color:var(--ink);
+  line-height:1.45;
+}
+.post-quote cite{
+  display:block;margin-top:.6rem;font-style:normal;
+  font-family:var(--f-cond);font-weight:600;font-size:.82rem;
+  text-transform:uppercase;letter-spacing:.14em;color:var(--muted);
+}
+
 .post-h{
   font-family:var(--f-display);font-weight:700;
   font-size:clamp(1.25rem,2.4vw,1.55rem);line-height:1.2;letter-spacing:-.015em;

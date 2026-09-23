@@ -246,7 +246,11 @@ def build_post(post):
     desc = f"{plain} by {author}."
     out = []
     for para in post["body"]:
-        if isinstance(para, (list, tuple)):
+        if isinstance(para, dict):          # {"quote": ..., "cite": ...}
+            cite = (f'<cite>{para["cite"]}</cite>' if para.get("cite") else "")
+            out.append(f'<blockquote class="post-quote"><p>{para["quote"]}</p>'
+                       f'{cite}</blockquote>')
+        elif isinstance(para, (list, tuple)):
             items = "".join(f"<li>{x}</li>" for x in para)
             out.append(f'<ul class="post-list">{items}</ul>')
         elif para.startswith("## "):
@@ -264,7 +268,8 @@ def build_post(post):
     extra = ('<meta name="robots" content="noindex, nofollow">\n'
              if post.get("noindex") else "")
     html = (
-        head(f"{plain} &mdash; 3rd &amp; Long", desc, url, "og.png", extra)
+        head(f"{plain} &mdash; 3rd &amp; Long", desc, url,
+             f"og-post-{post['slug']}.png", extra)
         + site_bar()
         + f'<div class="hero hero--post{post_classes(post)}"><div class="wrap">'
           f'<p class="hero-eyebrow">{post["kind"]}</p>'
@@ -426,7 +431,7 @@ def build_team(slug, entries):
             else '<p class="tp-empty">No entries yet.</p>')
 
     html = (
-        head(f"{name} &mdash; 3rd &amp; Long", desc, url, "og.png")
+        head(f"{name} &mdash; 3rd &amp; Long", desc, url, f"og-team-{slug}.png")
         + site_bar()
         + f'<div class="hero hero--post tc t-{slug} th-{slug}"><div class="wrap">'
           '<p class="hero-eyebrow">Team</p>'
@@ -457,7 +462,7 @@ def build_teams_index():
     html = (
         head("Teams &mdash; 3rd &amp; Long",
              "Every club, and everything Adam Long has written about them.",
-             url, "og.png")
+             url, "og-teams.png")
         + site_bar()
         + '<div class="hero hero--post"><div class="wrap">'
           '<p class="hero-eyebrow">Index</p><h1>Teams</h1>'
@@ -675,7 +680,8 @@ def build_week_page(hist, i):
     title = f"Power Rankings &mdash; {h['week']}"
     html = (
         head(f"{title} &mdash; 3rd &amp; Long",
-             f"NFL power rankings, {h['week']}, by Adam Long.", url, "og.png")
+             f"NFL power rankings, {h['week']}, by Adam Long.", url,
+             f"og-week-{h['slug']}.png")
         + site_bar()
         + '<div class="hero hero--post"><div class="wrap">'
           '<p class="hero-eyebrow">Power Rankings</p>'
@@ -1251,6 +1257,22 @@ __TEAMCSS__
 
 
 
+
+
+.post-quote{
+  max-width:var(--measure);margin:1.6rem 0 1.8rem;
+  padding-left:clamp(.9rem,2vw,1.4rem);
+  border-left:3px solid var(--team,var(--pick));
+}
+.post-quote p{
+  font-size:clamp(1.05rem,2vw,1.2rem);font-style:italic;color:var(--ink);
+  line-height:1.45;
+}
+.post-quote cite{
+  display:block;margin-top:.6rem;font-style:normal;
+  font-family:var(--f-cond);font-weight:600;font-size:.82rem;
+  text-transform:uppercase;letter-spacing:.14em;color:var(--muted);
+}
 
 .post-h{
   font-family:var(--f-display);font-weight:700;
