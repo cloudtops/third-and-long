@@ -26,6 +26,176 @@
 
 POSTS = [
     dict(
+        slug="nirv-column-nicknames",
+        kind="Guest Column",
+        title="The Nirv Column",
+        author="Noah Irving",
+        date="2026 Week 2",
+        noindex=True,   # the piece ends with a real phone number
+        body=[
+            # DO NOT reflow, merge or reword the first seven paragraphs. Their
+            # opening letters spell COUGS ML down the left edge, which is what
+            # "take 'em straight up" is pointing at. One paragraph per line is
+            # what makes it visible on the page.
+            "Come one, come all! And welcome back to another installment of the "
+            "Nirv column.",
+
+            "Odds are you&rsquo;re here again due to our riveting breakdown of "
+            "mascots last week&hellip;",
+
+            "Unless you&rsquo;re a new visitor. In that case, welcome!",
+
+            "Guys and gals, it is yet again an honor to be sharing this space "
+            "with you to get my ideas out.",
+
+            "Something tells me this column will be a bit different than last "
+            "week&rsquo;s&hellip;",
+
+            "More football focused, football heavy, and football directed.",
+
+            "Let&rsquo;s jump into it.",
+
+            "See what I did there? Don&rsquo;t be a coward taking the points, "
+            "take &rsquo;em straight up.",
+
+            "Now",
+
+            "Week 2 proved to be pretty devastating for most. And I&rsquo;m not "
+            "just talking Vandy x NC State&hellip;.prayers out to the Wolfpack. "
+            "Ouch. I haven&rsquo;t been on the wrong side of a late finish like "
+            "that since [REDACTED].",
+
+            "I&rsquo;m talking the insane amount of injuries around the league. "
+            "Caleb Williams, JD5, Jaxson Dart, the list goes on and on. And I get "
+            "it, plenty of jokes to be made regarding the optics of the Caleb "
+            "injury. But I&rsquo;ve never been one to root or joke about "
+            "injuries, so it&rsquo;s all the same song to me. Injuries suck, "
+            "derail the season, and a lot of the time have some pretty meaningful "
+            "impact on the player moving forward. They just suuuuuuck.",
+
+            "So today for you all, I&rsquo;d like to keep things lighthearted. "
+            "You really thought I&rsquo;d be talking More football focused, "
+            "football heavy, football directed? On the contrary, friends. Today "
+            "we&rsquo;re gonna be talking about something to get our minds off a "
+            "dislocated elbow, a blown out knee, or a booboo on Soldier Field.",
+
+            "We&rsquo;re talkin&rsquo; sports nicknames.",
+
+            "I get it, I get it- we play for the name on the front of the jersey, "
+            "not on the back. Who cares about a name, let alone a nickname? I "
+            "implore you to keep an open mind on this journey with me, because "
+            "we&rsquo;ve seen some absolute haymakers when it comes to giving our "
+            "guys a catchy name. And hell no, I&rsquo;m not just talkin&rsquo; "
+            "football.",
+
+            "Let&rsquo;s start with an easy one for the people: Charles Barkley. "
+            "Goooooood ol&rsquo; Chuck. Menace on the court and just a liability "
+            "on the mic with the NBA TNT crew (shoutout Ernie and those beaches "
+            "in Galveston, TX). But we aren&rsquo;t talkin&rsquo; Charles or "
+            "Chuck here, folks. We&rsquo;re talking the ROUND MOUND OF REBOUND.",
+
+            "Not only does this get points for rhyming&hellip;.but there are 22 "
+            "other players in the NBA that averaged more rebounds per game than "
+            "him. Kinda funny to include rebounding in his nickname&hellip;..but "
+            "that&rsquo;s only half of it.",
+
+            "Chuck was a big boy. No secret there. Hence the &lsquo;Round "
+            "Mound&rsquo; portion of the name. According to our stats department, "
+            "Chuck played anywhere between 250 &ndash; 285 lbs during his NBA "
+            "career. I know what you&rsquo;re thinking, that makes Zion look like "
+            "Paris Hilton. But Chuck famously GAINED weight, about 50lbs, before "
+            "the &rsquo;84 Draft to avoid being taken by the 76ers. They "
+            "didn&rsquo;t care, more of him to love type situation and took him "
+            "anyway. Got all big and fat for no reason; relatable Mr. Round "
+            "Mound. And just one more shoutout to those women in San Antonio.",
+
+            "We&rsquo;ll switch it up a bit and go with a football one: Chad "
+            "Johnson. Ocho-Cinco. 85.",
+
+            "Listen, I&rsquo;m biased but I am a massive fan of Ocho-Cinco. The "
+            "player, the person, his love for Mickey D&rsquo;s, he&rsquo;s got it "
+            "all. And the fact that this &lsquo;nickname&rsquo; was technically "
+            "(legally) his real name for a bit there? Legendary stuff.",
+
+            "A bit of background; in 2008 while he was on the Bengals, Chad "
+            "(feels weird just saying his first name) tried to throw a temporary "
+            "nameplate on the back of his jersey that said &lsquo;Ocho-Cinco"
+            "&rsquo; in honor of Hispanic Heritage Month. Velcro and all. The No "
+            "Fun League didn&rsquo;t like the gesture and fined Mr. Johnson / "
+            "Cinco for the little stunt. And that is exactly where they lost the "
+            "plot. Now I&rsquo;m not one to judge, but by all accounts, Chad was "
+            "a&hellip;.petty person. So naturally, in response to the fine, he "
+            "decided to legally change his last name to Ocho-Cinco. For those "
+            "still wondering, he wore 85, Ocho-Cinco&hellip;.you get it.",
+
+            "But yeah, legit legally changed his name and all. It kinda bummed me "
+            "out to learn he changed it back to Johnson in 2012 when he was about "
+            "to get married&hellip;.but don&rsquo;t you worry, he kept Ocho-Cinco "
+            "as his middle name. And kinda like Kobe, he had a hell of a career "
+            "both BNC (before name change) and ANC (after name change). Names may "
+            "change but talent doesn&rsquo;t, and for that we salute you 85.",
+
+            "Speaking of Kobe&hellip;.",
+
+            "And now moving on to yet another beautiful sport, hockey. Before I "
+            "get into this one, quick honorable mention for our guy &lsquo;WiFi"
+            "&rsquo;, Arber Xhekaj. Last name looks like a default router "
+            "password, gets me every time.",
+
+            "But we&rsquo;re here to talk about The Great One, the honorable "
+            "Wayne Gretzky. Now I feel like this one doesn&rsquo;t require too "
+            "much &rsquo;splainin, so I&rsquo;m just gonna give you some of the "
+            "craziest Wayno stats I&rsquo;ve come across:",
+
+            [
+                "If Gretzky never scored a goal, he still would&rsquo;ve recorded "
+                "11 straight 100-point seasons and won four scoring titles",
+
+                "If you chopped Gretzky&rsquo;s entire career numbers in half, "
+                "he&rsquo;d still be 17th all-time in points",
+
+                "Gretzky is the only player to record a 200-point season, and he "
+                "did it four times",
+
+                "Gretzky could&rsquo;ve ended his career with a 1,370-game "
+                "pointless streak and still would&rsquo;ve been a point-per-game "
+                "player",
+
+                "If you only counted Gretzky&rsquo;s seasons after turning 30, "
+                "he&rsquo;d still rank fourth all-time in points per game",
+            ],
+
+            "I could go on for hours about what this man accomplished on the ice. "
+            "To be fair, I feel like The Great One is even underselling him a bit "
+            "as a nickname.",
+
+            "Now I know what you&rsquo;re thinking- Nirv, this is a FOOTBALL "
+            "platform. Talk about FOOTBALL.",
+
+            "Below is my list of current NFL players and their appropriate "
+            "nickname(s). As always, thank you for giving me the time of day to "
+            "get my thoughts out in this forum. And don&rsquo;t forget to leave "
+            "us voicemails at (360) 340-1858. The meaner, the better!",
+
+            [
+                "Joe Burrow + Ja&rsquo;Marr Chase: literally translates to hide "
+                "and seek. Burrow, Chase&hellip;.you get it",
+                "DJ Moore: Nightclub",
+                "Cam Skattebo: batshit psycho",
+                "Chase Brown: literally translates to The Plunger",
+                "David Montgomery: Mr. Burns",
+                "George Pickens: batshit psycho (WR edition)",
+                "Josh Downs: [REDACTED]",
+                "Travis Hunter: literally translates to Taylor Swift",
+                "Justin Herbert: The Side Piece",
+                "DK Metcalf: literally translates to Donkey Kong at MooMoo "
+                "Meadows",
+                "Cooper Rush: Pooper Flush (shoutout Mr. Long for the "
+                "contribution)",
+            ],
+        ],
+    ),
+    dict(
         slug="rookie-radar-hezekiah-masses",
         kind="Rookie Radar",
         title="Hezekiah Masses, CB, Las Vegas Raiders",
