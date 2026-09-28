@@ -684,6 +684,17 @@ a.ed h3{
   border-bottom:1px solid var(--rule);
 }
 .mu-team{display:flex;align-items:center;gap:.7rem}
+.mu-lines{display:flex;flex-direction:column;gap:.15rem;min-width:0}
+.mu-rec{
+  font-family:var(--f-cond);font-weight:600;font-size:.84rem;
+  letter-spacing:.06em;color:var(--muted);
+}
+/* full-width, so the venue drops to its own line under the two clubs */
+.mu-venue{
+  flex-basis:100%;margin-top:.15rem;
+  font-family:var(--f-cond);font-weight:600;font-size:.78rem;
+  text-transform:uppercase;letter-spacing:.13em;color:var(--muted);
+}
 .mu-bar{width:6px;align-self:stretch;min-height:2rem;background:var(--team)}
 .mu-name{
   font-family:var(--f-cond);font-weight:700;
