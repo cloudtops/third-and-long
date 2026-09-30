@@ -766,6 +766,11 @@ a.ed h3{
 /* ---------- team pages ---------- */
 
 .anch{display:block;height:0;scroll-margin-top:4.5rem}
+/* .team is a two-cell grid (rank | body). An in-flow anchor would take the
+   first cell and shove both of them one place to the right, which collapses
+   the prose to a one-word column. Out of flow, it still works as a target. */
+.team{position:relative}
+.team>.anch{position:absolute;top:0;left:0;width:0}
 .tp{padding-top:clamp(2rem,4vw,3rem)}
 .tp-entry{
   max-width:var(--measure);
