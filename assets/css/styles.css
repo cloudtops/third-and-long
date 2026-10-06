@@ -677,6 +677,13 @@ a.ed h3{
 }
 .post-body p:last-child{margin-bottom:0}
 
+/* links inside a piece: a{color:inherit} sitewide would make them invisible */
+.post-body a{
+  color:var(--pick);text-decoration:underline;
+  text-underline-offset:.18em;text-decoration-thickness:1px;
+}
+.post-body a:hover{text-decoration-thickness:2px}
+
 /* pictures inside the piece, not just one at the end */
 .post-figs{
   max-width:var(--measure);margin:1.8rem 0 2rem;padding:0;
