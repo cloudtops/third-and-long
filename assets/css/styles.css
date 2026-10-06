@@ -676,6 +676,22 @@ a.ed h3{
   font-size:1.08rem;line-height:1.68;
 }
 .post-body p:last-child{margin-bottom:0}
+
+/* pictures inside the piece, not just one at the end */
+.post-figs{
+  max-width:var(--measure);margin:1.8rem 0 2rem;padding:0;
+}
+/* cap the height so a tall photo doesn't eat a whole screen; a wide one
+   still runs the full measure */
+.post-figs img{
+  display:block;max-width:100%;max-height:440px;width:auto;height:auto;
+  margin:0 auto;background:var(--surface);border:1px solid var(--rule);
+}
+.post-figs--multi{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:.7rem;align-items:start;
+}
+.post-figs--multi img{max-height:300px}
+@media (max-width:620px){.post-figs--multi{grid-template-columns:1fr}}
 .post-body p:first-of-type{font-size:1.2rem;line-height:1.6;color:var(--ink)}
 
 .matchup{
@@ -897,6 +913,13 @@ a.ed h3{
 /* .gcard li:first-child b paints the top row with --conf, which these cards
    don't have. The club color is the point here, so take it back. */
 .ld-list li:first-child b{color:var(--team,var(--muted))}
+
+/* club tag after a leader's name, in that club's colour */
+.ld-nm s{
+  text-decoration:none;font-family:var(--f-cond);font-weight:700;
+  font-size:.68rem;letter-spacing:.06em;margin-left:.3rem;
+  color:var(--team,var(--muted));white-space:nowrap;
+}
 /* the category count is yours, so the last row can end short — same trick as
    the power grid: rules on the cards, not through the gaps */
 .leaders-now .grid{background:var(--surface)}
