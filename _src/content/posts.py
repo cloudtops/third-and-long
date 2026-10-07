@@ -37,6 +37,9 @@ POSTS = [
         date="Week 4",
         team="titans",
         body=[
+            {"img": [("cam-ward.jpg",
+                      "Cam Ward in a Titans road white, pointing skyward")]},
+
             "Picture this: your name is Josh Allen, and you&rsquo;ve just "
             "completed your rookie season as the starting quarterback of the "
             "Buffalo Bills. After completing barely over half your passes and "
