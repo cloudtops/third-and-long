@@ -5,6 +5,7 @@
 #   slug    url segment, lives at /posts/<slug>
 #   kind    the eyebrow above the title, e.g. "Game of the Week", "Notebook"
 #   title   the headline
+#   sub     optional dek, one line under the headline
 #   author  byline — set this for guest writers
 #   date    whatever dateline you want: "Week 3", "Week 3 · 2026", "November 2026"
 #   teams   optional ("slug", "slug") from teams.py — draws the matchup strip
@@ -18,6 +19,7 @@
 #     slug="week-1-lions-bears",
 #     kind="Game of the Week",
 #     title="...",
+#     sub="...",
 #     author="Adam Long",
 #     date="Week 1",
 #     teams=("lions", "bears"),
@@ -26,12 +28,472 @@
 
 POSTS = [
     dict(
+        slug="cam-ward-experience",
+        kind="Column",
+        title="The Cam Ward Experience",
+        sub="Why We Should Stop Labeling Quarterbacks as Busts Until They "
+            "Retire",
+        author="Adam Long",
+        date="Week 4",
+        team="titans",
+        body=[
+            "Picture this: your name is Josh Allen, and you&rsquo;ve just "
+            "completed your rookie season as the starting quarterback of the "
+            "Buffalo Bills. After completing barely over half your passes and "
+            "throwing more interceptions than touchdowns, the NFL media and "
+            "fans all over the country are quick to call you one simple word, "
+            "one that has doomed so many careers over the years and consigned "
+            "so many high draft picks to Tuesday night bar trivia answers. "
+            "Bust. Teams and fans will always give some grace to rookie "
+            "quarterbacks, and thankfully for you, you are rewarded for your "
+            "flashes of true brilliance along with downright questionable play "
+            "by a competent front office that builds a strong team around you. "
+            "Fast forward six years, and you are an MVP-winner and one of the "
+            "most dominant players at the position in the last few decades.",
+
+            "Josh Allen is obviously an outlier in the landscape of football, a "
+            "unicorn who only comes around once in a generation. For so many "
+            "others though, this label has also been inappropriately applied "
+            "before enough time has elapsed to really get an accurate view on "
+            "who a player is. Sometimes a quarterback needs a new coaching "
+            "staff, or a change of scenery before they can really blossom. "
+            "Don&rsquo;t believe me? Who won the Super Bowl last year? Sam "
+            "Darnold was labeled as a bust for years until he finally achieved "
+            "success in Minnesota and parlayed that ridiculously efficient "
+            "season into the starting job in Seattle, where he won the Super "
+            "Bowl. Don&rsquo;t believe me? Look at Baker Mayfield. After "
+            "experiencing more front office turmoil than any one player can "
+            "reasonably expect in an entire career with Cleveland, Mayfield was "
+            "shipped off for parts and was doomed to fade into obscurity in "
+            "Carolina. Fast forward to today and Mayfield is one of the most "
+            "electric signal callers in the game and just inked a 3-year, $165 "
+            "million deal to lead the Buccaneers. (I know he&rsquo;s hurt and "
+            "the Bucs suck right now but I&rsquo;m trying to make a point!). "
+            "STILL don&rsquo;t believe me? Everyone called Trevor Lawrence a "
+            "bust when he started his career 5-20 in Duval, with a true "
+            "first-year dumpster fire under Urban Meyer. Terrible coaching can "
+            "lead to terrible performances, but now that Lawrence has a great "
+            "supporting cast and a great young head coach, he&rsquo;s playing "
+            "the best football of his career and has gone 17-5 in his last 22 "
+            "games.",
+
+            "So what&rsquo;s the point of all this, and why is this article "
+            "named after current second-year QB Cam Ward? It&rsquo;s because as "
+            "of late, I&rsquo;ve seen too many talking heads disparaging Ward "
+            "and writing him off after only 20 games, certainly not a fair "
+            "shake, especially if you look at the career trajectories of the "
+            "gentlemen I&rsquo;ve listed above. Now I&rsquo;ve been a Ward fan "
+            "from the hop, his story has always resonated with me, so maybe "
+            "I&rsquo;m biased. A guy with one offer coming out of Columbia High "
+            "School, a basketball star who played in a Wing T offense and thus "
+            "didn&rsquo;t get the national recruiting spotlight. He took his one "
+            "offer (Incarnate Word, an FCS program), played extremely well and "
+            "utilized the transfer spotlight to move to Pullman, Washington "
+            "where he excelled for the Cougs over his two seasons on the "
+            "Palouse. He then went across the country to Miami, where he "
+            "finished his senior year as ACC Player of the Year and a Heisman "
+            "Trophy finalist. Ward has always been written off, and every time "
+            "he&rsquo;s been discounted by college scouts or the national media, "
+            "he has excelled. Cam Ward is no stranger to doubters, he&rsquo;s "
+            "faced them his whole life.",
+
+            "So there&rsquo;s my bias. I&rsquo;m rooting for this guy. "
+            "He&rsquo;s a Coug, for god&rsquo;s sake. How could I not! And "
+            "although my glasses may be rose-tinted when I watch him play, "
+            "I&rsquo;m not entirely ignorant of the stat sheet. Ward has a "
+            "subpar output when it comes to raw statistics, and with a 3-17 "
+            "record as a starting quarterback, you&rsquo;d like to at least see "
+            "him completing more passes in garbage time when defenses are "
+            "backing off. Ward&rsquo;s real problem is that Tennessee&rsquo;s "
+            "roster has been a dumpster fire since Ward got to Nashville last "
+            "spring. His top targets in his rookie season were Chig Okonkwo, a "
+            "tight end who is now a non-factor in Washington after amassing an "
+            "eye-popping 540 yards in 2025 (sarcasm), and wideout Elic "
+            "Ayomanor, a fourth round rookie who was largely unheard of out of "
+            "Stanford. Couple that with a defense that ranked 28th in total "
+            "defense, and that is not a recipe for success for a green "
+            "quarterback. Now that Ward has some real pass catchers around him "
+            "(Enter Carnell Tate, a top overall pick and the best receiver in "
+            "the 2026 draft, and Wan&rsquo;Dale Robinson, a sneaky good wideout "
+            "from the Giants), he should be able to excel. So through four games "
+            "in 2026, why does he look as bad as he did as a rookie, if not "
+            "worse? But let&rsquo;s get back to the real problem, which is teams "
+            "throwing first-year quarterbacks to the wolves in their initial "
+            "season playing at the pro level, an absolute recipe for disaster. "
+            "Letting your first round quarterback sit behind a veteran is the "
+            "best way for a young guy to learn and actually succeed once he "
+            "takes the reins (See Aaron Rodgers, Patrick Mahomes, Jalen Hurts, "
+            "Philip Rivers etc). Unfortunately, the Titans cannot afford this "
+            "luxury due to their front office&rsquo;s ineptitude. It seems as "
+            "though the real problem in the Cam Ward Conundrum is a lack of "
+            "foresight in the general manager&rsquo;s office when it comes to "
+            "building a competitive roster that can actually help stabilize and "
+            "nurture a young quarterback.",
+
+            "For all you keeping score at home, that last sentence is the third "
+            "time I&rsquo;ve referred to an issue that Ward is currently facing "
+            "as &ldquo;the real problem,&rdquo; and none of them have to do with "
+            "his actual stats or production. He has faced an uphill battle from "
+            "the moment he got off the plane at Nashville International, and any "
+            "semblance of success with this club would&rsquo;ve honestly been a "
+            "miracle. Can he turn the ship around with a coaching change? Sure, "
+            "look at Sunshine in Jacksonville. Could he do it with a change of "
+            "scenery? Absolutely, look at Mayfield and Darnold, or even go a "
+            "little deeper and look at Steve Young. That dude sucked major eggs "
+            "in his first year in Tampa Bay. Could he do it by simply gaining "
+            "more experience at the NFL level, and eventually rising to the "
+            "ranks of the league&rsquo;s elite with his same club? Why not? Look "
+            "at the current meteoric rise of former &ldquo;bust&rdquo; Bryce "
+            "Young in Carolina, or Allen&rsquo;s evolution in Buffalo.",
+
+            "An interesting wrinkle in this equation is the introduction of one "
+            "man, the same man who helped Allen&rsquo;s career "
+            "blossom&hellip;none other than Bald Vader himself, Brian Daboll. "
+            "Daboll was Allen&rsquo;s playcaller in Buffalo before leaving for "
+            "greener Meadow-lands (See what I did there? That&rsquo;s why they "
+            "pay me the big bucks here at 3rd and Long) and making Daniel Jones "
+            "actually look competent. Now that he&rsquo;s calling plays for "
+            "Ward, Tennessee&rsquo;s offense looks as dismal as anyone in the "
+            "league today, but when Daboll started with Allen, things looked "
+            "equally impotent. Give the man a chance to cook with Ward and see "
+            "how high he can fly.",
+
+            "So for all you keyboard warriors out there throwing dirt on Cam "
+            "Ward&rsquo;s name, I&rsquo;d invite you to not only look at his "
+            "current situation, but look at history. And if you still want to "
+            "count him out, good. That&rsquo;s when he thrives.",
+        ],
+    ),
+    dict(
+        slug="week-4-panthers-lions",
+        kind="Game of the Week",
+        title="Carolina 32, Detroit 26",
+        author="Adam Long",
+        date="Week 4",
+        teams=("panthers", "lions"),
+        records=("2-2", "2-2"),
+        venue="Bank of America Stadium, Charlotte, North Carolina",
+        body=[
+            "I would like to take this opportunity to tell all Bryce Young "
+            "haters, both past and present, to stay in your damn lane! The young "
+            "man has been absolutely dealing this year, and as a certified "
+            "BryceHead from the jump I am over the moon. Let&rsquo;s head to the "
+            "Queen City to recap the Sunday Night Football matchup between the "
+            "Carolina Panthers and the Detroit Lions.",
+
+            "Both of these clubs have had a bit of a rollercoaster start to the "
+            "season, with the Lions beating New Orleans in a shootout, losing in "
+            "a shootout to Buffalo, then winning in a shootout against the Jets. "
+            "This secondary&rsquo;s ineptitude is only equaled by their offense&rsquo;s ability to put points on the board (Detroit is "
+            "currently last in the NFL in yards allowed/game, and is the only "
+            "club to let opposing teams earn over 400 yards/game on average. "
+            "Their offense is ranked 5th in points scored and 6th in total yards "
+            "earned on offense). Pit these stats against the Panthers&rsquo; "
+            "units, whose offense leads the league in passing yards/game and "
+            "ranks 4th in scoring, and whose defense ranks 29th in total yards "
+            "allowed. That is the exact recipe for an exciting primetime "
+            "shootout, and that&rsquo;s exactly what we got!",
+
+            "There weren&rsquo;t too many first-quarter fireworks in this one, "
+            "Detroit drew first blood on a 54-yarder from K Jake Bates, and Young "
+            "and the Panthers offense answered with a 72-yard scoring drive "
+            "capped off with a RB Chuba Hubbard touchdown run. A smattering of "
+            "field goals in the second quarter, two for Detroit, one for "
+            "Carolina, along with an RB Jahmyr Gibbs touchdown run for the Lions "
+            "and a deep strike score from Young to WR Tetairoa McMillan. The game "
+            "went to halftime all knotted up at 16 points apiece.",
+
+            "Carolina opened the second half scoring with a 15-play drive, which "
+            "ended in seven points after McMillan&rsquo;s second touchdown grab "
+            "of the contest. The Lions responded with another Bates field goal "
+            "from 26 yards, and Young and the Panthers drove right back down the "
+            "field and scored on an 85-yard drive with a second Chuba Hubbard "
+            "touchdown scamper. In the fourth quarter, Carolina added a security "
+            "field goal to increase their lead to 13 points, and just needed "
+            "their beleaguered defense to hang on to secure the win. QB Jared "
+            "Goff and the Lions had other plans, however, as they drove down the "
+            "field and scored a touchdown on an eight-yard strike from Goff to TE "
+            "Sam LaPorta. After a Carolina punt gave Detroit&rsquo;s offense one "
+            "more chance to win the game, the Panthers&rsquo; defense pulled out "
+            "a stop and turned the Lions over on downs. Young took a knee, won "
+            "the game, and officially put the league on notice. Through four "
+            "games, Bryce Young leads the NFL in total passing yards and Carolina "
+            "is firmly in control of their destiny in a very soft NFC South.",
+        ],
+    ),
+    dict(
+        slug="nirv-column-jerseys",
+        kind="Guest Column",
+        title="The Nirv Column",
+        author="Noah Irving",
+        date="2026 Week 4",
+        body=[
+            "Hello familiar faces and new friends, and welcome back to the Nirv Column. Apologies to all the Nirverts out there who were waiting on something last week; it was my beautiful girlfriend&rsquo;s birthday so we had our plates full while celebrating. But I&rsquo;m happy to report we are back for another week of your favorite football breakdown. Shoutout Jessica, happy birthday babe!",
+
+            "Now I&rsquo;ve been thinking, and it&rsquo;s about time we talk some damn ball in this column. I&rsquo;m not talking about rookies; we&rsquo;ll leave that to the professionals over at our Rookie Radar. And I&rsquo;m certainly not talking about any power rankings or game breakdowns; we&rsquo;ll let Mr. Long handle those. I&rsquo;m talking more something along the lines of mascots and nicknames.",
+
+            "I&rsquo;m talking jerseys.",
+
+            "Before we get into it, just a special shoutout to the crimson and gray over on the Palouse. Absolutely putrid product they have the audacity to call a &lsquo;football team&rsquo;. Matt Miller, you&rsquo;re lucky this is a family program. Blow the whole thing up and let&rsquo;s lean into being a women&rsquo;s soccer school.",
+
+            "Anyways",
+
+            "As the (once) great Deion Sanders said, look good play good. And I honestly believe that, that a jersey or uniform can absolutely play a role in a team&rsquo;s product on the field or court. And that goes both ways: I&rsquo;m a Seahawks guy through and through, but you knew that when they trotted us out in those highlighter, neon green uniforms for a Thursday night football game, you were in for it. But I want to focus on the good stuff, the big steppers, the swag surfers, the threads so damn nice you can&rsquo;t blink twice. Follow me through this wonderful rabbit hole of my personal favorite sports jerseys throughout the years.",
+
+            "BEFORE WE REALLY START: I have to give a shoutout to the jerseys that saw the screen, but didn&rsquo;t really see that play. Space Jam isn&rsquo;t just my favorite all-time movie, it also produced some of the sweetest &lsquo;fake&rsquo; basketball jerseys these eyes have seen. You&rsquo;re gonna tell me a #1 Bugs jersey wouldn&rsquo;t go quadruple platinum today? Or a ! Taz jersey?? Don&rsquo;t even get me started on a Lola Bunny game worn&hellip;.",
+
+            "And none of the new LeBron Space Jam crap. The &rsquo;96, original, MJ vs the MonStars stuff. Straight into my veins.",
+
+            "And of course, these honorable mentions wouldn&rsquo;t be complete without the likes of the metallic yellow Average Joe&rsquo;s pinnies, the Flint Tropics threads, and we gotta give it up for the blue Sunnyvale hockey sweaters (shoutout Ricky). The Leafs need to figure out a way to incorporate that; or I guess make a run in the playoffs. That might be too far-fetched, though.",
+
+            "Now, let&rsquo;s get into some actual jerseys that made it to the field.",
+
+            "We&rsquo;ll start with an easy one: the OG Raptors jersey. Purple, with the #15 Carter on the back.",
+
+            {"img": [("nirv4-01.jpg", "Purple Toronto Raptors number 15 Vince Carter jersey, front and back")]},
+
+            "Now I may be a bit biased because I fucking love dinosaurs, but we&rsquo;ve got a raptor damn near high stepping his way through a fastbreak to start us off. Couple that with the deep purple jersey and bright red accents; there are some things so perfect that don&rsquo;t need to be altered, and it&rsquo;s a shame the folks up in Toronto felt like they needed a rebrand on something already this perfect. Sidebar for the people: they just retired Kyle Lowry&rsquo;s number, and honored him with a statue of himself&hellip;..as a raptor. Say what you want about Canada, but they know how to treat their stars.",
+
+            {"img": [("nirv4-02.jpg", "Bronze statue of Kyle Lowry as a raptor outside Scotiabank Arena")]},
+
+            "In a similar vein, quick shoutout to these other incredible NBA jerseys that hopefully get to see the light of day again:",
+
+            "Jazz purple mountains (please disregard one of the two men in this photo)",
+
+            {"img": [("nirv4-03.jpg", "Two Utah Jazz players in the purple mountain uniforms")]},
+
+            "Nuggets rainbow skyline",
+
+            {"img": [("nirv4-04.jpg", "Denver Nuggets rainbow skyline uniform")]},
+
+            "Just about any Sonics jersey; though I do like the red accent more than the all greens",
+
+            {"img": [("nirv4-05.jpg", "Seattle SuperSonics green Shawn Kemp number 40 jerseys")]},
+
+            "Switching gears over to football, let&rsquo;s start with the NFL:",
+
+            "Hate to say it, but the Patriots red jerseys are very clean. Anytime you can get Pat the Patriot on the helmet, you simply have to",
+
+            {"img": [("nirv4-06.jpg", "New England Patriots red throwback uniforms with the Pat the Patriot helmet")]},
+
+            "And this list would be null and void if we didn&rsquo;t include the powder blues&hellip;.",
+
+            {"img": [("nirv4-07.jpg", "Los Angeles Chargers powder blue uniform, number 85")]},
+
+            "&hellip;.But are those even the best powder blues&hellip;?",
+
+            {"img": [("nirv4-08.jpg", "Houston Oilers powder blue uniform, number 1")]},
+
+            "And NO, I did not forget about the creamsicles. These alone are worth at least another 5 points",
+
+            {"img": [("nirv4-09.jpg", "Tampa Bay Buccaneers creamsicle orange uniform")]},
+
+            "Sticking with football, the college world is no stranger to some insane uniform combos. Even the attention to detail with just some helmets, you really can see some beautiful art on that turf from a team that is 1-9 but just happy to be dressed out. Shoutout the fine people at Western Kentucky who seem to have leaned into Big Red quite a bit lately. No complaints here.",
+
+            {"img": [("nirv4-10.jpg", "Western Kentucky red Big Red helmet"), ("nirv4-11.jpg", "Western Kentucky black helmet with the Big Red logo")]},
+
+            "And as dogshit as they may be, anytime the Cougs don the cursive script, I&rsquo;ll be feeling something. Bonus points for the rose",
+
+            {"img": [("nirv4-12.jpg", "Washington State silver helmet with the cursive Cougars script and a rose")]},
+
+            "And honestly, this college football list could include only Oregon uniforms. I&rsquo;m not saying they hit every time, but just based on the sheer volume of combos they are pumping out, they have definitely had some bangers. Like when they dressed up as a duck",
+
+            {"img": [("nirv4-13.jpg", "Oregon uniforms styled after the Duck mascot, with webbed feet")]},
+
+            "Or when they dressed up like Baylor but slapped UO on their helmets",
+
+            {"img": [("nirv4-14.jpg", "Oregon green and gold uniforms")]},
+
+            "Or when they dressed up like WVU but called it the Webfoots",
+
+            {"img": [("nirv4-15.jpg", "Oregon navy and gold Webfoots uniform, number 16")]},
+
+            "A recent one, but gotta give it up to the Green Wave for their Mardi Gras threads",
+
+            {"img": [("nirv4-16.jpg", "Tulane Green Wave Mardi Gras helmet")]},
+
+            "And finally, let&rsquo;s jump into some baseball. Starting with YOUR Seattle Mariners and the sleeveless back to the future jerseys",
+
+            {"img": [("nirv4-17.jpg", "Seattle Mariners sleeveless uniform, number 24")]},
+
+            "I&rsquo;m also a sucker for some pinstripes, and I do not think it gets any better than the old Diamondbacks ones",
+
+            {"img": [("nirv4-18.jpg", "Arizona Diamondbacks purple pinstripe uniforms")]},
+
+            "And of course, have to give the Pirates a shout strictly for the hat alone",
+
+            {"img": [("nirv4-19.jpg", "Pittsburgh Pirates gold and black uniforms and cap")]},
+
+            "Hockey is wayyyyy too tough to choose. I like a lot of the modern jerseys we see today, but the classics will never be touched:",
+
+            {"img": [("nirv4-20.jpg", "Mighty Ducks of Anaheim eggplant and jade jersey"), ("nirv4-21.jpg", "Phoenix Coyotes kachina jersey")]},
+
+            {"img": [("nirv4-22.jpg", "Los Angeles Kings purple and gold uniforms"), ("nirv4-23.jpg", "Quebec Nordiques white uniform")]},
+
+        ],
+    ),
+    dict(
+        slug="rookie-radar-jeremiyah-love",
+        kind="Rookie Radar",
+        title="Jeremiyah Love, RB, Arizona Cardinals",
+        author="Noah Labao",
+        date="Week 3",
+        team="cardinals",
+        body=[
+            {"quote": "&ldquo;All you need is love&rdquo;",
+             "cite": "John Lennon"},
+
+            "Three weeks in, the No. 3 overall pick finally got the keys, and he "
+            "drove that offense like a Georgia player with a Hellcat on a Friday "
+            "night. Handed the lead-back role for the first time against San "
+            "Francisco, Jeremiyah Love answered with his best pro outing yet: 21 "
+            "carries for 90 yards on the ground, five grabs for 19 more through "
+            "the air, and a receiving touchdown, roughly 109 all-purpose yards on "
+            "26 touches while veteran Tyler Allgeier saw just six. The final "
+            "scoreboard didn&rsquo;t cooperate, a 36-30 Cardinals loss, but this "
+            "is undoubtedly a win if you take a look at the larger picture for a "
+            "perennial bottom-feeding Cardinals organization.",
+
+            "## College Bio: Notre Dame Fighting Irish (2023 to 2025)",
+
+            "Love was the best running back in college football when he left "
+            "South Bend. As a 2025 junior he ran for 1,372 yards and 18 rushing "
+            "scores, added a 27-catch, 280-yard, three-touchdown line as a "
+            "receiver, took home the Doak Walker Award as the nation&rsquo;s top "
+            "back, finished third in the Heisman voting, and earned unanimous "
+            "first-team All-America honors. He was Notre Dame&rsquo;s first-ever "
+            "Doak Walker winner. The 2024 season was nearly as loud: 1,125 "
+            "rushing yards and 17 touchdowns as a centerpiece of the "
+            "Irish&rsquo;s run to the national title game. Over his final two "
+            "years he racked up 2,497 rushing yards and a nation-leading 40 total "
+            "touchdowns, and his career totals reached 2,882 rushing yards on a "
+            "6.7 average with 42 scores, plus another six touchdowns as a "
+            "receiver.",
+
+            "## High School Recruiting Profile: Christian Brothers College HS "
+            "(St. Louis, MO)",
+
+            "Unlike this column&rsquo;s usual under-the-radar fare, Love arrived "
+            "on campus with a full spotlight already on him. A consensus "
+            "four-star out of Christian Brothers College in St. Louis in the 2023 "
+            "class, he ranked around the No. 59 prospect nationally and inside "
+            "the top five running backs in his class on the major boards, a "
+            "two-sport standout who also ran track. The blue bloods came calling "
+            "in force: he held offers from essentially everyone and picked Notre "
+            "Dame over the likes of Alabama, Michigan, Texas A&amp;M, and Oregon, "
+            "with Irish running backs coach Deland McCullough&rsquo;s recruiting "
+            "the deciding nudge.",
+
+            "Physically, he checks every box teams want in a franchise back: "
+            "about 6-foot, 212 pounds, with 4.36 speed and a wingspan that grades "
+            "near the top of the position.",
+
+            "## Scheme Fit: Why He Works in Arizona",
+
+            "The early-season snap split masked what Love can be; Week 3 hinted "
+            "at it. Once Arizona let him carry the load, the traits that made him "
+            "a top-three pick showed up, the quick footwork, the contact balance "
+            "that fueled 4.5 yards after contact per rush in college, and the "
+            "natural receiving chops that let the Cardinals split him out or "
+            "flare him into space. In an offense that wants to threaten defenses "
+            "on the ground and out of the backfield alike, Love is the rare back "
+            "who does both at a high level, and the touch count is only trending "
+            "in one direction now that he&rsquo;s the clear lead man.",
+
+            "## Similarity Comp: Marshall Faulk",
+
+            "Reach for the ceiling and you land on Marshall Faulk. The Colts made "
+            "Faulk the No. 2 overall pick in 1994, and he went on to redefine "
+            "what a running back could be, one of only three players ever to "
+            "clear 10,000 rushing and 5,000 receiving yards, an Offensive Rookie "
+            "of the Year who was every bit as lethal split out as he was between "
+            "the tackles. That dual-threat blueprint is exactly what Love "
+            "profiles as: a top-three back with the speed to house any touch and "
+            "the hands to function as a de facto slot receiver on passing downs. "
+            "Faulk is a Hall-of-Fame bar, no question, but on pure profile, the "
+            "size, the draft billing, the give-him-the-ball-any-way-you-like "
+            "versatility, he&rsquo;s the truest template Love has.",
+
+            "## On The Radar",
+
+            "Three more rookies worth circling before this week&rsquo;s slate:",
+
+            [
+                "Kenyon Sadiq, TE, New York Jets - Week 3: 7 catches for 105 "
+                "yards and his first career receiving touchdown on a diving grab "
+                "against Detroit, the week&rsquo;s top-graded tight end and the "
+                "first rookie TE since the 1970 merger with a rushing TD, a "
+                "receiving TD, and a 100-yard game in his team&rsquo;s first "
+                "three contests.",
+
+                "Genesis Smith, S, Los Angeles Chargers - Week 3: two first-half "
+                "interceptions off Josh Allen, the first picks of his career, on "
+                "a 95.1 PFF grade in an otherwise rough day for the winless "
+                "Bolts.",
+
+                "Mike Washington Jr., RB, Las Vegas Raiders - Week 3: 5 carries "
+                "for 54 yards and a 36-yard touchdown that sparked the "
+                "Raiders&rsquo; comeback win over New Orleans, flashing the 4.33 "
+                "speed that shows up on his breakaways.",
+            ],
+        ],
+    ),
+    dict(
+        slug="week-3-ravens-cowboys",
+        kind="Game of the Week",
+        title="Baltimore 34, Dallas 31",
+        author="Adam Long",
+        date="Week 3",
+        teams=("ravens", "cowboys"),
+        records=("2-1", "1-2"),
+        venue="Maracan&atilde; Stadium, Rio de Janeiro, Brazil",
+        body=[
+            "Seven seconds. Seven measly seconds is all that the transcendent "
+            "Baltimore QB Lamar Jackson needed to give his team the shot they "
+            "needed to beat the Cowboys as regulation expired on Sunday. On a "
+            "rainy Rio de Janeiro afternoon, the Ravens pulled off one of the "
+            "most awe-inspiring last-second victories of this young season in "
+            "front of a fervent Brazilian crowd. Sunday&rsquo;s matchup will do "
+            "a lot of heavy lifting for the game overseas and abroad, as this "
+            "particular international matchup was probably the most exciting "
+            "one ever featured outside of the United States.",
+
+            "Dallas opened with a ten-point lead in the first quarter after a "
+            "Brandon Aubrey chip shot from 28 yards and an RB Javonte Williams "
+            "touchdown scamper. Baltimore retorted with two rushing touchdowns "
+            "of their own from future Hall of Famer RB Derrick Henry (The King "
+            "is now fourth in NFL history in multi-touchdown games), and tacked "
+            "on another field goal from K Tyler Loop. Jackson added a touchdown "
+            "pass to veteran WR Chris Moore to extend the Raven lead to 11 late "
+            "in the third quarter. Prescott responded with two touchdown strikes "
+            "of his own, one to TE Jake Ferguson and one to WR Kavontae Turpin. "
+            "With a minute and a half left in regulation, Jackson found rookie "
+            "TE Matthew Hibner for a two-yard score to go up by three. Without "
+            "missing a beat, Prescott then drove down the field and commanded "
+            "the Cowboy offense to set up a game-tying Aubrey field goal try "
+            "with 0:07 left on the game clock. Aubrey of course made the kick "
+            "from 23 yards out, and sent the game to extra time&hellip; oh wait, "
+            "no, this game ended in regulation.",
+
+            "In one of the most memorable drives of 2026 so far, Jackson and the "
+            "Ravens ran two plays in seven seconds. On the first play, which took "
+            "six seconds, Jackson hit superstar WR Zay Flowers deep down the "
+            "middle for a gain of 27 yards and immediately burned "
+            "Baltimore&rsquo;s final timeout. The first play set up Loop for a "
+            "chance to win the game and bury the Cowboys and elevate Baltimore "
+            "to South American superstardom. Loop nailed the 57-yarder, a "
+            "perfect kick to put a thrilling endcap on the best game of the "
+            "week.",
+        ],
+    ),
+    dict(
         slug="nirv-column-nicknames",
         kind="Guest Column",
         title="The Nirv Column",
         author="Noah Irving",
         date="2026 Week 2",
         noindex=True,   # the piece ends with a real phone number
+        airy=7,         # extra air under the acrostic lines so it reads
         body=[
             # DO NOT reflow, merge or reword the first seven paragraphs. Their
             # opening letters spell COUGS ML down the left edge, which is what

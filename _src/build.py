@@ -216,16 +216,24 @@ def matchup(post):
     if not pair:
         return ""
     pal = TEAMS_MOD.palette()
+    recs = post.get("records") or ()
     cells = []
-    for slug in pair:
+    for i, slug in enumerate(pair):
         d = pal.get(slug)
         if not d:
             raise SystemExit(f"Unknown team slug in post {post['slug']!r}: {slug!r}")
+        # records are optional, so older game posts keep rendering unchanged
+        rec = recs[i] if i < len(recs) else ""
+        rec = f'<span class="mu-rec">{rec}</span>' if rec else ""
         cells.append(f'<div class="mu-team tc t-{slug}"><span class="mu-bar"></span>'
-                     f'<span class="mu-name">{d["name"]}</span></div>')
+                     f'<span class="mu-lines"><span class="mu-name">{d["name"]}</span>'
+                     f'{rec}</span></div>')
+    site = post.get("venue")
+    site = f'<div class="mu-venue">{site}</div>' if site else ""
     # "vs", not "at": the pair is written winner-first, which says nothing
     # about who hosted
-    return f'<div class="matchup">{cells[0]}<span class="mu-v">vs</span>{cells[1]}</div>'
+    return (f'<div class="matchup">{cells[0]}<span class="mu-v">vs</span>'
+            f'{cells[1]}{site}</div>')
 
 def post_classes(post):
     """Two teams colour from the first; one team also takes over the hero ground."""
@@ -239,24 +247,53 @@ def post_classes(post):
         return f" tc t-{solo} th-{solo}"
     return ""
 
+def post_sub(post):
+    """Optional dek under a post headline.
+
+    Borrows .hero-blurb, which is already sentence-case at the right measure,
+    and tightens the top margin inline: a new rule in EXTRA would change
+    styles.css, whose hash is stamped into every page on the site.
+    """
+    sub = post.get("sub")
+    if not sub:
+        return ""
+    return f'<p class="hero-blurb" style="margin-top:.9rem">{sub}</p>'
+
 def build_post(post):
     url = f"{SITE}/posts/{post['slug']}"
     author = post.get("author", "Adam Long")
     plain = strip_tags(post["title"])
-    desc = f"{plain} by {author}."
-    out = []
+    dek = strip_tags(post.get("sub") or "")
+    # the dek is the better link-preview description when there is one
+    desc = f"{plain}. {dek} By {author}." if dek else f"{plain} by {author}."
+    out, paras = [], 0
     for para in post["body"]:
-        if isinstance(para, dict):          # {"quote": ..., "cite": ...}
+        if isinstance(para, dict) and "quote" in para:
             cite = (f'<cite>{para["cite"]}</cite>' if para.get("cite") else "")
             out.append(f'<blockquote class="post-quote"><p>{para["quote"]}</p>'
                        f'{cite}</blockquote>')
+        elif isinstance(para, dict) and "img" in para:
+            # one or more pictures in the flow of the piece. A single picture
+            # runs the measure; two or more share a row and drop to one column
+            # on a phone.
+            pics = para["img"]
+            figs = "".join(
+                f'<img src="/assets/img/{src}" alt="{esc_attr(alt)}" loading="lazy">'
+                for src, alt in pics)
+            cls = "post-figs" + (" post-figs--multi" if len(pics) > 1 else "")
+            out.append(f'<figure class="{cls}">{figs}</figure>')
         elif isinstance(para, (list, tuple)):
             items = "".join(f"<li>{x}</li>" for x in para)
             out.append(f'<ul class="post-list">{items}</ul>')
         elif para.startswith("## "):
             out.append(f'<h2 class="post-h">{para[3:]}</h2>')
         else:
-            out.append(f"<p>{para}</p>")
+            # `airy` opens up the gap under the first N paragraphs. Used where
+            # the line breaks are load-bearing, e.g. an acrostic.
+            air = (' style="margin-bottom:2.6rem"'
+                   if paras < post.get("airy", 0) else "")
+            out.append(f"<p{air}>{para}</p>")
+            paras += 1
     body = "".join(out)
     if post.get("image"):
         src, alt = post["image"]
@@ -273,7 +310,7 @@ def build_post(post):
         + site_bar()
         + f'<div class="hero hero--post{post_classes(post)}"><div class="wrap">'
           f'<p class="hero-eyebrow">{post["kind"]}</p>'
-          f'<h1>{post["title"]}</h1>'
+          f'<h1>{post["title"]}</h1>{post_sub(post)}'
           f'<p class="byline"><span>By {author}</span>'
           f'<span class="sep">/</span><span class="dim">{post["date"]}</span></p>'
           '</div></div><div class="hash"></div>'
@@ -345,9 +382,19 @@ def picker_panel():
             '<button type="button" class="pick-reset" data-team="">Clear</button>'
             '</div></div>')
 
+LOGO_SRC = "/assets/img/logo.svg"
+
+
+def logo(cls):
+    """The wordmark as artwork. alt carries the name for anyone who can't see it."""
+    return (f'<img class="{cls}" src="{LOGO_SRC}{V.get("logo", "")}" '
+            f'alt="{SITE_NAME}" width="1389" height="645">')
+
+
 def site_bar(home=False):
-    name = (f'<p class="site-name">{SITE_NAME}</p>' if home
-            else f'<a class="site-name" href="/">{SITE_NAME}</a>')
+    mark = logo("logo logo--bar")
+    name = (f'<p class="site-name">{mark}</p>' if home
+            else f'<a class="site-name" href="/">{mark}</a>')
     back = ('<a class="bar-link" href="/teams">Teams</a>' if home else
             '<a class="bar-link" href="/teams">Teams</a>'
             '<a class="bar-link" href="/">All reports</a>')
@@ -359,6 +406,8 @@ def site_bar(home=False):
             f'{picker_panel()}</header>')
 
 FOOT = ('<div class="wrap"><footer class="foot">'
+        # the footer sits on the cream ground in light mode, where the gold
+        # wordmark has almost no contrast. Text holds up in both themes.
         f'<span>{SITE_NAME}</span><span>Adam Long</span>'
         '</footer></div>')
 
@@ -523,6 +572,39 @@ def resolve_team(name, where):
     return slug
 
 
+# the abbreviations a stat page prints, so leaders.py can be typed the way the
+# source shows it: "Bryce Young (CAR), 1268"
+ABBR = {
+    "ari": "cardinals", "atl": "falcons", "bal": "ravens", "buf": "bills",
+    "car": "panthers", "chi": "bears", "cin": "bengals", "cle": "browns",
+    "dal": "cowboys", "den": "broncos", "det": "lions", "gb": "packers",
+    "hou": "texans", "ind": "colts", "jax": "jaguars", "jac": "jaguars",
+    "kc": "chiefs", "lv": "raiders", "lac": "chargers", "lar": "rams",
+    "mia": "dolphins", "min": "vikings", "ne": "patriots", "no": "saints",
+    "nyg": "giants", "nyj": "jets", "phi": "eagles", "pit": "steelers",
+    "sf": "49ers", "sea": "seahawks", "tb": "buccaneers", "ten": "titans",
+    "was": "commanders", "wsh": "commanders",
+}
+NAME_TEAM_RE = re.compile(r"^(.*?)\s*\(([A-Za-z]{2,3})\)$")
+# slug -> the abbreviation to print back out, first spelling wins
+ABBR_OF = {}
+for _a, _s in ABBR.items():
+    ABBR_OF.setdefault(_s, _a.upper())
+
+
+def name_team(part):
+    """'Bryce Young (CAR)' -> ('Bryce Young', 'panthers'). No tag -> no club."""
+    m = NAME_TEAM_RE.match(part.strip())
+    if not m:
+        return part.strip(), ""
+    who, ab = m.group(1).strip(), m.group(2).lower()
+    slug = ABBR.get(ab) or team_exact(ab) or ""
+    if not slug:
+        raise SystemExit(f"leaders.py: unknown club abbreviation {m.group(2)!r} "
+                         f"in {part!r}")
+    return who, slug
+
+
 def team_exact(name):
     """Exact club lookup — nickname or full name. None on a miss, no guessing.
 
@@ -571,7 +653,8 @@ def record_week(rows):
     entry = {"week": POWER_MOD.WEEK.strip(),
              "slug": week_slug(POWER_MOD.WEEK),
              "order": [slug for _r, slug, _n, _rec, _c in rows],
-             "records": {slug: rec for _r, slug, _n, rec, _c in rows}}
+             "records": {slug: rec for _r, slug, _n, rec, _c in rows},
+             "notes": parse_notes()}
     if hist and hist[-1]["week"] == entry["week"]:
         hist[-1] = entry
     else:
@@ -656,6 +739,27 @@ def archive_links(hist, current=None):
     return f'<p class="wk-archive">{" ".join(links)}</p>'
 
 
+def notes_block(paras):
+    """Adam's weekly write-up above the board.
+
+    Reuses .post-body so the column reads exactly like a post, and carries its
+    own bottom margin inline: a rule in EXTRA would change styles.css, whose
+    hash is stamped into every page, for one div.
+    """
+    if not paras:
+        return ""
+    body = "".join(f"<p>{p}</p>" for p in paras)
+    return f'<div class="post-body" style="margin:1.4rem 0 2.4rem">{body}</div>'
+
+
+def parse_notes():
+    """Blank-line-separated paragraphs from power.py NOTES. Blank = no block."""
+    raw = (getattr(POWER_MOD, "NOTES", "") or "").strip()
+    if not raw:
+        return []
+    return [" ".join(p.split()) for p in re.split(r"\n\s*\n", raw) if p.strip()]
+
+
 def power_section(hist, prev):
     rows = parse_power()
     if not rows:
@@ -663,6 +767,7 @@ def power_section(hist, prev):
     return ('<section class="section power-now" id="power"><div class="wrap">'
             '<h2>Power Rankings</h2>'
             f'<p class="stand-week">{POWER_MOD.WEEK}</p>'
+            f'{notes_block(parse_notes())}'
             f'{power_board(rows, prev)}'
             f'{archive_links(hist, week_slug(POWER_MOD.WEEK))}'
             '</div></section>')
@@ -689,6 +794,7 @@ def build_week_page(hist, i):
           '<p class="byline"><span>By Adam Long</span></p>'
           '</div></div><div class="hash"></div>'
         + '<main id="main"><section class="section power-now"><div class="wrap">'
+        + notes_block(h.get("notes"))
         + power_board(rows, prev)
         + archive_links(hist, h["slug"])
         + '</div></section></main>'
@@ -734,6 +840,21 @@ def parse_leaders():
 
         # last field before the value is a club -> it's the team column.
         # a lone field that IS a club -> the row is a team, colored, no sub-line.
+        # per-name club tags: "Kirk Cousins (LV), Brock Purdy (SF), 11". Each
+        # name keeps its own colour, which a single row class can't do.
+        tagged = [name_team(x) for x in rest]
+        if any(sl for _w, sl in tagged):
+            # the separating comma lives inside the preceding name, so it can
+            # never wrap to the front of the next line
+            marks = " ".join(
+                f'<span class="ld-nm{(" tc t-" + sl) if sl else ""}">{w}'
+                f'{f"<s>{ABBR_OF.get(sl, sl)}</s>" if sl else ""}'
+                f'{"," if n < len(tagged) - 1 else ""}</span>'
+                for n, (w, sl) in enumerate(tagged))
+            first = next((sl for _w, sl in tagged if sl), "")
+            current[1].append((first, rank, marks, "", value))
+            continue
+
         slug, club = "", ""
         if len(rest) > 1 and team_exact(rest[-1]):
             slug = team_exact(rest[-1])
@@ -902,7 +1023,7 @@ def build_landing():
         head("3rd &amp; Long", "NFL reports by Adam Long.", f"{SITE}/", "og.png")
         + site_bar(home=True)
         + f'<div class="hero hero--home{hero_photo()[0]}">{hero_photo()[1]}<div class="wrap">'
-          '<h1>3rd &amp; Long</h1>'
+          f'<h1 class="home-h1">{logo("logo logo--hero")}</h1>'
           '<p class="byline"><span>Adam Long</span></p>'
           '<p class="hero-blurb">Your football roadmap for the next six months. Detailed analysis, predictions, and sleeper picks for the current NFL season. Fan written, fan created.</p>'
           '</div></div><div class="hash"></div>'
@@ -1213,6 +1334,29 @@ __TEAMCSS__
   font-size:1.08rem;line-height:1.68;
 }
 .post-body p:last-child{margin-bottom:0}
+
+/* links inside a piece: a{color:inherit} sitewide would make them invisible */
+.post-body a{
+  color:var(--pick);text-decoration:underline;
+  text-underline-offset:.18em;text-decoration-thickness:1px;
+}
+.post-body a:hover{text-decoration-thickness:2px}
+
+/* pictures inside the piece, not just one at the end */
+.post-figs{
+  max-width:var(--measure);margin:1.8rem 0 2rem;padding:0;
+}
+/* cap the height so a tall photo doesn't eat a whole screen; a wide one
+   still runs the full measure */
+.post-figs img{
+  display:block;max-width:100%;max-height:440px;width:auto;height:auto;
+  margin:0 auto;background:var(--surface);border:1px solid var(--rule);
+}
+.post-figs--multi{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:.7rem;align-items:start;
+}
+.post-figs--multi img{max-height:300px}
+@media (max-width:620px){.post-figs--multi{grid-template-columns:1fr}}
 .post-body p:first-of-type{font-size:1.2rem;line-height:1.6;color:var(--ink)}
 
 .matchup{
@@ -1221,6 +1365,17 @@ __TEAMCSS__
   border-bottom:1px solid var(--rule);
 }
 .mu-team{display:flex;align-items:center;gap:.7rem}
+.mu-lines{display:flex;flex-direction:column;gap:.15rem;min-width:0}
+.mu-rec{
+  font-family:var(--f-cond);font-weight:600;font-size:.84rem;
+  letter-spacing:.06em;color:var(--muted);
+}
+/* full-width, so the venue drops to its own line under the two clubs */
+.mu-venue{
+  flex-basis:100%;margin-top:.15rem;
+  font-family:var(--f-cond);font-weight:600;font-size:.78rem;
+  text-transform:uppercase;letter-spacing:.13em;color:var(--muted);
+}
 .mu-bar{width:6px;align-self:stretch;min-height:2rem;background:var(--team)}
 .mu-name{
   font-family:var(--f-cond);font-weight:700;
@@ -1291,7 +1446,24 @@ __TEAMCSS__
 
 /* ---------- team pages ---------- */
 
+/* ---------- wordmark ---------- */
+
+.logo{display:block;width:auto;height:auto}
+/* the artwork is 1389x645, so height drives it and width follows */
+/* the 3 drives the artwork height, so the small type needs more than a
+   text wordmark would to stay legible in the bar */
+.logo--bar{height:2.15rem}
+.logo--hero{height:clamp(3.4rem,11vw,6.6rem);margin:.1rem 0 .2rem}
+.home-h1{margin:0;line-height:0}
+.site-name .logo{margin:0}
+@media (max-width:620px){.logo--bar{height:1.7rem}}
+
 .anch{display:block;height:0;scroll-margin-top:4.5rem}
+/* .team is a two-cell grid (rank | body). An in-flow anchor would take the
+   first cell and shove both of them one place to the right, which collapses
+   the prose to a one-word column. Out of flow, it still works as a target. */
+.team{position:relative}
+.team>.anch{position:absolute;top:0;left:0;width:0}
 .tp{padding-top:clamp(2rem,4vw,3rem)}
 .tp-entry{
   max-width:var(--measure);
@@ -1418,6 +1590,13 @@ __TEAMCSS__
 /* .gcard li:first-child b paints the top row with --conf, which these cards
    don't have. The club color is the point here, so take it back. */
 .ld-list li:first-child b{color:var(--team,var(--muted))}
+
+/* club tag after a leader's name, in that club's colour */
+.ld-nm s{
+  text-decoration:none;font-family:var(--f-cond);font-weight:700;
+  font-size:.68rem;letter-spacing:.06em;margin-left:.3rem;
+  color:var(--team,var(--muted));white-space:nowrap;
+}
 /* the category count is yours, so the last row can end short — same trick as
    the power grid: rules on the cards, not through the gaps */
 .leaders-now .grid{background:var(--surface)}
@@ -1510,6 +1689,7 @@ def main():
     V["css"] = ver("assets/css/styles.css")
     V["team"] = ver("assets/js/team.js")
     V["nav"] = ver("assets/js/nav.js")
+    V["logo"] = ver("assets/img/logo.svg")
 
     global HIST, PREV
     HIST, PREV = record_week(parse_power())
