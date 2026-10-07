@@ -788,6 +788,18 @@ a.ed h3{
 
 /* ---------- team pages ---------- */
 
+/* ---------- wordmark ---------- */
+
+.logo{display:block;width:auto;height:auto}
+/* the artwork is 1389x645, so height drives it and width follows */
+/* the 3 drives the artwork height, so the small type needs more than a
+   text wordmark would to stay legible in the bar */
+.logo--bar{height:2.15rem}
+.logo--hero{height:clamp(3.4rem,11vw,6.6rem);margin:.1rem 0 .2rem}
+.home-h1{margin:0;line-height:0}
+.site-name .logo{margin:0}
+@media (max-width:620px){.logo--bar{height:1.7rem}}
+
 .anch{display:block;height:0;scroll-margin-top:4.5rem}
 /* .team is a two-cell grid (rank | body). An in-flow anchor would take the
    first cell and shove both of them one place to the right, which collapses
