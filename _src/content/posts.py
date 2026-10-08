@@ -28,6 +28,122 @@
 
 POSTS = [
     dict(
+        slug="rookie-radar-carnell-tate",
+        kind="Rookie Radar",
+        title="Carnell Tate, WR, Tennessee Titans",
+        author="Noah Labao",
+        date="Week 4",
+        team="titans",
+        body=[
+            {"img": [("carnell-tate.jpg",
+                      "Carnell Tate turns upfield after a catch in a Titans "
+                      "road white")]},
+
+            {"quote": "&ldquo;If we keepin it a buck right now, we ass&rdquo;",
+             "cite": "Cam Ward"},
+
+            "Three quiet weeks had the fourth overall pick looking like a slow "
+            "burn. Then Baltimore showed up, and Carnell Tate turned the Titans "
+            "loose. He torched the Ravens&rsquo; secondary for nine catches and "
+            "145 yards on 12 targets, the most receiving yards by any rookie in "
+            "a single game this season, and tied A.J. Brown&rsquo;s franchise "
+            "record for a Titans rookie in the process. He drew a fistful of "
+            "penalty flags on top of it, bullying defensive backs who had no "
+            "answer for his athleticism and length (pause). It wasn&rsquo;t "
+            "flawless, two fumbles, one lost, and he&rsquo;s still chasing his "
+            "first NFL touchdown, but the breakout was undeniable. For an "
+            "organization that has been in not only hell, but whatever is lower "
+            "than hell, since coming one yard short of a Super Bowl "
+            "championship 26 years ago, this is an overall win for the "
+            "development of the Tennessee Titans.",
+
+            "## College Bio: Ohio State Buckeyes (2023 to 2025)",
+
+            "Tate&rsquo;s path in Columbus was a slow climb to stardom. Sitting "
+            "fourth in a WR corps behind Marvin Harrison Jr., Emeka Egbuka and "
+            "Julian Fleming (future trivia answer) is not the easiest ladder to "
+            "climb for playing time in Columbus, Ohio. Across three seasons "
+            "though he caught 121 passes for 1,872 yards and 14 touchdowns over "
+            "39 games, saving the best for last. His 2025 campaign was the "
+            "signature: 51 grabs for 875 yards and nine scores at better than "
+            "17 yards a catch, powering a Buckeyes squad that reached the Big "
+            "Ten title game and the College Football Playoff quarterfinals. He "
+            "paired production with the polish of a technician, a crafty route "
+            "runner with a catch radius and body control that make contested "
+            "balls look routine, and he carried an OSU Scholar Athlete nod "
+            "along the way.",
+
+            "## High School Recruiting Profile: IMG Academy (Bradenton, FL)",
+
+            "Tate arrived at the next level with the hype already blaring. A "
+            "Chicago kid who began his prep career at Marist High School, he "
+            "decamped to IMG Academy in Florida after COVID shut down his "
+            "junior season in the city, and promptly turned himself into one of "
+            "the most coveted recruits in the country. He finished as a "
+            "five-star, the No. 22 overall prospect in the 2023 class and, by "
+            "Rivals&rsquo; reckoning, the top wide receiver in it, collecting a "
+            "reported 37 scholarship offers before picking Ohio State over the "
+            "likes of Alabama, LSU, Tennessee, and Arizona following a "
+            "half-dozen trips to Columbus.",
+
+            "The frame fits the pedigree: a long 6-foot-2, 192 pounds with "
+            "oversized 10-plus-inch hands, and a catch radius that lets him win "
+            "above the rim on the boundary against modern 6&rsquo;0+ "
+            "professional corners.",
+
+            "## Scheme Fit: Why He Works in Tennessee",
+
+            "Tennessee needed a true alpha on the outside, and Week 4 was the "
+            "clearest glimpse yet of why they spent the No. 4 pick to get one. "
+            "Tate stretches the field and expands the strike zone for his "
+            "quarterback, the kind of big-bodied downfield winner who turns "
+            "50-50 balls into completions and marginal throws into "
+            "pass-interference flags. Offensive coordinator Brian Daboll has a "
+            "receiver who can line up outside, high-point the football, and "
+            "move the chains against single coverage, and the target volume (a "
+            "dozen looks against Baltimore) says the staff already trusts him "
+            "as the focal point. Cleaning up the ball security is the next box "
+            "to check, but the role is his.",
+
+            "## Similarity Comp: Calvin Ridley",
+
+            "Think Calvin Ridley: a first-round technician out of a blue-blood "
+            "program who made his living on route craft rather than raw size. "
+            "Ridley arrived in the league with a near-identical frame, right "
+            "around 6-foot-1 and 190 pounds, and quickly became the kind of "
+            "receiver who manufactures separation with tempo, footwork, and "
+            "sharp breaks, then stacks big games on top of each other once a "
+            "quarterback trusts him. Tate plays from the same playbook. "
+            "He&rsquo;s at his best setting up defensive backs at the stem and "
+            "winning late, and his length gives him a little extra margin at "
+            "the catch point. If he keeps cleaning up the ball security, a "
+            "Ridley-style run of 1,000-yard seasons is a reasonable ceiling for "
+            "Tennessee&rsquo;s new focal point.",
+
+            "## On The Radar",
+
+            "Three more rookies worth circling before this week&rsquo;s slate:",
+
+            [
+                "Arvell Reese, LB, New York Giants - Week 4: nine solo tackles, "
+                "a tackle for loss, three pass breakups, and his first career "
+                "interception against Arizona, a 90.5 PFF grade that led all "
+                "rookies and earned the official Pepsi Rookie of the Week.",
+
+                "Denzel Boston, WR, Cleveland Browns - Week 4: 4 catches for 89 "
+                "yards including a 60-yard strike (Cleveland&rsquo;s longest "
+                "play of the year), running his league-leading rookie total to "
+                "284 receiving yards.",
+
+                "Gabe Jacas, ED, New England Patriots - Week 4: three tackles "
+                "and relentless pressure in the win over Buffalo, grading out "
+                "as one of the top edge rushers of the week (behind only Abdul "
+                "Carter and Dallas Turner) while bullying a Pro Bowl left "
+                "tackle.",
+            ],
+        ],
+    ),
+    dict(
         slug="cam-ward-experience",
         kind="Column",
         title="The Cam Ward Experience",

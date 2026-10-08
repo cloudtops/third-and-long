@@ -973,8 +973,11 @@ def posts_section():
     if not [p for p in POSTS if not p.get("unlisted")]:
         return ""
     rows = []
+    top = lead_post()
     for p in POSTS:
         if p.get("unlisted"):   # reachable by link, just not on the index
+            continue
+        if p is top:            # it is the lead above; no need to say it twice
             continue
         rows.append(
             f'<a class="ed" href="/posts/{p["slug"]}">'
@@ -985,6 +988,72 @@ def posts_section():
             '<h2>Posts</h2>'
             f'<div class="ed-list">{"".join(rows)}</div>'
             '</div></section>')
+
+# ---------------------------------------------------------------- lead story
+
+LEAD_CSS = """<style>
+/* The lead sits only on the home page, so its rules ride along in the page
+   rather than in styles.css, whose hash is stamped into every file on the
+   site. Move them into the stylesheet next time that hash changes anyway. */
+.lead{display:grid;grid-template-columns:1.3fr 1fr;gap:2.4rem;
+  align-items:center;padding:2.8rem 0 2.6rem;border-bottom:1px solid var(--rule)}
+.lead a{text-decoration:none}
+.lead-shot{display:block;aspect-ratio:16/9;background-size:cover;
+  background-color:var(--surface);border:1px solid var(--rule)}
+.lead-kick{font-family:var(--f-cond);font-weight:600;font-size:.8rem;
+  text-transform:uppercase;letter-spacing:.14em;color:var(--pick)}
+.lead h3{font-size:clamp(1.9rem,3.3vw,2.75rem);line-height:1.03;
+  letter-spacing:-.025em;margin:.55rem 0 .7rem;font-weight:700}
+.lead-dek{color:var(--muted);font-size:1.06rem;line-height:1.5;max-width:42ch}
+.lead-by{margin-top:1rem;font-family:var(--f-cond);font-weight:600;
+  font-size:.82rem;text-transform:uppercase;letter-spacing:.12em;
+  color:var(--muted)}
+@media(max-width:820px){.lead{grid-template-columns:1fr;gap:1.2rem;
+  padding:1.8rem 0 2rem}}
+</style>"""
+
+def lead_art(post):
+    """(src, alt, focus) for the lead slot.
+
+    `photo` wins if it is set. Otherwise the first picture in the body is
+    used, which is where the photo already goes. With neither, the post's own
+    link-preview card stands in, so the block is never missing its image.
+    """
+    shot = post.get("photo")
+    if not shot:
+        for para in post["body"]:
+            if isinstance(para, dict) and para.get("img"):
+                shot = para["img"][0]
+                break
+    if shot:
+        src, alt = shot[0], shot[1]
+        focus = shot[2] if len(shot) > 2 else "50% 30%"
+        return f"/assets/img/{src}", alt, focus
+    return f'/assets/img/og-post-{post["slug"]}.png', strip_tags(post["title"]), "50% 50%"
+
+def lead_post():
+    """Newest listed post. Each new one unseats the last."""
+    for p in POSTS:
+        if not p.get("unlisted"):
+            return p
+    return None
+
+def lead_block():
+    post = lead_post()
+    if not post:
+        return ""
+    src, alt, focus = lead_art(post)
+    dek = (f'<p class="lead-dek">{post["sub"]}</p>' if post.get("sub") else "")
+    return (
+        '<section class="section" style="padding-bottom:0"><div class="wrap">'
+        '<div class="lead">'
+        f'<a class="lead-shot" href="/posts/{post["slug"]}" '
+        f'style="background-image:url({src});background-position:{focus}" '
+        f'aria-label="{esc_attr(alt)}"></a>'
+        f'<div><p class="lead-kick">{post["kind"]} &middot; {post["date"]}</p>'
+        f'<h3><a href="/posts/{post["slug"]}">{post["title"]}</a></h3>{dek}'
+        f'<p class="lead-by">By {post.get("author", "Adam Long")}</p></div>'
+        '</div></div></section>')
 
 def home_nav(sections):
     """Sticky section tabs for the landing page.
@@ -1020,7 +1089,8 @@ def build_landing():
         ("reports", "Reports", reports),
     ]
     html = (
-        head("3rd &amp; Long", "NFL reports by Adam Long.", f"{SITE}/", "og.png")
+        head("3rd &amp; Long", "NFL reports by Adam Long.", f"{SITE}/", "og.png",
+             LEAD_CSS)
         + site_bar(home=True)
         + f'<div class="hero hero--home{hero_photo()[0]}">{hero_photo()[1]}<div class="wrap">'
           f'<h1 class="home-h1">{logo("logo logo--hero")}</h1>'
@@ -1028,7 +1098,7 @@ def build_landing():
           '<p class="hero-blurb">Your football roadmap for the next six months. Detailed analysis, predictions, and sleeper picks for the current NFL season. Fan written, fan created.</p>'
           '</div></div><div class="hash"></div>'
         + home_nav(sections)
-        + '<main id="main">'
+        + '<main id="main">' + lead_block()
         + "".join(body for _a, _t, body in sections)
         + '</main>'
         + FOOT
