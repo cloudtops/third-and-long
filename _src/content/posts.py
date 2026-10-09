@@ -342,8 +342,8 @@ POSTS = [
     ),
     dict(
         slug="nirv-column-jerseys",
-        kind="Guest Column",
-        title="The Nirv Column",
+        kind="The Nirv Column",
+        title="Jerseys",
         author="Noah Irving",
         date="2026 Week 4",
         body=[
@@ -607,8 +607,8 @@ POSTS = [
     ),
     dict(
         slug="nirv-column-nicknames",
-        kind="Guest Column",
-        title="The Nirv Column",
+        kind="The Nirv Column",
+        title="Nicknames",
         author="Noah Irving",
         date="2026 Week 2",
         noindex=True,   # the piece ends with a real phone number
@@ -1032,8 +1032,8 @@ POSTS = [
     ),
     dict(
         slug="nirv-column-mascots",
-        kind="Guest Column",
-        title="The Nirv Column",
+        kind="The Nirv Column",
+        title="Mascots",
         author="Noah Irving",
         date="2026 Week 1",
         noindex=True,   # the piece ends with a real phone number
@@ -1195,7 +1195,7 @@ POSTS = [
     dict(
         slug="nirv-super-mario-world",
         unlisted=True,   # linked from the column, kept off the index
-        kind="Guest Column",
+        kind="The Nirv Column",
         title="The Complete Guide to Super Mario World (SNES)",
         author="Noah Irving",
         date="Week 1",
@@ -1256,7 +1256,7 @@ POSTS = [
     dict(
         slug="nirv-wsu-cougar-football",
         unlisted=True,   # linked from the column, kept off the index
-        kind="Guest Column",
+        kind="The Nirv Column",
         title="The Complete Guide to WSU Cougar Football",
         author="Noah Irving",
         date="Week 1",

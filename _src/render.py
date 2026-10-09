@@ -14,6 +14,8 @@ from playwright.async_api import async_playwright
 HERE = Path(__file__).resolve().parent
 OUT = HERE.parent
 TMP = HERE / ".cards"; TMP.mkdir(exist_ok=True)
+# Instagram-sized cards. Local output, not part of the deployed site.
+SOCIAL = HERE / "social"
 
 sys.path.insert(0, str(HERE))
 sys.path.insert(0, str(HERE / "content"))
@@ -32,17 +34,14 @@ _LOGO_SVG = Path("../assets/img/logo.svg").read_text(encoding="utf-8")
 
 
 def mast(fg=None, ground=None):
-    """The wordmark, recoloured to the card it sits on.
+    """The wordmark, identical on every card.
 
-    Club cards use the club's own ground, and gold on Steelers yellow is
-    invisible, so there the mark takes the card's text colour instead.
+    It used to be recoloured per club, which a flat gold mark needed. The
+    leather mark carries its own colours and stays as drawn. The arguments
+    are kept so the call sites do not all have to change.
     """
-    svg = _LOGO_SVG
-    if fg:
-        svg = svg.replace("#fcd673", fg).replace("#8a6a1e",
-                                                 T.mix(fg, ground or "#101418", 0.55))
     uri = "data:image/svg+xml;base64," + base64.b64encode(
-        svg.encode("utf-8")).decode()
+        _LOGO_SVG.encode("utf-8")).decode()
     return f'<img class="mast-logo" src="{uri}" alt="3rd &amp; Long">'
 
 
@@ -297,7 +296,188 @@ def jobs():
                               f'{d["conf"].upper()} {d["div"]}')))
 
     out.append(("og-teams.png", title_card("Teams", "Index", "All 32 clubs")))
+
+    # one per running series, so a series link previews like a real section
+    runs = {}
+    for p in POSTS:
+        if not p.get("unlisted"):
+            runs.setdefault(p["kind"], []).append(p)
+    for kind, group in runs.items():
+        if len(group) < 2:
+            continue
+        slug = re.sub(r"[^a-z0-9]+", "-", kind.lower()).strip("-")
+        who = sorted({q.get("author", "Adam Long") for q in group})
+        out.append((f"og-series-{slug}.png",
+                    title_card(kind, f"Series &middot; {len(group)} entries",
+                               " / ".join(who))))
     return out
+
+
+# ---------------------------------------------------------------- social card
+#
+# The weekly rankings as one 4:5 image for Instagram. Built from the same
+# history file the site's board reads, so the 32 ranks, the records and the
+# movement can't drift from what's published.
+#
+# Deliberately NOT in the site's own visual grammar by accident: the serif
+# headline, the flat club bars and the yard-line hashing are all lifted from
+# the pages, so the card reads as this site rather than as any other rankings
+# account.
+
+SOC_W, SOC_H = 1080, 1350
+SOC_GROUND, SOC_FG, SOC_MUTED, SOC_RULE = "#101418", "#EDEEE9", "#8B9490", "#262C33"
+SOC_UP, SOC_DOWN = "#1B9D46", "#EF4231"
+
+def power_board():
+    """(rank, slug, nickname, record, places moved) for all 32, newest week."""
+    h = json.loads((HERE / "content/power_history.json").read_text())
+    if len(h) < 2:
+        return []
+    cur, prev = h[-1], h[-2]
+    return cur["week"], [
+        (i, slug, PAL[slug]["name"].split()[-1], cur["records"].get(slug, ""),
+         prev["order"].index(slug) + 1 - i)
+        for i, slug in enumerate(cur["order"], 1)]
+
+SOC_CSS = f"""
+*{{box-sizing:border-box;margin:0;padding:0}}
+body{{width:{SOC_W}px;height:{SOC_H}px;overflow:hidden;background:{SOC_GROUND};
+ color:{SOC_FG};font-family:"Zilla Slab",Georgia,serif;display:flex;
+ flex-direction:column}}
+.pad{{padding:0 56px}}
+.top{{display:flex;justify-content:space-between;align-items:center;
+ padding-top:54px}}
+.mast-logo{{display:block;height:70px;width:auto}}
+/* labels sit in the site's serif, sentence case, untracked. Caps at wide
+   tracking is the one combination that makes a page read as templated, and
+   the condensed face stays where it earns its width: the numbers. */
+.kick{{font-weight:500;font-size:30px;color:{SOC_MUTED}}}
+h1{{font-weight:700;font-size:104px;line-height:1;letter-spacing:-.04em;
+ margin:26px 0 30px}}
+.hash{{height:15px;background-image:repeating-linear-gradient(to right,
+ {SOC_RULE} 0 3px,transparent 3px 24px)}}
+.grid{{flex:1;display:grid;grid-template-columns:1fr 1fr;column-gap:46px;
+ align-content:stretch;padding:8px 56px 0}}
+.r{{display:grid;grid-template-columns:8px 56px 1fr auto 62px;gap:15px;
+ align-items:center;border-bottom:1px solid {SOC_RULE}}}
+.bar{{width:8px;height:30px}}
+.n{{font-family:"Archivo Narrow",sans-serif;font-weight:700;font-size:35px;
+ font-variant-numeric:tabular-nums;text-align:right}}
+.t{{font-size:35px;font-weight:600;white-space:nowrap}}
+.rec{{font-family:"Archivo Narrow",sans-serif;font-weight:600;font-size:26px;
+ color:{SOC_MUTED};font-variant-numeric:tabular-nums}}
+.mv{{font-family:"Archivo Narrow",sans-serif;font-weight:700;font-size:26px;
+ text-align:right;font-variant-numeric:tabular-nums}}
+.ft{{display:flex;justify-content:space-between;align-items:baseline;
+ margin:0 56px;padding:22px 0 46px;color:{SOC_MUTED};
+ font-weight:500;font-size:29px}}
+"""
+
+def soc_move(d):
+    if d > 0:
+        return f'<span class="mv" style="color:{SOC_UP}">&#9650;{d}</span>'
+    if d < 0:
+        return f'<span class="mv" style="color:{SOC_DOWN}">&#9660;{abs(d)}</span>'
+    return f'<span class="mv" style="color:{SOC_RULE}">&mdash;</span>'
+
+def soc_row(r):
+    i, slug, nick, rec, d = r
+    return (f'<div class="r"><span class="bar" '
+            f'style="background:{PAL[slug]["dark"]}"></span>'
+            f'<span class="n">{i}</span><span class="t">{nick}</span>'
+            f'<span class="rec">{rec}</span>{soc_move(d)}</div>')
+
+def power_card():
+    """None when there is no previous week to measure movement against."""
+    board = power_board()
+    if not board:
+        return None
+    week, rows = board
+    # column-major: 1-16 reads down the left, 17-32 down the right
+    cells = "".join(soc_row(rows[k]) + soc_row(rows[k + 16]) for k in range(16))
+    return (f'<!doctype html><html><head><meta charset="utf-8">{FONTS}'
+            f'<style>{SOC_CSS}</style></head><body>'
+            f'<div class="pad"><div class="top">{MAST}'
+            f'<span class="kick">{week}</span></div>'
+            f'<h1>Power Rankings</h1></div><div class="hash"></div>'
+            f'<div class="grid">{cells}</div>'
+            f'<div class="ft"><span>By Adam Long</span>'
+            f'<span>Movement vs. last week</span></div></body></html>')
+
+
+# ---------------------------------------------------------------- post card
+#
+# The lead story as a 4:5 Instagram image, from the same post the home page
+# promotes. Photos arrive at whatever shape the source was, so the band is
+# pinned to 16:9 and the picture is cropped into it: every week's card then
+# has the same proportions whoever sent the photo.
+
+def lead_post():
+    for p in POSTS:
+        if not p.get("unlisted"):
+            return p
+    return None
+
+def lead_art(post):
+    """(path, focus) for the card. Falls back to the post's own link card."""
+    shot = post.get("photo")
+    if not shot:
+        for para in post["body"]:
+            if isinstance(para, dict) and para.get("img"):
+                shot = para["img"][0]
+                break
+    if shot:
+        focus = shot[2] if len(shot) > 2 else "50% 25%"
+        return HERE.parent / "assets/img" / shot[0], focus
+    return HERE.parent / "assets/img" / f'og-post-{post["slug"]}.png', "50% 50%"
+
+POST_CARD_CSS = """
+*{{box-sizing:border-box;margin:0;padding:0}}
+body{{width:1080px;height:1350px;overflow:hidden;background:{bg};color:{fg};
+ font-family:"Zilla Slab",Georgia,serif;display:flex;flex-direction:column}}
+.shot{{width:100%;height:{band}px;object-fit:cover;object-position:{focus};
+ display:block;flex:0 0 auto}}
+.panel{{flex:1;display:flex;flex-direction:column;padding:68px 68px 60px}}
+.row{{display:flex;justify-content:space-between;align-items:center}}
+.mast-logo{{display:block;height:74px;width:auto}}
+.kick{{font-weight:500;font-size:30px;color:{muted}}}
+h1{{font-weight:700;font-size:{size}px;line-height:.99;letter-spacing:-.035em;
+ margin-top:auto;max-width:{measure}ch}}
+.dek{{font-size:32px;line-height:1.3;font-weight:300;max-width:30ch;
+ margin:26px 0 0;color:{muted}}}
+.foot{{display:flex;justify-content:space-between;align-items:baseline;
+ margin-top:34px;padding-top:28px;border-top:1px solid {rule};color:{muted};
+ font-weight:500;font-size:29px}}
+"""
+
+def post_card():
+    """None when there is nothing to promote."""
+    post = lead_post()
+    if not post:
+        return None
+    slug = post.get("team") or (post.get("teams") or ["chiefs"])[0]
+    d = PAL[slug]
+    img, focus = lead_art(post)
+    uri = ("data:image/" + ("png" if img.suffix == ".png" else "jpeg")
+           + ";base64," + base64.b64encode(img.read_bytes()).decode())
+    plain = strip_tags(post["title"])
+    size, measure = ((96, 12) if len(plain) <= 24 else
+                     (76, 16) if len(plain) <= 40 else (60, 22))
+    dek = (f'<p class="dek">{post["sub"]}</p>' if post.get("sub") else "")
+    # without a dek the panel has little to hold, so the photo takes the slack
+    band = 607 if post.get("sub") else 756
+    css = POST_CARD_CSS.format(bg=d["hero"], fg=d["heroFg"], muted=d["heroMuted"],
+                               rule=d["heroRule"], focus=focus, size=size,
+                               measure=measure, band=band)
+    return (f'<!doctype html><html><head><meta charset="utf-8">{FONTS}'
+            f'<style>{css}</style></head><body>'
+            f'<img class="shot" src="{uri}">'
+            f'<div class="panel"><div class="row">'
+            f'{mast(d["heroFg"], d["hero"])}'
+            f'<span class="kick">{post["kind"]} &middot; {post["date"]}</span></div>'
+            f'<h1>{post["title"]}</h1>{dek}'
+            f'<div class="foot"><span>By {post.get("author", "Adam Long")}</span>'
+            f'<span>{d["name"]}</span></div></div></body></html>')
 
 
 # ---------------------------------------------------------------- app icons
@@ -309,9 +489,36 @@ def jobs():
 # 512px and turns into a pale smear down the middle of the glyph at 16px, so
 # the tab icon uses a heavier, more widely spaced version of the same stitch.
 
-_D3 = re.search(r'd="([^"]+)"',
-                _LOGO_SVG[_LOGO_SVG.index('<g clip-path="url(#0ea32a9e19)">'):]
-                ).group(1)
+# The icon set is drawn from the glyph outline, pinned here rather than
+# parsed out of logo.svg: the wordmark file is Adam's and its internals
+# change on every re-export, but this outline does not.
+_D3 = (
+    "M 383.082031 368.582031 L 383.082031 199.3125 L 353.0625 169.34375 L 298"
+    ".601562 114.839844 L 268.632812 84.871094 L 106.441406 84.871094 L 21.96"
+    "875 169.34375 L 21.96875 281.417969 L 51.9375 313.746094 L 160.875 313.7"
+    "46094 L 160.875 223.734375 L 244.246094 223.734375 L 244.246094 337.4609"
+    "38 L 120.5 337.460938 L 120.5 448.480469 L 145.863281 473.835938 L 244.2"
+    "03125 473.835938 L 244.203125 589.503906 L 160.832031 589.503906 L 160.8"
+    "32031 531.957031 L 130.902344 501.851562 L 21.96875 501.851562 L 21.9687"
+    "5 613.925781 L 106.441406 698.394531 L 106.492188 698.394531 L 136.41015"
+    "6 728.3125 L 298.601562 728.3125 L 383.082031 643.84375 L 383.082031 433"
+    ".539062 L 353.0625 403.707031 L 383.082031 371.644531 Z M 374.917969 202"
+    ".691406 L 374.917969 360.414062 L 353.0625 338.613281 L 353.0625 180.886"
+    "719 Z M 348.988281 618.03125 L 373.160156 642.203125 L 297.195312 718.16"
+    "7969 L 273.023438 693.996094 Z M 152.664062 223.734375 L 152.664062 297."
+    "429688 L 130.902344 275.628906 L 130.902344 199.535156 L 152.707031 221."
+    "347656 Z M 33.121094 281.417969 L 124.582031 281.417969 L 148.734375 305"
+    ".578125 L 55.507812 305.578125 Z M 160.847656 215.566406 L 158.4375 215."
+    "566406 L 136.632812 193.804688 L 244.203125 193.804688 L 244.203125 215."
+    "609375 Z M 148.539062 467.378906 L 128.570312 447.410156 L 244.203125 44"
+    "7.410156 L 244.203125 467.378906 Z M 132.730469 515.300781 L 152.664062 "
+    "535.328125 L 152.664062 589.503906 L 130.902344 589.503906 L 130.902344 "
+    "518.664062 Z M 118.039062 698.394531 L 265.871094 698.394531 L 287.625 7"
+    "20.140625 L 139.789062 720.140625 Z M 374.898438 436.9375 L 374.898438 6"
+    "32.398438 L 353.0625 610.597656 L 353.0625 415.226562 Z M 347.453125 397"
+    ".78125 L 323.511719 372.597656 L 349.707031 347.34375 L 372.933594 370.5"
+    "03906 Z M 347.453125 397.78125 "
+)
 GLYPH_W, GLYPH_H, GLYPH_X, GLYPH_Y = 361.11, 643.44, 21.97, 84.87
 LEATHER, STITCH = "#6f432d", "#ffffff"
 
@@ -394,6 +601,28 @@ async def main():
             await pg.set_viewport_size({"width": size, "height": size})
             await pg.goto("file://" + str(f), wait_until="networkidle")
             await pg.screenshot(path=str(OUT / name))
+        # the social card is 4:5, so it needs a viewport of its own
+        card = power_card()
+        if card:
+            SOCIAL.mkdir(exist_ok=True)
+            f = TMP / "social-power.html"
+            f.write_text(card, encoding="utf-8")
+            await pg.set_viewport_size({"width": SOC_W, "height": SOC_H})
+            await pg.goto("file://" + str(f), wait_until="networkidle")
+            await pg.evaluate("document.fonts.ready")
+            await pg.wait_for_timeout(280)
+            await pg.screenshot(path=str(SOCIAL / "power-rankings.png"))
+
+        lead = post_card()
+        if lead:
+            SOCIAL.mkdir(exist_ok=True)
+            f = TMP / "social-post.html"
+            f.write_text(lead, encoding="utf-8")
+            await pg.set_viewport_size({"width": SOC_W, "height": SOC_H})
+            await pg.goto("file://" + str(f), wait_until="networkidle")
+            await pg.evaluate("document.fonts.ready")
+            await pg.wait_for_timeout(280)
+            await pg.screenshot(path=str(SOCIAL / "lead-post.png"))
         await b.close()
 
     # favicon.ico carries 16/32/48, each rendered at its own size rather than
@@ -414,5 +643,8 @@ async def main():
     for n, _ in pngs:
         (OUT / f"favicon-{n}.png").unlink()
     print(f"{len(ICON_JOBS)} icons + favicon.ico + favicon.svg")
+    print("social/power-rankings.png" if card else
+          "social card skipped (needs two weeks of history)")
+    print("social/lead-post.png" if lead else "no post to promote")
 
 asyncio.run(main())

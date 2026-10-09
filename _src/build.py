@@ -388,7 +388,7 @@ LOGO_SRC = "/assets/img/logo.svg"
 def logo(cls):
     """The wordmark as artwork. alt carries the name for anyone who can't see it."""
     return (f'<img class="{cls}" src="{LOGO_SRC}{V.get("logo", "")}" '
-            f'alt="{SITE_NAME}" width="1389" height="645">')
+            f'alt="{SITE_NAME}" width="645" height="343">')
 
 
 def site_bar(home=False):
@@ -977,17 +977,82 @@ def posts_section():
     for p in POSTS:
         if p.get("unlisted"):   # reachable by link, just not on the index
             continue
-        if p is top:            # it is the lead above; no need to say it twice
-            continue
+        # the lead is the headline act above, so it stays out of the default
+        # grid; it comes back under a filter, or its series would look short
+        lead = ' data-lead="1" hidden' if p is top else ""
         rows.append(
-            f'<a class="ed" href="/posts/{p["slug"]}">'
+            f'<a class="ed" href="/posts/{p["slug"]}"{lead} '
+            f'data-kind="{series_slug(p["kind"])}">'
             f'<span class="when">{p["date"]} &middot; {p["kind"]}</span>'
             f'<h3>{p["title"]}</h3>'
             f'<span class="go">By {p.get("author", "Adam Long")}</span></a>')
     return ('<section class="section editions" id="posts"><div class="wrap">'
             '<h2>Posts</h2>'
-            f'<div class="ed-list">{"".join(rows)}</div>'
+            f'{series_chips()}'
+            f'<div class="ed-list" id="edList">{"".join(rows)}</div>'
             '</div></section>')
+
+def series_chips():
+    """One chip per running series, plus a link through to its own page.
+
+    Filtering happens in the page because every post is already in the DOM;
+    the series pages exist for the linkable, shareable version.
+    """
+    runs = series_index()
+    if not runs:
+        return ""
+    buttons = "".join(
+        f'<button type="button" class="chip" data-filter="{series_slug(k)}" '
+        f'aria-pressed="false">{k}</button>' for k in runs)
+    return (f'<div class="chips"><button type="button" class="chip" '
+            f'data-filter="" aria-pressed="true">All</button>{buttons}</div>')
+
+# ---------------------------------------------------------------- series
+
+def series_slug(kind):
+    return re.sub(r"[^a-z0-9]+", "-", kind.lower()).strip("-")
+
+def series_index():
+    """{kind: [posts]} for every kind with more than one piece in it.
+
+    A one-off like the Cam Ward column is still reachable from the Posts grid;
+    it just does not pretend to be a running series.
+    """
+    out = {}
+    for p in POSTS:
+        if p.get("unlisted"):
+            continue
+        out.setdefault(p["kind"], []).append(p)
+    return {k: v for k, v in out.items() if len(v) > 1}
+
+def build_series(kind, posts):
+    slug = series_slug(kind)
+    url = f"{SITE}/series/{slug}"
+    who = sorted({p.get("author", "Adam Long") for p in posts})
+    desc = (f"Every {kind} on 3rd & Long, by "
+            f'{" and ".join(who)}.')
+    cards = "".join(
+        f'<a class="ed" href="/posts/{p["slug"]}">'
+        f'<span class="when">{p["date"]}</span>'
+        f'<h3>{p["title"]}</h3>'
+        f'<span class="go">By {p.get("author", "Adam Long")}</span></a>'
+        for p in posts)
+    html = (
+        head(f"{kind} &mdash; 3rd &amp; Long", desc, url, f"og-series-{slug}.png")
+        + site_bar()
+        + '<div class="hero hero--post"><div class="wrap">'
+          f'<p class="hero-eyebrow">Series &middot; {len(posts)} entries</p>'
+          f'<h1>{kind}</h1>'
+          f'<p class="byline"><span>{" / ".join(who)}</span></p>'
+          '</div></div><div class="hash"></div>'
+        + '<main id="main"><section class="section editions"><div class="wrap">'
+          f'<div class="ed-list">{cards}</div>'
+          '</div></section></main>'
+        + FOOT + "\n</body>\n</html>\n")
+    d = ROOT / "series" / slug
+    d.mkdir(parents=True, exist_ok=True)
+    (d / "index.html").write_text(html, encoding="utf-8")
+    return len(html)
 
 # ---------------------------------------------------------------- lead story
 
@@ -1010,6 +1075,23 @@ LEAD_CSS = """<style>
   color:var(--muted)}
 @media(max-width:820px){.lead{grid-template-columns:1fr;gap:1.2rem;
   padding:1.8rem 0 2rem}}
+
+/* series filter. The row scrolls sideways on a phone rather than wrapping
+   into two lines and pushing the grid down the page. */
+.chips{display:flex;gap:.5rem;margin:0 0 1.5rem;overflow-x:auto;
+  padding-bottom:.35rem;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:0 0 auto;background:none;cursor:pointer;
+  border:1px solid var(--rule);border-radius:999px;padding:.42rem .85rem;
+  font-family:var(--f-cond);font-weight:600;font-size:.78rem;
+  text-transform:uppercase;letter-spacing:.11em;color:var(--muted)}
+.chip:hover{color:var(--ink);border-color:var(--muted)}
+.chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);
+  color:var(--ground)}
+.chip-all{margin-left:auto;flex:0 0 auto;align-self:center;
+  font-family:var(--f-cond);font-weight:600;font-size:.76rem;
+  text-transform:uppercase;letter-spacing:.11em}
+.ed[hidden]{display:none}
 </style>"""
 
 def lead_art(post):
@@ -1069,6 +1151,34 @@ def home_nav(sections):
             + "</div></nav>")
 
 
+
+CHIP_JS = """<script>
+(function(){
+  var row = document.querySelector('.chips');
+  if (!row) return;
+  var cards = document.querySelectorAll('#edList .ed');
+  var more = document.createElement('a');
+  more.className = 'chip-all';
+  more.hidden = true;
+  row.appendChild(more);
+  row.addEventListener('click', function(e){
+    var b = e.target.closest('.chip');
+    if (!b) return;
+    var want = b.dataset.filter;
+    row.querySelectorAll('.chip').forEach(function(c){
+      c.setAttribute('aria-pressed', String(c === b));
+    });
+    cards.forEach(function(c){
+      if (!want) { c.hidden = c.dataset.lead === '1'; return; }
+      c.hidden = c.dataset.kind !== want;
+    });
+    // the page filter is the quick look; the series page is the shareable one
+    more.hidden = !want;
+    if (want) { more.href = '/series/' + want; more.textContent = 'See all \\u2192'; }
+  });
+})();
+</script>"""
+
 def build_landing():
     cards = []
     for ed in EDITIONS:
@@ -1103,7 +1213,8 @@ def build_landing():
         + '</main>'
         + FOOT
         + f'<script src="/assets/js/nav.js{V["nav"]}" defer></script>'
-          "\n</body>\n</html>\n")
+        + CHIP_JS
+        + "\n</body>\n</html>\n")
     (ROOT / "index.html").write_text(html, encoding="utf-8")
     return len(html)
 
@@ -1778,6 +1889,11 @@ def main():
         n = build_week_page(HIST, i)
         print(f"rankings/{h['slug']}/index.html  {n:>7,} bytes")
 
+    runs = series_index()
+    for kind, group in runs.items():
+        n = build_series(kind, group)
+        print(f"series/{series_slug(kind)}/index.html  {n:>7,} bytes")
+
     entries = team_entries()
     for slug in sorted(entries):
         build_team(slug, entries[slug])
@@ -1791,6 +1907,7 @@ def main():
 
     urls = ([f"{SITE}/"] + [f"{SITE}/{e['slug']}" for e in EDITIONS]
             + [f"{SITE}/posts/{p['slug']}" for p in POSTS if not p.get("noindex")]
+            + [f"{SITE}/series/{series_slug(k)}" for k in series_index()]
             + [f"{SITE}/rankings/{h['slug']}" for h in HIST]
             + [f"{SITE}/teams"]
             + [f"{SITE}/teams/{slug}" for slug in sorted(TEAMS_MOD.TEAMS)])
