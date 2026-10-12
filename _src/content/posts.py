@@ -30,7 +30,7 @@ POSTS = [
     dict(
         slug="dynasty-prospects-2027",
         kind="Guest Column",
-        title="Three Dynasty Prospects to Watch for 2027",
+        title="Three Dynasty Prospects to Watch for in 2027",
         author="Daniel Brents",
         date="2027 Draft",
         body=[
