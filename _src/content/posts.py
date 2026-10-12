@@ -28,6 +28,120 @@
 
 POSTS = [
     dict(
+        slug="dan-quinn-shadow-realm",
+        kind="Column",
+        title="Dan Quinn Must Be Banished to the Shadow Realm",
+        author="Adam Long",
+        date="Week 5",
+        team="commanders",
+        body=[
+            {"img": [("dan-quinn.jpg",
+                      "Dan Quinn at the podium after the tie with the Giants",
+                      "50% 28%")]},
+
+            "So, fair warning here with this one. If you&rsquo;re coming to this "
+            "article expecting objective coverage or unbiased analytics "
+            "pertaining to the Week 5 matchup between the Washington Commanders "
+            "and the New York Giants, today, that is absolutely not what "
+            "you&rsquo;re going to get. I am a diehard Washington football fan, "
+            "and even through the trials and tribulations of the last two "
+            "decades, I don&rsquo;t think I&rsquo;ve ever been more disgusted by "
+            "this team than I was with their loss today. Yes. I know it was a "
+            "tie. But don&rsquo;t get it twisted, this was a LOSS. A big fat L. "
+            "We had every single opportunity to beat an inferior opponent today "
+            "and squandered every single one of them. It&rsquo;s not going to go "
+            "on the record as a loss, and yes, the NFC East is the most "
+            "hilariously hapless division in football so the season is not "
+            "officially over. But this is as pathetic of an ending to a "
+            "professional football game that you&rsquo;re ever going to see "
+            "watching this game.",
+
+            "Now, I don&rsquo;t want to go too hard on any player or players in "
+            "particular here, because I thought individually, we had some pretty "
+            "stellar performances today. The highlight was obviously quarterback "
+            "Jayden Daniels, who had one of his most dynamic games of his young "
+            "career. He was effective throwing the football and moving the "
+            "chains and scored on two electric long touchdown runs. The defense "
+            "was all-world for the first three quarters, and I specifically want "
+            "to call out cornerback Amik Robertson, who through five weeks is "
+            "one of the most impactful coverage guys in the NFL. However, the "
+            "Commanders snatched defeat from the jaws of victory today due to "
+            "the complete and utter ineptitude of this kindergarten coaching "
+            "staff.",
+
+            "First off, Daronte Jones. What in the name of God are you doing out "
+            "there? You called a great game defensively until it mattered. 10 "
+            "total points allowed through 52 minutes. That&rsquo;s excellent. "
+            "Then you called soft zone coverages, got too conservative with your "
+            "blitz packages, and allowed JAMEIS WINSTON to go down the field and "
+            "dice your defense apart three straight times for touchdowns to "
+            "allow the Giants to rally back from down 27-13 with 8 minutes "
+            "remaining. How the hell do you leave Isaiah Likely alone on "
+            "seemingly every single play? He had a CAREER high in catches today. "
+            "Also, Daronte, here&rsquo;s a fun stat for you. Mikey Sainristil is "
+            "5&rsquo;9&rdquo;. Malik Nabers is 6&rsquo;0&rdquo;. I don&rsquo;t "
+            "know if you&rsquo;re a big math guy, but that&rsquo;s a difference "
+            "of three inches. That&rsquo;s a lot! Maybe don&rsquo;t line up our "
+            "most beleaguered corner on one of the most dynamic young receivers "
+            "in the game in a third and long (nice) situation in the red area. "
+            "We looked completely lost out there defensively when it mattered, "
+            "and that falls to you.",
+
+            "Daronte, you&rsquo;re guilty, but you&rsquo;re not the only one. "
+            "David Blough, are you listening? Let me tell you something about "
+            "football, and offensive playcalling in general. When a defense is "
+            "blitzing you (a blitz is where a defense sends more than three or "
+            "four guys on a pass rush, in case you didn&rsquo;t know), you can "
+            "still be effective in your air attack by calling quick passes. "
+            "Think stuff that develops quickly, like screens or slants. What you "
+            "don&rsquo;t want to do is call long developing play-action deep "
+            "passes when the Giants are sending seven to eight guys on every "
+            "passing down. What you REALLY don&rsquo;t want to do is continue to "
+            "call those plays on five consecutive drives when you need to score "
+            "points, even after those plays obviously continue to not work.",
+
+            "OK, OK, so those are just the coordinators. What about the big "
+            "boss? The head honcho? Mr. 28-3 himself? Dan Quinn, you must be "
+            "fired immediately. Not tomorrow morning, not at the bye, not in the "
+            "offseason. Tonight. Don&rsquo;t even let him leave the stadium with "
+            "his job. Now we played poorly in the fourth quarter today, and we "
+            "had a lot of opportunities to win and lose this game until the last "
+            "fifty seconds. I have never seen a more idiotic sequence of events "
+            "than what occurred at the end of this game, and the blame falls "
+            "squarely with Mr. Quinn in that regard. You are the head coach. The "
+            "buck stops with you. Yes, Jayden and the rest of the offense were "
+            "sorely lacking situational awareness in the final minute. But we "
+            "had the ball right outside the red area with a minute left to go, "
+            "and we didn&rsquo;t win the football game. We didn&rsquo;t miss a "
+            "kick to tie. We didn&rsquo;t even TRY. When you have the ball in a "
+            "sudden death situation like that and the kick becomes a chip shot, "
+            "YOU KICK THE FUCKING FIELD GOAL. You got too cute with it, and "
+            "didn&rsquo;t communicate Pop Warner-level clock-management stuff to "
+            "your players and assistants.",
+
+            "Today is October 11, 2026. Dan Quinn was fired by the Atlanta "
+            "Falcons on October 11, 2020. Do you remember any other poor clock "
+            "management situations from his tenure in the big A? I do. Quinn has "
+            "been saddled with a football curse since the comeback in the Super "
+            "Bowl, and we will never achieve real success with him leading this "
+            "team. I&rsquo;m sorry Dan, you really do seem like a nice guy. And "
+            "2024 was awesome, but I give most of the credit to Jayden on that "
+            "one. I cannot and will not put up with this week after week, we "
+            "have been an absolute dumpster fire since the NFC Championship "
+            "game, and you and the front office have seemingly done nothing to "
+            "ameliorate the multiple problems on this roster.",
+
+            "Daronte and David, I recognize that you two are in your first "
+            "year calling plays, so I&rsquo;ll let you off the hook this time "
+            "and give you time to develop. There are plenty of things I&rsquo;m "
+            "seeing from both units that were really encouraging. I&rsquo;m just "
+            "angry. You know, hurt people hurt people, and all that.",
+
+            "Josh Harris. Make the call. Bring Sean McDermott in, and banish "
+            "Quinn to the shadow realm.",
+        ],
+    ),
+    dict(
         slug="rookie-radar-carnell-tate",
         kind="Rookie Radar",
         title="Carnell Tate, WR, Tennessee Titans",

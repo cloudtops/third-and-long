@@ -277,9 +277,13 @@ def build_post(post):
             # runs the measure; two or more share a row and drop to one column
             # on a phone.
             pics = para["img"]
+            # a picture may carry a third value, the focal point the lead
+            # block crops to. It means nothing here, where the whole frame
+            # shows, so take the first two and ignore the rest.
             figs = "".join(
-                f'<img src="/assets/img/{src}" alt="{esc_attr(alt)}" loading="lazy">'
-                for src, alt in pics)
+                f'<img src="/assets/img/{pic[0]}" alt="{esc_attr(pic[1])}" '
+                f'loading="lazy">'
+                for pic in pics)
             cls = "post-figs" + (" post-figs--multi" if len(pics) > 1 else "")
             out.append(f'<figure class="{cls}">{figs}</figure>')
         elif isinstance(para, (list, tuple)):
