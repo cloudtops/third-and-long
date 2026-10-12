@@ -28,6 +28,77 @@
 
 POSTS = [
     dict(
+        slug="dynasty-prospects-2027",
+        kind="Guest Column",
+        title="Three Dynasty Prospects to Watch for 2027",
+        author="Daniel Brents",
+        date="2027 Draft",
+        body=[
+            {"img": [("duff-rutgers.jpg",
+                      "A Rutgers receiver stretches for a pass as a Penn "
+                      "State defender falls away",
+                      "55% 35%")]},
+
+            "It is never too early to begin thinking about the 2027 NFL "
+            "Draft. A highly esteemed class of skill position players led by "
+            "what we believe to be a generational prospect in Jeremiah Smith, "
+            "but what kind of sports advisor would I be if I told you to make "
+            "sure Jeremiah Smith is on your radar? Let me dive a little "
+            "deeper and make sure these three guys are players you are aware "
+            "of.",
+
+            "## KJ Duff, WR, Rutgers",
+
+            "KJ Duff is not a sleeper by any means, but the 6&rsquo; 6&rdquo; "
+            "225-pound wideout will not get the same national recognition as "
+            "players like Smith, Coleman, or RCW. Duff is currently ranked "
+            "4th in receiving yards with an impressive slash of 33/628/7. "
+            "Watch the tape; Duff rarely has to utilize his massive frame as "
+            "his above-average speed and solid route running allows him to "
+            "create separation with ease.",
+
+            "<strong>NFL Comparison:</strong> Drake London, a big-body WR "
+            "that can run the full route tree.",
+
+            "<strong>Ideal NFL Team:</strong> Seattle Seahawks, a team in "
+            "need of a WR2 who can stretch the field for JSN.",
+
+            "## Isaac Brown, RB, Louisville",
+
+            "Speed kills, baby. Brown is the fastest RB in the 2027 NFL "
+            "class, and his breakaway speed leads to massive chunk plays. "
+            "Against Florida State, Brown went for 235 yards on 17 carries, "
+            "scoring twice. Brown had a thousand-yard season with Louisville "
+            "in 2024, but slightly regressed in 2025. The big RB names in "
+            "this class are out of the SEC, but with Hardy likely returning "
+            "to Missouri, Brown will likely shoot up the board.",
+
+            "<strong>NFL Comparison:</strong> De&rsquo;Von Achane, one cut "
+            "running back with elite speed.",
+
+            "<strong>Ideal NFL Team:</strong> Baltimore Ravens, a nightmare "
+            "of a pace switch up between an aging Henry.",
+
+            "## DJ Vonnahme, TE, Iowa",
+
+            "Who doesn&rsquo;t like an Iowa TE? A good old-fashioned tight "
+            "end factory from Iowa has produced another NFL prospect. DJ is "
+            "listed at 6&rsquo; 4&rdquo;, 240-pound which is on the smaller "
+            "side of this year&rsquo;s TE class. I believe he fits the mold "
+            "of the modern TE, one who is built for route running and less "
+            "for goal line sets. DJ is a great blocker, as are almost all "
+            "Iowa tight ends, but his strong point is his versatility as a "
+            "pass catcher. He can catch passes out of the backfield, on the "
+            "line of scrimmage, or even in the slot.",
+
+            "<strong>NFL Comparison:</strong> Dalton Schultz, a useful "
+            "matchup asset that can be reliable out of multiple formations.",
+
+            "<strong>Ideal NFL Team:</strong> Kansas City Chiefs, time to "
+            "replace Kelce with a versatile vertical threat TE.",
+        ],
+    ),
+    dict(
         slug="nirv-column-around-the-league",
         kind="The Nirv Column",
         title="Around the League",

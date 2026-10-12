@@ -16,39 +16,39 @@
 # All 32 teams must be present or the build stops and tells you which are
 # missing — better than publishing a table with holes in it.
 
-WEEK = "After Week 2"
+WEEK = "After Week 4"
 
 RECORDS = """
-Bills 2-0
-Dolphins 0-2
-Patriots 1-1
-Jets 1-1
-Ravens 1-1
-Bengals 2-0
-Browns 1-1
-Steelers 1-1
-Texans 0-2
-Colts 0-2
-Jaguars 1-1
-Titans 0-2
-Broncos 1-1
-Chiefs 2-0
-Raiders 2-0
-Chargers 0-2
-Bears 1-1
-Lions 1-1
-Packers 1-1
-Vikings 2-0
-Cowboys 1-1
-Giants 1-1
-Eagles 2-0
-Commanders 0-2
-Falcons 0-2
-Panthers 1-1
-Saints 1-1
-Buccaneers 0-2
-Cardinals 1-1
-Rams 1-1
-49ers 2-0
-Seahawks 2-0
+Bills 3-1
+Dolphins 0-4
+Patriots 2-2
+Jets 1-3
+Ravens 3-1
+Bengals 2-2
+Browns 3-1
+Steelers 2-2
+Texans 0-4
+Colts 2-2
+Jaguars 3-1
+Titans 0-4
+Broncos 2-2
+Chiefs 4-0
+Raiders 3-1
+Chargers 0-4
+Bears 3-1
+Lions 2-2
+Packers 2-2
+Vikings 4-0
+Cowboys 2-2
+Giants 3-1
+Eagles 2-2
+Commanders 1-3
+Falcons 2-2
+Panthers 2-2
+Saints 1-3
+Buccaneers 0-4
+Cardinals 1-3
+Rams 2-2
+49ers 4-0
+Seahawks 3-1
 """

@@ -29,41 +29,44 @@
 # "1,204" and "12 (T-1st)" all work as values. List as many or as few per
 # category as you like. A misspelled team stops the build and names it.
 
-WEEK = "After Week 2"
+WEEK = "After Week 4"
 
 LEADERS = """
 Passing Yards
-1. Tyler Shough, 662
-2. Bryce Young, 648
-3. CJ Stroud, 627
+1. Bryce Young, 1268
+2. Jared Goff, 1214
+3. Matthew Stafford, 1189
 
 Passing TDs
-T-1. Kirk Cousins, Jared Goff, Bryce Young, Dak Prescott, 6
+T-1. Kirk Cousins, Brock Purdy, 11
+T-3. Patrick Mahomes, Jared Goff, Bryce Young, 9
 
 Rushing Yards
-1. Kenneth Walker III, 290
-2. Derrick Henry, 212
-3. Jahmyr Gibbs, 208
+1. Kenneth Walker III, 537
+2. James Cook, 421
+3. Derrick Henry, 374
 
 Rushing TDs
-T-1. Josh Allen, Derrick Henry, Jonathan Taylor, 4
+T-1. Josh Allen, Derrick Henry, 7
+3. Jonathan Taylor, 6
 
 Receiving Yards
-1. Jaxon Smith-Njigba, 277
-2. Chris Olave, 268
-3. Dalton Kincaid, 225
+1. CeeDee Lamb, 498
+2. Jaxon Smith-Njigba, 481
+3. Tee Higgins, 401
 
 Receiving TDs
-T-1. Jaxon Smith-Njigba, Amon-Ra St. Brown, 4
-T-3. Stefon Diggs, CeeDee Lamb, Christian Watson, 3
-
-Sacks
-1. Greg Rousseau, 4.0
-2. T.J. Watt, 3.5
-T-3. Alex Highsmith, Aidan Hutchinson, Dallas Turner, 3.0
+1. Jaxon Smith-Njigba, 6
+2. Amon-Ra St. Brown, 5
+T-3. George Kittle, CeeDee Lamb, Christian Watson, 4
 
 Team Defense - DVOA
-1. San Francisco 49ers, 78.0%
-2. Buffalo Bills, 52.7%
-3. Baltimore Ravens, 38.3%
+1. San Francisco 49ers, 54.8%
+2. Jacksonville Jaguars, 40.2%
+3. Kansas City Chiefs, 25.9%
+
+Sacks
+1. Greg Rousseau, 6.0
+2. Dallas Turner, 5.5
+T-3. Will Anderson Jr., T.J. Watt, 4.5
 """
