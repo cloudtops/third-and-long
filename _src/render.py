@@ -455,8 +455,12 @@ def post_card():
     post = lead_post()
     if not post:
         return None
-    slug = post.get("team") or (post.get("teams") or ["chiefs"])[0]
-    d = PAL[slug]
+    # a post with no club (a guest column, say) must not borrow one: that
+    # default used to put "Kansas City Chiefs" under a column about penguins
+    slug = post.get("team") or (post.get("teams") or [None])[0]
+    d = (PAL[slug] if slug else
+         {"hero": "#101418", "heroFg": "#EDEEE9", "heroMuted": "#8B9490",
+          "heroRule": "#2C333A", "name": "3rd &amp; Long"})
     img, focus = lead_art(post)
     uri = ("data:image/" + ("png" if img.suffix == ".png" else "jpeg")
            + ";base64," + base64.b64encode(img.read_bytes()).decode())

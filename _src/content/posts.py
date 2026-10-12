@@ -28,6 +28,412 @@
 
 POSTS = [
     dict(
+        slug="nirv-column-around-the-league",
+        kind="The Nirv Column",
+        title="Around the League",
+        author="Noah Irving",
+        date="2026 Week 5",
+        body=[
+            {"img": [("nirv5-penguins.jpg",
+                      "Two gentoo penguins walking across the snow",
+                      "50% 40%")]},
+
+            'First and foremost, if the Washington State Cougars decide to '
+            'trot out Pinnick again at ANY point this year, we&rsquo;ll '
+            'bring J6 to Pullman directly into Kirby Moore&rsquo;s office.',
+
+            'Now that that is out of the way, welcome to yet another '
+            'rendition of the Nirv Column. We decided to take a bit of a '
+            'different approach this week, and actually talk some ball. '
+            'Fret not, I&rsquo;m not the one doing the talking. Instead, we '
+            'took to the streets, to see what other NFL fans around the '
+            'league are feeling about their team. Editor&rsquo;s note: '
+            'these questions were asked prior to the week 5 games playing '
+            'out. I&rsquo;m sure we would have some updates if we followed '
+            'up after Sunday&rsquo;s batch of crap.',
+
+            'I wanted to get a quick pulse check after a few games under '
+            'our belts. Below are some answers from different fans around '
+            'the league, to the questions everyone has been wondering:',
+
+            'Do you like where your team is at right now? What changes, if '
+            'any, would you make?',
+
+            'What is the best red food?',
+
+            '(Second editor&rsquo;s note: in case you haven&rsquo;t heard '
+            'already, they found a new species of penguin. Check &rsquo;em '
+            'out <a '
+            'href="https://www.bbc.co.uk/newsround/articles/cm93vrgkrvx4o" '
+            'target="_blank" rel="noopener">here</a>.)',
+
+            'Now, to hear what you all have to say on the state of your '
+            'teams:',
+
+            '## Huber K (Chicago Bears)',
+
+            'I love that the Bears are still able to win games with where '
+            'they are at right now. Of course I would love to see Caleb '
+            'Williams out there but the offense appears efficient under Ben '
+            'Johnson even without him. Our defense has shown signs of being '
+            'much better than last year. We led the league in takeaways but '
+            'the points allowed were killing us. Which after the Panthers '
+            'game I thought was still going to be an issue. I&rsquo;d say '
+            'if I were to rate it out of 10, I&rsquo;d probably go 6.5/10 '
+            'given that I want Caleb out there and I&rsquo;ll probably '
+            'never forgive Sam Roush.',
+
+            'Best red food: Strawberries are definitely up there for me but '
+            'if I could pick anything probably Chamorro Empanadas, '
+            'they&rsquo;re pretty red/orange in comparison to traditional '
+            'empanadas.',
+
+            '## Spencer T (Las Vegas Raiders)',
+
+            'How do I like where my team is at. Happy? Yes. Furious? Also '
+            'yes. Being 3-1 as a Raiders fan is weird because every win '
+            'still feels like a hostage situation. Back-to-back special '
+            'teams turnovers is the football equivalent of setting your own '
+            'kitchen on fire then being shocked there&rsquo;s smoke in the '
+            'house. We literally gift-wrapped points for the Chiefs. You '
+            'can&rsquo;t spot Mahomes opportunities and expect him to '
+            'politely decline. That said, Kirko Chainz has me believing '
+            'again. Klint Kubiak&rsquo;s offense actually looks like it was '
+            'designed by people who have watched football before. For the '
+            'first time in a long time, the Raiders look competent, which '
+            'honestly might be the scariest part. So yeah, I&rsquo;m loving '
+            'where we&rsquo;re at. If we could stop treating special teams '
+            'like a weekly charity event, I&rsquo;d be even happier.',
+
+            'Spencer then went on to describe his intramural softball team:',
+
+            'For my softball league teams, I&rsquo;m somehow both happy and '
+            'annoyed. My Tuesday men&rsquo;s team (Pitches be Crazy) '
+            'finished 3rd, which sounds great until you realize we '
+            'absolutely should&rsquo;ve finished 1st. A couple of crappy '
+            'innings turned us ahead 4 runs to losing by 2. It&rsquo;s like '
+            'getting a bronze medal after tripping over your own shoelaces '
+            'on the way to gold. It&rsquo;s sad because it wasn&rsquo;t '
+            'even pitches that were crazy, it was poor fielding in routine '
+            'plays. My Wednesday co-ed team (Battered Souls) went '
+            'undefeated all season, so naturally our reward was&hellip;not '
+            'getting to play in the playoffs because of scheduling '
+            'conflicts. Apparently our toughest opponent this year '
+            'wasn&rsquo;t another team, it was a damn calendar. If I could '
+            'change anything? I&rsquo;d like a scheduling coordinator who '
+            'understands that adults have jobs, families, and about 17 '
+            'other commitments beyond chasing a yellow ball around a '
+            'diamond. Overall though, one team finished 3rd when they '
+            'should have been 1st, and the other never lost a game. '
+            'I&rsquo;ll take it. I just wish our season didn&rsquo;t end '
+            'because we got defeated by logistics instead of another team.',
+
+            'Best red food: I&rsquo;ve always said Italian is something I '
+            'think I could eat every day for the rest of my life but as '
+            'I&rsquo;ve gotten older the red sauces have started haunting '
+            'me and popping Pepcid and Tums like it&rsquo;s Halloween '
+            'night. The indigestion is too much so I prob lean towards '
+            'steak or burgers although it&rsquo;s technically more pink '
+            'than red I like medium rare so some red there and then paired '
+            'with a nice Cab. I did make Brook a nice stuffed bell pepper '
+            'chicken parm that was very delicious but haunted me later.',
+
+            '## Justin B (Denver Broncos)',
+
+            'Thanks for the opportunity to answer such an important '
+            'question.',
+
+            'Looking at the state of the Denver Broncos so far this season '
+            'I would say I&rsquo;m underwhelmed. The defense has been good '
+            'but not top 3 as expected. Granted they have played a very '
+            'difficult schedule to open the year. A lot rides on Pat '
+            'Surtain getting healthy.',
+
+            'The offense has basically been a middle school offense. No '
+            'down field throws. So safe. So conservative. No points. Sean '
+            'needs to take back the play calling. Bo showed last year he '
+            'can make things happen and put up points if you let him go for '
+            'it. Sure there will be mistakes but he also has more game '
+            'winning drives than almost everyone in the league over the '
+            'last 5 years or so. I&rsquo;d rather lose taking some shots '
+            'than lose running RB flat and 8 yard crossing routes.',
+
+            'Not a supey year like I hoped sadly. Not sure where they go '
+            'from here to crack into that level.',
+
+            'Best red food: Alaskan King crab. Gail said Twizzlers.',
+
+            '## Michael C (Chicago Bears)',
+
+            'Absolutely. I was excited for the offense and dreading '
+            'watching the defense going into the year. The offense has '
+            'surpassed or at the very least met high expectations, which '
+            'includes games with 2 different backup quarterbacks. And then '
+            'the defense has been playing much better than I expected. Week '
+            '1 was a rough go, but since, they&rsquo;ve been an average to '
+            'above average defense while limited talent wise. I still want '
+            'them to add a big name and some depth in the front 7, but I '
+            'cannot complain about how they have looked. If the offense '
+            'keeps this pace, an average defense will be enough for the '
+            'Bears to be at least interesting in the playoffs. I had never '
+            'experienced Bears coaches that can elevate both sides of the '
+            'ball to this level but Ben Johnson and Dennis Allen have been '
+            'unbelievable. Not necessarily saying they&rsquo;re a top Super '
+            'Bowl contender this year but I&rsquo;m very excited for the '
+            'next few years with this team.',
+
+            'Best red food: Lasagna.',
+
+            '## Cole F (Washington State Cougars)',
+
+            'First on the agenda, exchange Matt Miller&rsquo;s headset for '
+            'a vacuum, he would be more of a benefit to the team cleaning '
+            'the locker room rather than calling plays. Second, seems like '
+            'Pinnick might have some dirt on Kirby Moore (only reason I see '
+            'why he hasn&rsquo;t been benched) so pull a little Tonya '
+            'Harding and get him out of commission. Third, see how offense '
+            'looks against Utah State but if it looks the same as before '
+            'complete overhaul and bust out the good ol triple option with '
+            'Duggar. Absolutely hate where we&rsquo;re at right now.',
+
+            'Best red food: Hmm, maybe a good bolognese with pasta if '
+            'that&rsquo;s pushing the red agenda, salsa is another one that '
+            'comes to mind.',
+
+            '## Paul E (LA Chargers)',
+
+            'No I do not. The game has passed Jim by. The 4th down decision '
+            'making is archaic, the press conferences are a mess. He '
+            'genuinely looks like he has no idea what&rsquo;s going on up '
+            'there. The hallmark of a Jim Harbaugh football team is '
+            'supposed to be toughness and mistake free football. The '
+            'Chargers are a disaster operationally, the interior of the '
+            'O-Line has been neglected for years, and he hired an offensive '
+            'coordinator that was supposed to elevate a top 5 talent at '
+            'quarterback, and instead he changed his footwork and tried to '
+            'turn him into a timing anticipation thrower. Joe Hortiz is '
+            'cocky in press conferences when he hasn&rsquo;t hit on a draft '
+            'pick not named Joe Alt in three years. Tear the entire thing '
+            'down and sell the team while they&rsquo;re at it.',
+
+            'Best red food: This is New Mexico as fuck, but carne adovada '
+            'with red chile.',
+
+            '## Adam L (Washington Commanders)',
+
+            'I could probably answer this question with nuance, I could '
+            'probably answer this question with a million different things '
+            'that have gone right and gone wrong over the last three '
+            'seasons (and I will), but to start off I will answer this '
+            'question with a fairly firm and resounding No. Although, to be '
+            'fair, as a lifelong fan of the Washington Redskins/Football '
+            'Team/Commanders, I have never really ever been able to answer '
+            'Yes to this specific question. I can remember two times '
+            'specifically in which I remember being able to answer in the '
+            'affirmative, once during the 2012 season, when we were riding '
+            'high off the dazzling rookie season of RGIII, and once in '
+            '2024, when we rode a different rookie QB all the way to the '
+            'NFC championship in a run nobody outside of Ashburn '
+            'could&rsquo;ve possibly predicted.',
+
+            'After that beautiful run in Jayden Daniels&rsquo; rookie year, '
+            'where we defied all odds and he brought us from a 4-13 2023 '
+            'campaign to a 14-6 season and one game from our first Super '
+            'Bowl appearance since 1992, things have been tenuous in the '
+            'nation&rsquo;s capital. Our front office spent their first '
+            'offseason post-NFC championship building the wrong way, where '
+            'GM Adam Peters put a premium on signing free agents from '
+            'yesterday in order to build around the now second-year signal '
+            'caller. See Deebo Samuel, Von Miller, and Marshon Lattimore. '
+            'These signings weren&rsquo;t disastrous, as Miller was our '
+            'sack leader last year (I know, ouch) and Samuel was largely '
+            'serviceable when he was available. We won&rsquo;t talk about '
+            'Lattimore. The most notable problem with this team has been '
+            'building through the draft (an issue inherited from previous '
+            'head coach Ron Rivera, who did not hit on a single first-round '
+            'draft pick during his four-year tenure), although the last two '
+            'classes look much better than in years past. Last year saw the '
+            'additions of a starting tackle (Josh Conerly), a starting '
+            'corner (Trey Amos, will be elite when he returns from injury, '
+            'had a great rookie year), and a starting running back (Bill '
+            'Croskey-Merritt). This draft was fine, but 2026 looks to be '
+            'even better with the most notable addition of LB Sonny Styles '
+            'from Ohio State, who we selected with the seventh overall '
+            'pick. He is probably the brightest spot on this team as of '
+            'Week 4 of the 2026 season.',
+
+            'So with these relatively successful draft classes recently, '
+            'you might wonder why my outlook seems so sour, especially for '
+            'a team that has so recently gone deep into the postseason. '
+            'This roster is not good. Injuries are rampant, and significant '
+            'injuries to a team whose roster isn&rsquo;t deep enough in the '
+            'first place are a death sentence to any team, let alone a '
+            'squad that won five games in 2025. Outside of Daniels, '
+            'McLaurin, Tunsil, Cosmi, and Amos, the lack of star power '
+            'leaves too much to be desired, especially considering that all '
+            'five of those previously mentioned players, who are probably '
+            'the five best players on the team, are currently injured. '
+            'Daniels, who is the primary superstar, is the one that makes '
+            'fans the most nervous, as he missed 10 games last year in some '
+            'capacity and will probably miss his third game of the year on '
+            'Sunday already. JD5 is an incredible football player, but '
+            'anyone who knows the NFL knows that the best ability is '
+            'availability, and if your best player(s) can&rsquo;t get on '
+            'the field week in and week out, then you don&rsquo;t really '
+            'have a competitive pro football team.',
+
+            'I really hope that these guys can get back on the field soon, '
+            'especially with how weak the division looks this year, but '
+            'starting the year off once again bitten by the injury bug and '
+            'holding a 1-3 record does not inspire much confidence. '
+            'Hopefully I can eat my words when Jayden comes back in Week 5 '
+            'against the Giants, goes for 6 total touchdowns en route to an '
+            'MVP season. What&rsquo;s being a fan if you&rsquo;re not '
+            'smoking at least a little bit of hopium?',
+
+            'Best red food: pizza. Or any big red bug.',
+
+            '## Jacob C (Seattle Seahawks)',
+
+            'As far as the Seahawks I do like where we are at for the most '
+            'part, pretty tough to critique the defending champs but if I '
+            'had to I would like to see Shaheed getting some more action '
+            'with teams only trying to take away JSN more and more. And '
+            'clean up penalties to keep the defense fresh. And I&rsquo;d '
+            'bring back the white throwbacks like yesterday.',
+
+            'We then asked Jacob about the team he coaches for, the Ephrata '
+            'Tigers:',
+
+            'As far as Ephrata I think we&rsquo;re in an interesting spot, '
+            'numbers have been going down the last couple years but not '
+            'necessarily a football issue, seems that&rsquo;s the case for '
+            'youth sports all around us so need to get that fixed somehow. '
+            'Our program in particular I think needs a revamp, seems to be '
+            'getting a tad stale so looking into redesigning the playbook '
+            'and practice structure for next year.',
+
+            'Best red food eh? Basic bitch but I go crazy for lasagna.',
+
+            '## Alex H (Seattle Seahawks)',
+
+            'I sure liked how the Seahawks looked week 1&amp;2 more than '
+            '3&amp;4. We can easily chalk that up to RB &amp; safety '
+            'injuries, and Sam Darnold being shaky sure. But what I need to '
+            'see this next week against SF offensively is solidifying our '
+            'WR2. JSN is on a generational run, but I am really looking for '
+            'Horton or Shaheed to take over this divisional showdown. We '
+            'have been getting KILLED on 3rd and long all year, I need to '
+            'see a WR2 step up and make some plays. If the run game '
+            'isn&rsquo;t going to be there this year, we need to make up '
+            'for it with all the talent we have in WR depth, because what '
+            'we&rsquo;ve seen so far ain&rsquo;t cutting it.',
+
+            'Best red food: Strawberries. Including that one strawberry '
+            'candy. Also strawberry pop tart. Mmmmm.',
+
+            '## Reece R (video games)',
+
+            'Not an easy task but I think we have a winner for favorite '
+            'game and only one super small change. I think we have to break '
+            'it down into a few categories a little bit though.',
+
+            [
+                'Story',
+                'Gameplay (how fun is it to just run and jump around)',
+                'Replay-ability',
+                'Nostalgia',
+                'Hours of fun',
+            ],
+
+            'Hands down the winner for me has to be Halo Reach. I thought '
+            'back on a lot of fun I&rsquo;ve had playing games over the '
+            'years but something about Halo Reach always stuck with me. The '
+            'way Bungie was in the flow state by the 4th halo game is '
+            'something I feel like we might never see again in our '
+            'lifetime.',
+
+            'Halo 1 changed shooter games forever, Halo 2 was the '
+            'grandfather of Xbox Live multiplayer gaming (plus dual SMGs) '
+            'then they drop Halo 3 on us with the best multiplayer and '
+            'create Forge mode. So Halo Reach has to now follow up possibly '
+            'the greatest trilogy in gaming with one of the most iconic '
+            'main characters ever.',
+
+            'Luckily Bungie delivered with the final Halo game they ever '
+            'made and gave us a masterpiece. Something about that reveal '
+            'that a team of the coolest 6 Spartans are the only reason '
+            'humanity even had a chance with good ole Master Chief. I can '
+            'still remember how shocked I was after watching each of the '
+            'Noble team deaths (besides Jun, I&rsquo;m pretty sure he got '
+            'away after Halsey gives Jorge Cortana) Jorge throwing you back '
+            'to earth out the side of Covenant ship that blows up only to '
+            'reveal 1000 more. Or when Kat gets sniped out of nowhere mid '
+            'sentence. Commander went out like a badass just to give you a '
+            'few extra seconds and then the boy Emile taking out ships for '
+            'you until the last possible minute. Then that last mission '
+            'Lone Wolf where you realize as a kid there is no winning this '
+            'game and the win was getting Cortana off the planet, and then '
+            'they just hit you with that helmet sitting in the mud with the '
+            'mountain in the background, absolutely masterpiece.',
+
+            'That&rsquo;s just for story and then we get into why this game '
+            'really wins and that&rsquo;s because it sweeps the last 4 '
+            'categories. Sure Minecraft is fun but Halo Reach&rsquo;s forge '
+            'mode gave me and boys hundreds of hours of fun and that same '
+            'feeling you get in Minecraft.',
+
+            'Then you get the buttery gameplay and the addition of the '
+            'armor upgrades. Nothing like sending your decoy out in swat '
+            'just to see someone walk right in front of you for the '
+            'cleanest headshot ever. Still to this day no multiplayer game '
+            'competes with the fun I had getting a 20 piece in Halo Reach '
+            'swat. It still has insane replay-ability too. Every time I go '
+            'back I can get into a lobby or even just run a campaign '
+            'mission for a shot of nostalgia.',
+
+            'I think hours of fun and nostalgia go hand in hand too. There '
+            'was something incredible about the way me and the boys could '
+            'lock into a forge build for hours on end. The amount of mazes '
+            'and obstacle courses we made and tested for what seemed like '
+            'weeks on end was some of the best times I&rsquo;ve ever had '
+            'gaming. Then there&rsquo;s going on Live with a headset and '
+            'talking crazy shit playing 4 player split screen. Or every '
+            'time we would play 4 player split screen and get mad because '
+            'the god damn kill feed would go directly over your gun sights. '
+            'And then the whole world of firefight was hours of more fun '
+            'when the other stuff finally got old. The rotation in this '
+            'game was crazy and it just never got old, nothing like it and '
+            'don&rsquo;t think there ever can be again.',
+
+            'Only change I would make to this masterpiece is to make '
+            'leveling up easier because god damn that was a grind, '
+            'otherwise 10/10 RIP Bungie made Halo games.',
+
+            'Best red food: Easy&hellip;Honeycrisp apple.',
+
+            '## Shawn P (LA Rams)',
+
+            'Don&rsquo;t love where the Rams are at but don&rsquo;t hate '
+            'it. They are one bad PI call away from being 3-1.',
+
+            'As long as Myles Garrett comes back healthy we should be in '
+            'good shape for down the stretch. McDuffie is a beast. And the '
+            'offense should be clicking finally now that Puka is back.',
+
+            'Best red food: Strawberries.',
+
+            '## And there you have it',
+
+            'Some great insight from around the league. We&rsquo;ll follow '
+            'up with these guys in a few weeks, to get an update on their '
+            'teams. Until then, just be thankful you aren&rsquo;t an Eagles '
+            'or a Commanders fan. And don&rsquo;t get me started about the '
+            'Chargers (sorry Paul E from New Mexico. At least you have the '
+            'Ducks!)',
+        ],
+    ),
+    dict(
         slug="dan-quinn-shadow-realm",
         kind="Column",
         title="Dan Quinn Must Be Banished to the Shadow Realm",
