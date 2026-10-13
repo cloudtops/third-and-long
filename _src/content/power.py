@@ -15,50 +15,56 @@
 #
 # All 32 teams must be present, or the build stops and names the ones missing.
 
-WEEK = "After Week 4"
+WEEK = "After Week 5"
 
 RANKS = """
-1. Kansas City Chiefs (4-0)
-2. San Francisco 49ers (4-0)
-3. Seattle Seahawks (3-1)
-4. Jacksonville Jaguars (3-1)
-5. Chicago Bears (3-1)
-6. Buffalo Bills (3-1)
-7. Las Vegas Raiders (3-1)
-8. Minnesota Vikings (4-0)
-9. Baltimore Ravens (3-1)
-10. Denver Broncos (2-2)
-11. Los Angeles Rams (2-2)
-12. Carolina Panthers (2-2)
-13. Cleveland Browns (3-1)
-14. Cincinnati Bengals (2-2)
-15. Dallas Cowboys (2-2)
-16. New York Giants (3-1)
-17. Detroit Lions (2-2)
-18. Indianapolis Colts (2-2)
-19. Atlanta Falcons (2-2)
-20. New England Patriots (2-2)
-21. Philadelphia Eagles (2-2)
-22. Pittsburgh Steelers (2-2)
-23. Green Bay Packers (2-2)
-24. Washington Commanders (1-3)
-25. New Orleans Saints (1-3)
-26. Houston Texans (0-4)
-27. New York Jets (1-3)
-28. Arizona Cardinals (1-3)
-29. Los Angeles Chargers (0-4)
-30. Miami Dolphins (0-4)
-31. Tennessee Titans (0-4)
-32. Tampa Bay Buccaneers (0-4)
+1. San Francisco 49ers (5-0)
+2. Kansas City Chiefs (4-0)
+3. Seattle Seahawks (3-2)
+4. Buffalo Bills (4-1)
+5. Jacksonville Jaguars (4-1)
+6. Baltimore Ravens (4-1)
+7. Minnesota Vikings (5-0)
+8. Denver Broncos (3-2)
+9. New England Patriots (2-3)
+10. Chicago Bears (3-2)
+11. Los Angeles Rams (2-3)
+12. Detroit Lions (3-2)
+13. Cincinnati Bengals (3-2)
+14. Carolina Panthers (2-2)
+15. Atlanta Falcons (2-3)
+16. Las Vegas Raiders (3-2)
+17. Pittsburgh Steelers (3-2)
+18. Green Bay Packers (3-2)
+19. Houston Texans (1-4)
+20. Indianapolis Colts (2-3)
+21. Dallas Cowboys (2-3)
+22. Cleveland Browns (3-2)
+23. Philadelphia Eagles (2-3)
+24. New York Jets (2-3)
+25. New York Giants (3-1-1)
+26. New Orleans Saints (1-4)
+27. Tampa Bay Buccaneers (1-4)
+28. Los Angeles Chargers (0-5)
+29. Miami Dolphins (0-5)
+30. Arizona Cardinals (1-4)
+31. Washington Commanders (1-3-1)
+32. Tennessee Titans (0-5)
 """
 
 # The weekly write-up above the board. Blank-line-separated paragraphs.
 NOTES = """
-Alrighty folks, another week of pro ball is in the books and boy do I have some updates for you! Plenty of movement all over the power ranking leaderboard, although this week provided a little less confusion in terms of basically every game being an upset. I think it&rsquo;s still just a tad too early to start making concrete declarations about Who&rsquo;s Hot and Who&rsquo;s Not at this juncture, but the fog of the first month of the season is beginning to subside. We are a long way off from predicting playoff seeding or draft order, but I don&rsquo;t think anyone would tell me I&rsquo;m taking crazy pills if I told you the Lombardi Trophy is probably not making the trip to Nashville or Tampa in 2027.
+Please, no one make fun of me. I&rsquo;ve been through enough with my dogshit team this week. I&rsquo;m not going to say anything about the Commanders-Giants game in this recap, nobody needs to relive that. If you really care that much I wrote a whole article about it (read it <a href="/posts/dan-quinn-shadow-realm">here</a>, you masochists).
 
-Let&rsquo;s get into the games. The Steelers and Browns kicked off the week on Thursday night in Believeland, a close matchup which saw Aaron Rodgers and Mike McCarthy exchanging some colorful sideline pleasantries, and Deshaun Watson continuing to play solid enough football (Solid, not good. There&rsquo;s a difference!) to earn his team a victory and improve to 3-1 (?????). Indy and Washington played in what was likely the worst game of the week, an unfortunate contest for Commanders fans who saw their backup QB Marcus Mariota go down with what looks like a fairly significant knee injury. Indiana Jones and the Colts (AND THE REFS!!!&hellip; ok sorry I&rsquo;m biased, shoot me) got the win thanks to Jonathan Taylor doing whatever he wanted to a Washington run defense that&rsquo;s been surprisingly stout this season. Baltimore Ravens fans can breathe a sigh of relief after barely knocking off the cellar-dwelling Titans, as QB Lamar Jackson&rsquo;s injury towards the end of the game is only an ankle sprain that will have him week to week. Tennessee still looks inept, surprise surprise. The Bears, led by backup QB Tyson Bagent (you sensing a theme here yet?) gave it to the J-E-T-S, and Chicago improved to 3-1 after only playing six quarters of football with Caleb Williams so far this season. A surprise in Buffalo, where Drake Maye finally clocked out from Jersey Mike&rsquo;s and led a 10-play, 73-yard drive to beat the Bills in Buffalo on a game-winning touchdown strike to WR Efton Chism III. The story with the Jags and the Bengals continued the trend of Refball dominating Week 4, but the Duval faithful grabbed another win to improve to 3-1. Vibes are subpar in Cincinnati, as both superstar wide receivers for Who Dey nation are out for the foreseeable future. Insult to injury, or whatever. On to the battle of Texas, where the Cowboys beat the Texans 34-30 behind the ridiculous 17-catch, 189-yard performance of league-leading receiver CeeDee Lamb. The Texans fell to 0-4 and all but dashed their high preseason expectations. I don&rsquo;t have a lot to say about the Cardinals-Giants contest, aside from being impressed by the resilience of this Giants team and being depressed by the quality of Arizona&rsquo;s defense. New York got the win and improved to 3-1 (?????). The battle between Philadelphia and the LA Rams was a matchup between two teams that are probably good but you wouldn&rsquo;t know it by watching their games this season. The Rams squeaked it out to improve to 2-2, still alive in the ultra-competitive NFC West. I basically have nothing to say about Packers-Buccaneers. Congrats Packers fans, you beat an undrafted rookie quarterback and a terrible football team by three points. Yikes. Bad vibes in Cheese Land.
+Anyway, a whole lot of moving and shaking going on in the big leagues this weekend. Upsets, blowouts, a few really exciting close games, and the most ridiculously idiotic finish to a football game you&rsquo;ll see this decade. Wait, no, I said I&rsquo;m not talking about that. Let&rsquo;s talk about all the teams that actually know how to play the sport of football!
 
-Onto the late slate, Minnesota improved to 4-0 behind a stellar defensive performance to defeat the Dolphins. Despite their unblemished record, the Vikings&rsquo; offensive ineptitude needs to be fixed, and fast, if they want to actually be competitive in January. The Chiefs defeated the Raiders in what was my most-excited-for game this week, where I was very interested to see how this previously undefeated Vegas club would fare against a competent team. Although they didn&rsquo;t get the win, I&rsquo;m very impressed and encouraged by what I saw from the Raiders, who very nearly completed a fourth-quarter comeback in a game that could&rsquo;ve gone either way. Next, we make for the Pacific Northwest, where the defending champs bounced back with a win against the hapless Chargers. Although the scoreboard made it look closer than it was for most of this one, Seattle cruised to a one-score victory behind the strength of their defense. Staying on the West Coast, the 49ers beat the Broncos to improve to 4-0 in a game that was firmly controlled by San Francisco for all 60 minutes. Brock Purdy should be everyone&rsquo;s MVP frontrunner at this point in the season, dude is playing essentially perfect football. The Panthers beat the Lions in Charlotte, and you can hear all about that <a href="/posts/week-4-panthers-lions/">here</a> in my Game of the Week column.
+We start off with the funniest thing I can imagine, which was the Cowboys getting completely overwhelmed by the formerly 0-4 Buccaneers and their UDFA rookie QB Jalon Daniels in JerryWorld. This Cowboys team will not win a game unless their offense scores 30+, their defense is that awful. Christian Parker, your days are numbered in Dallas. Anyway, you can read more about Jalon (Yes, Jalon. Not Jayden. Shut up about it already!!!!) Daniels and his performance in this week&rsquo;s <a href="/series/rookie-radar">Rookie Radar</a>. On an equally hilarious note, the Eagles crossed the pond and blew a lead with 0:06 remaining, falling to the London Jaguars and continuing their slide into mediocrity. The Post-Sirianni Era is rapidly approaching. On to the NFC North, where the Packers beat up on the rival Bears to the tune of 31-7. Jordan Love was the best player in football this weekend, and looked like the player we saw in 2025, not whoever the hell he is so far this season. Tyson Bagent was atrocious, and this was probably the most unfortunate Sunday of Ben Johnson&rsquo;s tenure in the Windy City to this point. Texans-Titans was a snoozefest, but CJ Stroud and the Texans got their first win of the season against what just might be the worst team to play football this decade. Cam Ward, I am your strongest soldier, and just wrote an entire article LAST WEEK about why people shouldn&rsquo;t give up on you, but this is getting to the point where I cannot possibly keep defending the product on the field. I looked at the schedule and I honestly think it&rsquo;s more likely than not that Tennessee finishes 0-17. My sincerest condolences, Jeremiah Smith.
 
-Finally, Week 4 was capped off in NOLA, where the Saints celebrated the 20th anniversary of the Superdome reopening after Hurricane Katrina by getting thoroughly spanked by the rival Atlanta Falcons. Bijan Robinson cemented himself as the best running back in the league, call it the eye test, but there really isn&rsquo;t anyone else in football moving like him with the ball in his hands. So there you have it, a rapid fire recap of all the games from this week. Maybe next week I&rsquo;ll try and throw some more name puns in there for all you Fastest Two Minutes fans. Maybe I won&rsquo;t. I&rsquo;m not your dad.
+Cincy vs. Miami is next, a game that actually was closer than initially expected. I&rsquo;m not going to blow smoke up your ass here, I didn&rsquo;t watch this game. Can you blame me? Cincinnati gets a close W to improve to 3-2, along with every other team in the AFC North, and also every other team in the NFC North! Fun stat. We&rsquo;re Fun Stats guys here at 3rd &amp; Long. I was disappointed to see the Raiders get boat raced by the Patriots, it appears the Silver &amp; Black&rsquo;s 3-0 start was simply a Vegas mirage. Drake Maye has now officially retired from Jersey Mike&rsquo;s and is back to playing MVP-level football. That was really weird there for a little bit. Down in the Big Easy the Saints dropped their third straight home game to the Minnesota Vikings, who improved to 5-0 and actually got solid offensive production from their offense, not their kicker Will Reichard. Defensive coordinator Brian Flores blitzed Tyler Shough and the Saints at a 85.2% rate. I don&rsquo;t even need to say anything else. Read that again.
+
+The New York Jets defeated the Cleveland Browns, who remembered that they are the Cleveland Browns and as such, suck at playing football. WR Denzel Boston looks great, so you have that going for you. Which is nice. Anyway, the main story here is that Jets rookie LB David Bailey, the number two overall pick in the draft, is solidly NOT a bust after registering 3.0 separate quarterback takedowns against future Walter Payton Man of the Year Award-winner QB Deshaun Watson. Indy and Pittsburgh played in Western PA, where I was surprised and delighted to learn that the Colts&rsquo; record when traveling to the Steel City was 1-17 since the AFL-NFL merger in 1970. It is now 1-18, as QB Aaron Rodgers and RB Jaylen Warren actually have this offense rolling for multiple weeks in a row. Looking at the schedule, 7-2 for Pittsburgh does not seem out of the realm of possibility. In the nation&rsquo;s capital, the Commanders battled the Giants, and<span role="presentation" style="display:block;background:var(--ink);border-radius:2px;height:1.02em;margin:.75rem 0 0;width:86%"></span><span role="presentation" style="display:block;background:var(--ink);border-radius:2px;height:1.02em;margin:.34rem 0 0;width:54%"></span>
+
+On to the late window! Denver improved to 3-2 against the hapless Chargers, who fell to 0-5 on the year. Not all sunshine and daisies in the Rockies, though, as Denver needs to start learning how to score points in the first half or else they are going to miss the playoffs. QB Bo Nix is missing wide open receivers downfield in order to throw checkdowns to running backs (RB RJ Harvey leads the Broncos in receptions through five weeks), and needs to figure it out quickly. Detroit beat the piss out of the Cardinals, and QB Jared Goff quietly continued an under-the-radar MVP campaign by throwing another three touchdown passes with zero interceptions (He has not thrown a pick this season). RB Jahmyr Gibbs went for 200+ from scrimmage, and WR Jameson Williams scored twice. Ben Johnson who? This offense can still roll! In what was my game of the week until Monday night, the 49ers came to town and got gifted a division win over the archrival Seahawks. #1 vs. #3 in my power rankings, and this game lived up to all of the hype. Seattle honestly played much better than San Francisco overall, but four (!!) costly turnovers cost the Hawks a chance to spoil the Niners&rsquo; undefeated record. WR Jaxon Smith-Njigba is the best player in the NFL by such a hilariously wide margin that he&rsquo;s still the best player in the NFL even when he only has one leg. I expect another great game between these teams when they meet again later on this season, and hopefully a playoff classic in January. Sunday night saw the Falcons fall to the Ravens in a great Bird Bowl that went to overtime, where QB Snoop Huntley played the hero for Baltimore and QB Tua Turndaballova played the fool for Atlanta. I imagine that if QB Michael Penix Jr. wouldn&rsquo;t have hurt his rib that Atlanta would&rsquo;ve got the win, but you know, horseshoes and hand grenades or whatever.
+
+You can read all about Monday night&rsquo;s <a href="/series/game-of-the-week">Game of the Week</a> here. Thanks for reading and following along with us for another week of football. We are starting to gain some real traction here at 3rd &amp; Long, and we greatly appreciate all of your support. We know you have a million places to get your NFL takes, and we thank you very much for choosing to follow along with us! Eat a dick, Portnoy!
 """
