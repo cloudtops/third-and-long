@@ -80,6 +80,10 @@ def page(css, body):
 BOARD_CSS = """
 body{display:grid;grid-template-columns:1fr 1fr}
 .left{padding:58px 34px 52px 68px;display:flex;flex-direction:column;min-width:0}
+/* the mark is an SVG, so a stretched box just letterboxes it and the
+   logo drifts to the middle of the column. Pin it to the left edge so
+   it lines up with the headline under it. */
+.left .mast-logo{align-self:flex-start}
 h1{font-weight:700;font-size:54px;line-height:1.02;letter-spacing:-.03em;
  margin-top:auto;margin-bottom:18px}
 .left .kick{margin-top:9px;font-size:19px}

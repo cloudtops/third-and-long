@@ -28,6 +28,87 @@
 
 POSTS = [
     dict(
+        slug="week-5-bills-rams",
+        kind="Game of the Week",
+        title="Buffalo 37, Los Angeles 34",
+        author="Adam Long",
+        date="Week 5",
+        teams=("bills", "rams"),
+        records=("4-1", "2-3"),
+        venue="SoFi Stadium, Inglewood, California",
+        body=[
+            {"img": [("bills-rams-ot.jpg",
+                      "Buffalo teammates lift Tyler Bass after his "
+                      "game-winning field goal",
+                      "50% 32%")]},
+
+            "11 total lead changes on Monday night in what was undoubtedly "
+            "the most chaotic and exciting football game of the week, and "
+            "probably the best game of the year so far. In a marquee matchup "
+            "between two preseason Super Bowl favorites that have looked less "
+            "surefire than we expected through four weeks of our young "
+            "season, we the fans got our money&rsquo;s worth and more from "
+            "this one. This contest pitted our league&rsquo;s last two MVP "
+            "award winners against each other in Buffalo&rsquo;s Josh Allen "
+            "and LA&rsquo;s Matthew Stafford, and both quarterbacks fully "
+            "backed up their status as two of the game&rsquo;s absolute "
+            "best.",
+
+            "Let&rsquo;s dive in. This one was riveting right from the "
+            "opening kick, where Buffalo&rsquo;s Ray Davis nearly cribbed it "
+            "off the hop on a 70-yard kick return. Buffalo&rsquo;s offense "
+            "stalled in the red area and were not able to fully capitalize "
+            "off the explosive, but K Tyler Bass (keep this legend in mind "
+            "for later) tacked on three points for the Bills. The Rams&rsquo; "
+            "K Harrison Mevis (keep this legend in mind for later, but for "
+            "different reasons) missed his first field goal attempt on "
+            "LA&rsquo;s long opening drive, and Allen and the Bills drove "
+            "down the field and again added another three points. Stafford "
+            "responded with a short strike to WR Davante Adams for a "
+            "touchdown, which was promptly answered by Buffalo in a 17-yard "
+            "RB James Cook touchdown trot.",
+
+            "We went to the half with a six point Buffalo lead, a game that "
+            "was tight but not as explosive as we may have predicted, and "
+            "then all hell broke loose in the last 35 minutes. After an early "
+            "RB Blake Corum touchdown dive for LA, back to back three and "
+            "outs for the offenses opened the floodgates. Six straight "
+            "touchdown drives ensued. It was answer after answer, with both "
+            "quarterbacks putting their teams on their backs, a high-powered "
+            "slugfest in which neither offense would be denied. After a late "
+            "would-be game-winning touchdown run from Cook, Buffalo took the "
+            "lead at 34-27, and booted the ball back to Stafford with a "
+            "minute and a half remaining. The former first overall pick from "
+            "1958 drove his team down the field with authority, dissecting "
+            "the Buffalo secondary with surgical precision on throw after "
+            "throw until finally punching it into the end zone courtesy of RB "
+            "Kyren Williams to tie the game at the end of regulation.",
+
+            "We go to extra innings! Buffalo received the opening kick, and "
+            "wasted no time getting the ball to WR Khalil Shakir, who nearly "
+            "broke free and scored on the first drive if not for what "
+            "might&rsquo;ve been a game-saving tackle by LA S Kamren "
+            "Kinchens. On the very next play, Cook put the ball on the turf "
+            "and the Rams recovered. Shades of Cam Skattebo. Please God "
+            "don&rsquo;t make me talk about that game anymore. Heartbreak for "
+            "Bills fans, many of whom would not be blamed for switching off "
+            "their television sets/laptops/phones at this point, as it was "
+            "sudden death now, and Stafford was as hot as anyone in LA not "
+            "named Jim Harbaugh. Stafford commanded his offense down the "
+            "field, close enough to set up another Mevis field goal attempt "
+            "to steal the win from the Bills. However, the stars aligned for "
+            "Bills Mafia, and Defensive Player of the Year candidate Greg "
+            "Rousseau got one of his big meaty paws on the football and "
+            "blocked the kick! Vindication for Cook! Josh Allen promptly put "
+            "the team on his back (literally, he gained 32 of the "
+            "Bills&rsquo; 35 yards on that final drive with his legs), before "
+            "Bass split the uprights from 45 yards out and won the game. An "
+            "instant classic in LA, and Josh Allen&rsquo;s first ever "
+            "overtime victory. I did a double-take at that one too, "
+            "don&rsquo;t worry.",
+        ],
+    ),
+    dict(
         slug="dynasty-prospects-2027",
         kind="Guest Column",
         title="Three Dynasty Prospects to Watch for in 2027",
