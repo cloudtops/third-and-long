@@ -259,6 +259,79 @@ def post_sub(post):
         return ""
     return f'<p class="hero-blurb" style="margin-top:.9rem">{sub}</p>'
 
+
+# ---------------------------------------------------------------- fantasy
+
+# Page-scoped, like the lead block and the chips: a rule in styles.css would
+# restamp its hash onto every page on the site for one post type. The cards
+# borrow the site's own tokens, so they track light and dark for free, and the
+# club colour comes from .tc t-<slug>, which styles.css already defines.
+FANTASY_CSS = """<style>
+.fan-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));
+ gap:1px;background:var(--rule);border:1px solid var(--rule);margin:2rem 0}
+.fan-card{background:var(--surface);padding:1.15rem 1.15rem 1.3rem}
+.fan-card h3{font-family:var(--f-cond);font-weight:700;font-size:.95rem;
+ text-transform:uppercase;letter-spacing:.13em;margin:0;color:var(--ink)}
+.post-body .fan-card .fan-sub{font-family:var(--f-cond);font-weight:500;font-size:.76rem;
+ text-transform:uppercase;letter-spacing:.11em;color:var(--muted);
+ margin:.32rem 0 1.05rem}
+.fan-list{list-style:none;margin:0;padding:0;display:grid;gap:.9rem}
+.fan-list li{display:grid;grid-template-columns:3px 1fr;gap:.75rem}
+.fan-list li.fan-sec{grid-template-columns:1fr;gap:0;margin-top:.35rem;
+ padding-top:.8rem;border-top:1px solid var(--rule-soft);
+ font-family:var(--f-cond);font-weight:700;font-size:.78rem;
+ text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.fan-list li.fan-sec:first-child{margin-top:0;padding-top:0;border-top:0}
+.fan-grid--tight{grid-template-columns:repeat(auto-fit,minmax(186px,1fr))}
+.fan-grid--tight .fan-list{gap:.55rem}
+.fan-bar{background:var(--team);border-radius:1px}
+.fan-who{font-family:var(--f-cond);font-weight:700;font-size:1.03rem;
+ color:var(--ink)}
+.fan-pos{font-style:normal;font-family:var(--f-cond);font-weight:500;
+ font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;
+ color:var(--muted);margin-left:.5rem}
+.fan-val{float:right;font-style:normal;font-family:var(--f-cond);font-weight:700;
+ font-variant-numeric:tabular-nums;font-size:1.02rem;color:var(--ink)}
+.fan-note{display:block;margin-top:.22rem;font-size:.93rem;line-height:1.46;
+ color:var(--muted)}
+</style>
+"""
+
+
+def fantasy_row(row):
+    """(slug, name, pos, note) for a pick, (slug, name, value) for a table."""
+    pal = TEAMS_MOD.palette()
+    slug = row[0]
+    if slug not in pal:
+        raise SystemExit(f"Unknown team slug in a fantasy row: {slug!r}")
+    if len(row) == 3:
+        _s, name, val = row
+        inner = f'<span class="fan-who">{name}<i class="fan-val">{val}</i></span>'
+    else:
+        _s, name, pos, note = row
+        club = pal[slug]["name"].rsplit(" ", 1)[-1]
+        inner = (f'<span class="fan-who">{name}'
+                 f'<i class="fan-pos">{pos} &middot; {club}</i></span>'
+                 f'<span class="fan-note">{note}</span>')
+    return f'<li class="tc t-{slug}"><span class="fan-bar"></span><span>{inner}</span></li>'
+
+
+def fantasy_grid(cards):
+    """One responsive row of fantasy cards. A plain string row is a divider."""
+    out = []
+    for card in cards:
+        rows = "".join(
+            f'<li class="fan-sec">{r}</li>' if isinstance(r, str) else fantasy_row(r)
+            for r in card["rows"])
+        sub = (f'<p class="fan-sub">{card["sub"]}</p>' if card.get("sub") else "")
+        out.append(f'<div class="fan-card"><h3>{card["title"]}</h3>{sub}'
+                   f'<ul class="fan-list">{rows}</ul></div>')
+    # cards with no note text are a table, and tables want narrower tracks
+    tight = all(len(r) == 3 for c in cards for r in c["rows"]
+                if not isinstance(r, str))
+    cls = "fan-grid fan-grid--tight" if tight else "fan-grid"
+    return f'<div class="{cls}">{"".join(out)}</div>'
+
 def build_post(post):
     url = f"{SITE}/posts/{post['slug']}"
     author = post.get("author", "Adam Long")
@@ -289,6 +362,8 @@ def build_post(post):
         elif isinstance(para, (list, tuple)):
             items = "".join(f"<li>{x}</li>" for x in para)
             out.append(f'<ul class="post-list">{items}</ul>')
+        elif isinstance(para, dict) and "picks" in para:
+            out.append(fantasy_grid(para["picks"]))
         elif para.startswith("## "):
             out.append(f'<h2 class="post-h">{para[3:]}</h2>')
         else:
@@ -308,6 +383,8 @@ def build_post(post):
     # anyone you send it to
     extra = ('<meta name="robots" content="noindex, nofollow">\n'
              if post.get("noindex") else "")
+    if any(isinstance(b, dict) and "picks" in b for b in post["body"]):
+        extra += FANTASY_CSS
     html = (
         head(f"{plain} &mdash; 3rd &amp; Long", desc, url,
              f"og-post-{post['slug']}.png", extra)

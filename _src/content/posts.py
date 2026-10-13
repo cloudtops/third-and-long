@@ -28,6 +28,139 @@
 
 POSTS = [
     dict(
+        slug="fantasy-stock-market-week-6",
+        kind="The Fantasy Stock Market",
+        title="Week 6",
+        author="Chase Mooney",
+        date="Week 6",
+        sub="Nine categories. The players trending up, down, and on your radar for Week 6.",
+        body=[
+            {"picks": [
+                dict(
+                    title='Stock Up',
+                    sub='Trending in the right direction',
+                    rows=[
+                        ('steelers', 'Jaylen Warren', 'RB', 'Three straight 100-yard scrimmage games. Finally getting the workload.'),
+                        ('buccaneers', 'Bucky Irving', 'RB', 'Volume is real. Becoming a key piece in Tampa&rsquo;s offense.'),
+                        ('packers', 'Christian Watson', 'WR', 'His fantasy ceiling continues to rise each week, establishing himself as Green Bay&rsquo;s clear WR1.'),
+                        ('patriots', 'Drake Maye', 'QB', 'The Jets suck. Massive dual-threat upside.'),
+                        ('lions', 'Jameson Williams', 'WR', 'Scored again in Week 5. Confidence and usage are through the roof.'),
+                    ]),
+                dict(
+                    title='Stock Down',
+                    sub='Trending in the wrong direction',
+                    rows=[
+                        ('chargers', 'Justin Herbert', 'QB', 'Five straight games with just one passing TD. Chargers&rsquo; offense is stuck.'),
+                        ('giants', 'Cam Skattebo', 'RB', 'Receiving targets are drying up, and Skattebo treats ball security like an optional subscription.'),
+                        ('bears', 'Colston Loveland', 'TE', 'Just a guy. The volume isn&rsquo;t there.'),
+                        ('chargers', 'Omarion Hampton', 'RB', 'Three-man committee. Too risky to start.'),
+                        ('bengals', 'Chase Brown', 'RB', 'Samaje Perine&rsquo;s role is growing. Touchdowns will be hard to come by.'),
+                    ]),
+            ]},
+
+            {"picks": [
+                dict(
+                    title='Waiver Wire Watch',
+                    sub='Players to add before it&rsquo;s too late',
+                    rows=[
+                        ('texans', 'Woody Marks', 'RB', 'David Montgomery is injured. Marks handled 15 carries in Week 5.'),
+                        ('steelers', 'Germie Bernard', 'WR', '6 catches, 80 yards and 9 targets in Week 5. Seeing real volume.'),
+                        ('eagles', 'Darius Cooper', 'WR', 'Three TDs in the last two weeks. Big opportunity while DeVonta Smith is out.'),
+                        ('colts', 'Keenan Allen', 'WR', '9 targets in Week 5. Averaging 7.3 per game. Still producing.'),
+                        ('jaguars', 'Brenton Strange', 'TE', '14 catches and 163 yards in the last two games. Volume is real (tough matchup vs. HOU, but usage is hard to ignore).'),
+                    ]),
+                dict(
+                    title='Start &rsquo;Em',
+                    sub='Confidence plays for Week 6',
+                    rows=[
+                        ('packers', 'Christian Watson', 'WR', 'WR1. Start him like it.'),
+                        ('49ers', 'Brock Purdy', 'QB', 'Washington is not good. That&rsquo;s the analysis.'),
+                        ('saints', 'Chris Olave', 'WR', 'Elite matchup vs. the Giants. Should feast.'),
+                        ('patriots', 'Drake Maye', 'QB', 'The Jets suck. Massive dual-threat upside.'),
+                        ('steelers', 'Jaylen Warren', 'RB', 'Momentum is real. Workhorse role continues.'),
+                    ]),
+            ]},
+
+            {"picks": [
+                dict(
+                    title='Sit &rsquo;Em',
+                    sub='Players to leave on your bench',
+                    rows=[
+                        ('chargers', 'Justin Herbert', 'QB', 'Five bad games. Why not make it six?'),
+                        ('raiders', 'Kirk Cousins', 'QB', 'Facing Buffalo in Week 6. This could get ugly.'),
+                        ('packers', 'Matthew Golden', 'WR', 'I don&rsquo;t give a damn about last week&rsquo;s 100 yards. Too many mouths to feed in Green Bay.'),
+                        ('broncos', 'RJ Harvey', 'RB', 'Limited workload and touchdown-dependent.'),
+                        ('panthers', 'Jalen Coker', 'WR', 'Nursing a quad injury. Tetairoa McMillan just dropped 45 fantasy points.'),
+                    ]),
+                dict(
+                    title='Buy Low / Sell High',
+                    sub='Make the right moves now',
+                    rows=[
+                        'Buy Low',
+                        ('chargers', 'Ladd McConkey', 'WR', 'Injury concerns have tanked his value. The talent and role are still elite.'),
+                        ('patriots', 'A.J. Brown', 'WR', 'Fantasy owners have been staring at zeros. Drake Maye is heating up and his WR1 is getting closer to returning.'),
+                        ('jaguars', 'Brian Thomas Jr.', 'WR', 'Slow start, but the talent is undeniable. Buy before the breakout.'),
+                        'Sell High',
+                        ('cowboys', 'Javonte Williams', 'RB', 'The touchdown train can&rsquo;t run forever. Time to cash in.'),
+                        ('cowboys', 'George Pickens', 'WR', 'Good production, but CeeDee Lamb is returning soon. Sell while the value is high.'),
+                    ]),
+            ]},
+
+            "## Matchup Edge",
+
+            "Defenses allowing the most fantasy points by position, through Week 5, PPR.",
+
+            {"picks": [
+                dict(
+                    title='Quarterbacks',
+                    rows=[
+                        ('lions', 'Lions', '27.4'),
+                        ('commanders', 'Commanders', '23.2'),
+                        ('cardinals', 'Cardinals', '22.6'),
+                    ]),
+                dict(
+                    title='Running Backs',
+                    rows=[
+                        ('saints', 'Saints', '31.5'),
+                        ('packers', 'Packers', '28.4'),
+                        ('dolphins', 'Dolphins', '28.3'),
+                    ]),
+                dict(
+                    title='Wide Receivers',
+                    rows=[
+                        ('bills', 'Bills', '41.0'),
+                        ('texans', 'Texans', '41.0'),
+                        ('lions', 'Lions', '40.8'),
+                    ]),
+                dict(
+                    title='Tight Ends',
+                    rows=[
+                        ('lions', 'Lions', '31.9'),
+                        ('chiefs', 'Chiefs', '22.6'),
+                        ('commanders', 'Commanders', '22.2'),
+                    ]),
+            ]},
+
+            {"picks": [
+                dict(
+                    title='Sleepers',
+                    sub='Under the radar players who can deliver',
+                    rows=[
+                        ('patriots', 'Efton Chism III', 'WR', '5 catches for 57 yards on 6 targets in Week 5. Drake Maye is creating opportunities.'),
+                        ('bills', 'Keon Coleman', 'WR', 'Low IQ. High touchdown upside.'),
+                    ]),
+                dict(
+                    title='Bold Predictions',
+                    sub='Outrageous takes that could actually hit',
+                    rows=[
+                        ('buccaneers', 'Emeka Egbuka', 'WR', 'Torches Pittsburgh&rsquo;s secondary. Tampa wins by two touchdowns.'),
+                        ('seahawks', 'Seahawks D/ST', 'D/ST', 'Forces four turnovers and leads the way to victory in Colorado.'),
+                        ('49ers', 'Christian McCaffrey', 'RB', 'Turns back the clock with his first 30-point game of the season. Two receiving touchdowns.'),
+                    ]),
+            ]},
+        ],
+    ),
+    dict(
         slug="week-5-bills-rams",
         kind="Game of the Week",
         title="Buffalo 37, Los Angeles 34",
