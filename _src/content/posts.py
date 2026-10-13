@@ -29,12 +29,16 @@
 POSTS = [
     dict(
         slug="fantasy-stock-market-week-6",
-        kind="The Fantasy Stock Market",
-        title="Week 6",
+        kind="Fantasy",
+        title="The Fantasy Stock Market",
         author="Chase Mooney",
         date="Week 6",
         sub="Nine categories. The players trending up, down, and on your radar for Week 6.",
         body=[
+            {"img": [("stonks.jpg",
+                      "The stonks meme, a mannequin in a suit in front of a rising stock chart",
+                      "50% 42%")]},
+
             {"picks": [
                 dict(
                     title='Stock Up',
@@ -73,7 +77,7 @@ POSTS = [
                     title='Start &rsquo;Em',
                     sub='Confidence plays for Week 6',
                     rows=[
-                        ('packers', 'Christian Watson', 'WR', 'WR1. Start him like it.'),
+                        ('packers', 'Christian Watson', 'WR', 'WR3 overall. Start him like it.'),
                         ('49ers', 'Brock Purdy', 'QB', 'Washington is not good. That&rsquo;s the analysis.'),
                         ('saints', 'Chris Olave', 'WR', 'Elite matchup vs. the Giants. Should feast.'),
                         ('patriots', 'Drake Maye', 'QB', 'The Jets suck. Massive dual-threat upside.'),
