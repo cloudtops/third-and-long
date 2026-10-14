@@ -28,6 +28,98 @@
 
 POSTS = [
     dict(
+        slug="on-the-hill-five-to-watch",
+        kind="On the Hill",
+        title="On the Hill",
+        sub="Five to Watch",
+        author="Henry Houghton",
+        date="Week 6",
+        card_band=830,
+        body=[
+            {"img": [("texas-tennessee.jpg",
+                      "Colin Simmons celebrates in front of the "
+                      "Tennessee sideline",
+                      "50% 50%")]},
+
+            "About halfway through the late-slate games on Sunday, Scott "
+            "Hanson confirmed we are already 25% of the way through the "
+            "2026-27 NFL season. Crazy right? With the season flying by and "
+            "your fantasy team already 0-4, it&rsquo;s probably a smart idea "
+            "to start looking at some 2027 mock drafts and see how some of "
+            "our top prospects are shaping up this college season. Here are 5 "
+            "guys you should keep on your radar over the next few weeks:",
+
+            "## Arch Manning: Time to Panic?<i style='font-style:normal;color:var(--down);margin-left:.4em'>&#9660;</i>",
+
+            "The &ldquo;Golden Boy&rdquo; of college football has been "
+            "extremely underwhelming through 5 games so far this season. Now "
+            "in year 3 for the Longhorns, Manning has huge expectations "
+            "following a family of multiple NFL Hall of Famers. On paper, "
+            "he&rsquo;s got it all - big arm, great runner, sharp kid. In "
+            "reality, he looks concerningly average. Surrounded by one of the "
+            "most expensive rosters in all of football, Arch has no excuse to "
+            "be playing at this level. Manning doesn&rsquo;t even rank in the "
+            "top-40 in the NCAA for Passing Yards, Touchdowns, or QBR through "
+            "5 weeks. He&rsquo;s got quite a lot of work to do if he wants to "
+            "live up to his uncles and grandpappy.",
+
+            "## Colin Simmons: Not Human<i style='font-style:normal;color:var(--up);margin-left:.4em'>&#9650;</i>",
+
+            "On the other side of the ball for Texas, they&rsquo;ve got "
+            "something really special. Disregarding his viral "
+            "&ldquo;simulating using the restroom&rdquo; unsportsmanlike "
+            "conduct penalty against Tennessee, Simmons could be a household "
+            "name on Sundays in a few years. Funny enough, the penalty may "
+            "have been warranted considering he finished with 5.5 sacks. "
+            "He&rsquo;s got 9.5 sacks and 2 forced fumbles through five games "
+            "this season and has been a nightmare for offensive tackles. I "
+            "wouldn&rsquo;t be surprised if Simmons ends up going top-5. "
+            "He&rsquo;s really that good.",
+
+            "## Drew Mestemaker: Touchdown-Maker<i style='font-style:normal;color:var(--up);margin-left:.4em'>&#9650;</i>",
+
+            "Nobody really expected the North Texas transfer to be getting "
+            "this much attention so early in the season&hellip; but this dude "
+            "can ball. He can sling it, has great running ability, and looks "
+            "really confident so far. I heard someone say &ldquo;Phillip "
+            "Rivers with wheels&rdquo;. The next few weeks will be crucial to "
+            "monitor Mestemaker and the Cowboys&rsquo; progress and see if "
+            "the hot hand continues. Mestemaker followed both his head coach "
+            "and QB coach from North Texas to Oklahoma State this off-season "
+            "and their chemistry has been quite apparent so far this season.",
+
+            "## Dylan Stewart: Hot Head with Unlimited Upside<i style='font-style:normal;color:var(--down);margin-left:.4em'>&#9660;</i>",
+
+            "What I said earlier about Colin Simmons&rsquo; potential also "
+            "applies to Dylan Stewart. Stewart stands at 6&rsquo;5&rdquo; and "
+            "250 lbs and is the ideal prototype NFL teams are looking for in "
+            "edge-rushers. However, we watched Stewart potentially tank his "
+            "draft stock when the Gamecocks played Alabama earlier this "
+            "season. After throwing a right hook at an Alabama player, South "
+            "Carolina coaches attempted to sub out Stewart, but he "
+            "wouldn&rsquo;t leave the field. Once the game came to a stopping "
+            "point, Stewart was greeted with a warm gesture on the sideline "
+            "from his coach Shane Beamer. Stewart was given a 1-game "
+            "suspension. Last weekend, Stewart followed up his suspension "
+            "with an upset win against Florida where he contributed 5 "
+            "tackles, 2 forced fumbles, and a sack.",
+
+            "## Jeremiah Smith: HIM<i style='font-style:normal;color:var(--pick);margin-left:.4em'>&#9733;</i>",
+
+            "Just when you thought this guy couldn&rsquo;t exceed your "
+            "expectations anymore, he is establishing himself as one of the "
+            "greatest wide receivers in the history of college football. "
+            "Currently the Heisman trophy front-runner, Smith is looking to "
+            "be just the third WR in the last 30 years to win the award. He "
+            "is the rare type of player who can change the direction of a "
+            "franchise the second he gets drafted. As an NFL GM with the 1st "
+            "overall pick in the 2027 Draft, I&rsquo;m not concerned with "
+            "what the team&rsquo;s &ldquo;crucial needs&rdquo; are. "
+            "I&rsquo;m drafting Jeremiah Smith. Get this guy even a "
+            "semi-serviceable QB and he will be generational.",
+        ],
+    ),
+    dict(
         slug="rookie-radar-jalon-daniels",
         kind="Rookie Radar",
         title="Jalon Daniels, QB, Tampa Bay Buccaneers",
