@@ -28,6 +28,115 @@
 
 POSTS = [
     dict(
+        slug="rookie-radar-jalon-daniels",
+        kind="Rookie Radar",
+        title="Jalon Daniels, QB, Tampa Bay Buccaneers",
+        author="Noah Labao",
+        date="Week 5",
+        team="buccaneers",
+        body=[
+            {"img": [("jalon-daniels.jpg",
+                      "Jalon Daniels releases a pass under pressure from two "
+                      "Cowboys rushers",
+                      "50% 32%")]},
+
+            {"quote": "&ldquo;You can&rsquo;t be the thermometer, you have to "
+                      "be the thermostat&rdquo;",
+             "cite": "Jalon Daniels"},
+
+            "In his first game as an NFL Starter, Daniels completed 19 of 25 "
+            "for 189 yards and a touchdown, good for a 110.2 passer rating, "
+            "leaning on Bucky Irving&rsquo;s 175 scrimmage yards and picking "
+            "his spots with the kind of moxie you only see once in a blue moon "
+            "from a free-agent rookie QB. He became just the fourth undrafted "
+            "rookie to win a primetime game since 2000, and the second to do "
+            "it on the road. Fitting, for a guy who preaches being the "
+            "thermostat and not the thermometer: on a hostile Thursday night "
+            "in a drama, disaster and disgrace filled Jerry-world, Daniels "
+            "cranked up the heat from his first snap.",
+
+            "## College Bio: Kansas Jayhawks (2020 to 2025)",
+
+            "Daniels was the face of Kansas football&rsquo;s revival. A "
+            "second-team All-Big 12 pick in 2022, he engineered the "
+            "Jayhawks&rsquo; 5-0 start that season before a shoulder injury "
+            "cost him four games, and he closed his career ranked second in "
+            "program history in both passing yards (9,282) and passing "
+            "touchdowns (67) behind Jayhawk legend, Todd Reesing. A true "
+            "dual-threat, he hurt defenses with his legs as readily as his arm "
+            "across a long six-year college run, becoming the kind of program "
+            "cornerstone that made his draft-weekend snub all the more "
+            "surprising.",
+
+            "## High School Recruiting Profile: Lawndale HS (Lawndale, CA)",
+
+            "The overlooked theme starts early with Daniels. A three-star "
+            "prospect out of Lawndale, California, he was rated something like "
+            "the No. 61 dual-threat athlete in the 2020 class, and Kansas was "
+            "the only Power Five program to offer him a scholarship, a "
+            "connection owed to then-Jayhawks staff Les Miles and Brent "
+            "Dearmon. A growth spurt before his junior year allowed him to come "
+            "into full form: he led Lawndale to a 14-2 record with 2,351 "
+            "passing yards, 940 rushing yards, and 36 total touchdowns. The "
+            "blue bloods never came calling, which makes the primetime stage "
+            "he&rsquo;s on now all the sweeter.",
+
+            "## Scheme Fit: Why He Works in Tampa Bay",
+
+            "Tampa Bay&rsquo;s offense doesn&rsquo;t ask its fill-in to be a "
+            "hero, and that suits Daniels perfectly. With Bucky Irving "
+            "powering the ground game and a defense keeping things close, and "
+            "Egbuka &amp; Godwin with the experience to account for "
+            "inexperienced throws or decisions, Daniels&rsquo; job is to be a "
+            "maestro, exactly what he did in Dallas. His version of mobility "
+            "adds a dimension that Mayfield may be losing due to age or style "
+            "of running, letting Bowles lean on designed movement and "
+            "bootlegs, and his poise under primetime pressure suggests the "
+            "moment isn&rsquo;t too big. He&rsquo;ll keep the seat warm as the "
+            "starter while Mayfield heals, and on this evidence Tampa Bay "
+            "won&rsquo;t be giving games away in the interim.",
+
+            "## Similarity Comp: Gardner Minshew",
+
+            "The closest template is Gardner Minshew (biased, but the facts "
+            "add up). An overlooked, late-draft-or-undrafted gamer who seized "
+            "an injury opening and played with far more focus and command than "
+            "his pedigree suggested. Like Minshew, Daniels wins with "
+            "confidence, mobility, and ball security rather than prototype "
+            "measurables, the kind of backup who keeps a team afloat and "
+            "occasionally steals one it had no business winning. To me, "
+            "that&rsquo;s always what organizations want in their backup "
+            "quarterback. If he keeps protecting the ball the way he did "
+            "against Dallas, he&rsquo;s exactly the sort of feel-good bridge "
+            "starter we may see bouncing around from org-to-org, which "
+            "isn&rsquo;t a bad career at all in the grand scheme of the "
+            "national football league.",
+
+            "## On The Radar",
+
+            "Three more rookies worth circling before this week&rsquo;s slate:",
+
+            [
+                "David Bailey, EDGE, New York Jets - Week 5: a monster "
+                "breakout with three sacks, nine pressures, and seven tackles "
+                "in a 17-12 win over Cleveland, topping the NFL in sacks and "
+                "run stops for the week and becoming the fifth player since "
+                "1982 with five sacks in his first five career games.",
+
+                "Jacob Rodriguez, LB, Miami Dolphins - Week 5: another "
+                "11-tackle afternoon against Cincinnati to push his "
+                "league-leading total to 57 on the season, the kind of "
+                "tackle-machine production that has been the throughline since "
+                "his Texas Tech days.",
+
+                "KC Concepcion, WR, Cleveland Browns - Week 5: the rookie "
+                "wideout kept climbing the rookie-of-the-year radar as a "
+                "steady contributor in Cleveland&rsquo;s passing game "
+                "alongside fellow first-year Denzel Boston.",
+            ],
+        ],
+    ),
+    dict(
         slug="fantasy-stock-market-week-6",
         kind="Fantasy",
         title="The Fantasy Stock Market",
@@ -47,7 +156,7 @@ POSTS = [
                         ('steelers', 'Jaylen Warren', 'RB', 'Three straight 100-yard scrimmage games. Finally getting the workload.'),
                         ('buccaneers', 'Bucky Irving', 'RB', 'Volume is real. Becoming a key piece in Tampa&rsquo;s offense.'),
                         ('packers', 'Christian Watson', 'WR', 'His fantasy ceiling continues to rise each week, establishing himself as Green Bay&rsquo;s clear WR1.'),
-                        ('patriots', 'Drake Maye', 'QB', 'The Jets suck. Massive dual-threat upside.'),
+                        ('patriots', 'Drake Maye', 'QB', '374 yards and 4 TDs in Week 5. The breakout is here.'),
                         ('lions', 'Jameson Williams', 'WR', 'Scored again in Week 5. Confidence and usage are through the roof.'),
                     ]),
                 dict(
@@ -106,7 +215,7 @@ POSTS = [
                         ('jaguars', 'Brian Thomas Jr.', 'WR', 'Slow start, but the talent is undeniable. Buy before the breakout.'),
                         'Sell High',
                         ('cowboys', 'Javonte Williams', 'RB', 'The touchdown train can&rsquo;t run forever. Time to cash in.'),
-                        ('cowboys', 'George Pickens', 'WR', 'Good production, but CeeDee Lamb is returning soon. Sell while the value is high.'),
+                        ('cowboys', 'George Pickens', 'WR', 'Good production, but CeeDee will be healthy soon. Sell while the value is high.'),
                     ]),
             ]},
 
