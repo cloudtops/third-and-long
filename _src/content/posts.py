@@ -142,7 +142,6 @@ POSTS = [
         title="The Fantasy Stock Market",
         author="Chase Mooney",
         date="Week 6",
-        sub="Nine categories. The players trending up, down, and on your radar for Week 6.",
         body=[
             {"img": [("stonks.jpg",
                       "The stonks meme, a mannequin in a suit in front of a rising stock chart",
