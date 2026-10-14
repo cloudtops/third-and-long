@@ -473,7 +473,8 @@ def post_card():
                      (76, 16) if len(plain) <= 40 else (60, 22))
     dek = (f'<p class="dek">{post["sub"]}</p>' if post.get("sub") else "")
     # without a dek the panel has little to hold, so the photo takes the slack
-    band = 607 if post.get("sub") else 756
+    # a post can ask for more picture and less panel
+    band = post.get("card_band") or (607 if post.get("sub") else 756)
     css = POST_CARD_CSS.format(bg=d["hero"], fg=d["heroFg"], muted=d["heroMuted"],
                                rule=d["heroRule"], focus=focus, size=size,
                                measure=measure, band=band)

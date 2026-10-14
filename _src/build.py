@@ -390,8 +390,9 @@ def build_post(post):
              f"og-post-{post['slug']}.png", extra)
         + site_bar()
         + f'<div class="hero hero--post{post_classes(post)}"><div class="wrap">'
-          f'<p class="hero-eyebrow">{post["kind"]}</p>'
-          f'<h1>{post["title"]}</h1>{post_sub(post)}'
+          + ("" if strip_tags(post["kind"]) == plain else
+             f'<p class="hero-eyebrow">{post["kind"]}</p>')
+          +           f'<h1>{post["title"]}</h1>{post_sub(post)}'
           f'<p class="byline"><span>By {author}</span>'
           f'<span class="sep">/</span><span class="dim">{post["date"]}</span></p>'
           '</div></div><div class="hash"></div>'

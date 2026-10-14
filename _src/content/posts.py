@@ -37,7 +37,7 @@ POSTS = [
         card_band=830,
         body=[
             {"img": [("texas-tennessee.jpg",
-                      "Colin Simmons celebrates in front of the "
+                      "A Texas defender celebrates in front of the "
                       "Tennessee sideline",
                       "50% 50%")]},
 
