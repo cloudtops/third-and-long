@@ -17,6 +17,7 @@ import midseason2025 as MS25
 import preseason2026 as PS26
 from posts import POSTS
 import standings as STANDINGS
+import picks as PICKS_MOD
 import leaders as LEADERS_MOD
 import power as POWER_MOD
 
@@ -1139,6 +1140,16 @@ def build_series(kind, posts):
 # ---------------------------------------------------------------- lead story
 
 LEAD_CSS = """<style>
+.prec-list{list-style:none;margin:1.9rem 0 0;padding:0;display:grid;gap:.45rem;
+ max-width:34rem}
+.prec-list li{display:grid;grid-template-columns:1.6rem 1fr auto 3.2rem;gap:.6rem;
+ align-items:baseline;font-family:var(--f-cond);font-size:1.05rem;font-weight:500;
+ color:var(--ink);padding:.4rem 0;border-bottom:1px solid var(--rule-soft)}
+.prec-list--plain li{grid-template-columns:1.6rem 1fr auto}
+.prec-list li:last-child{border-bottom:0}
+.prec-list b{font-variant-numeric:tabular-nums;font-weight:600;color:var(--muted)}
+.prec-list i{font-style:normal;font-variant-numeric:tabular-nums;font-weight:600}
+.prec-list .prec-x{text-align:right;color:var(--pick)}
 /* The lead sits only on the home page, so its rules ride along in the page
    rather than in styles.css, whose hash is stamped into every file on the
    site. Move them into the stylesheet next time that hash changes anyway. */
@@ -1219,6 +1230,117 @@ def lead_block():
         f'<p class="lead-by">By {post.get("author", "Adam Long")}</p></div>'
         '</div></div></section>')
 
+# ---------------------------------------------------------------- pick record
+
+PICKS_HISTORY = HERE / "content" / "picks_history.json"
+
+
+def _pick_club(name):
+    want = name.strip().lower()
+    pal = TEAMS_MOD.palette()
+    for slug, d in pal.items():
+        if want in (d["name"].lower(), d["name"].rsplit(" ", 1)[-1].lower()):
+            return slug
+    raise SystemExit(f"picks.py: no club called {name!r}")
+
+
+def parse_picks():
+    """This week's games, as typed, with their picks resolved to club slugs."""
+    week = (getattr(PICKS_MOD, "WEEK", "") or "").strip()
+    games = getattr(PICKS_MOD, "GAMES", None) or []
+    out = []
+    for g in games:
+        slot = (g.get("slot") or "").strip()
+        raw = (g.get("picks") or "").strip()
+        if not (week and slot and raw):
+            continue
+        rows = []
+        for ln in raw.splitlines():
+            ln = ln.strip()
+            if not ln:
+                continue
+            who, club, score = [b.strip() for b in ln.split(",")]
+            rows.append([who, _pick_club(club), score])
+        out.append({"week": week, "slot": slot,
+                    "game": (g.get("game") or "").strip(),
+                    "result": (g.get("result") or "").strip(),
+                    "picks": rows})
+    return out
+
+
+def record_picks():
+    """Keep every week's picks on file, keyed on week and slot.
+
+    picks.py only ever holds the current week, so without this the record
+    would reset every time Adam types over it. Re-running after a result is
+    added updates that game in place rather than stacking a duplicate.
+    """
+    hist = []
+    if PICKS_HISTORY.exists():
+        hist = json.loads(PICKS_HISTORY.read_text(encoding="utf-8"))
+    for g in parse_picks():
+        key = (g["week"], g["slot"])
+        for i, old in enumerate(hist):
+            if (old["week"], old["slot"]) == key:
+                hist[i] = g
+                break
+        else:
+            hist.append(g)
+    if hist:
+        PICKS_HISTORY.write_text(json.dumps(hist, indent=1) + "\n",
+                                 encoding="utf-8")
+    return hist
+
+
+def pick_table(hist):
+    """[(name, won, lost, exact)], best first. Only games with a result count."""
+    tally = {}
+    for g in hist:
+        res = g.get("result", "").strip()
+        if not res:
+            continue
+        head, _, score = res.rpartition(" ")
+        tie = head.strip().lower() in ("tie", "draw", "")
+        winner = None if tie else _pick_club(head)
+        for who, club, pick_score in g["picks"]:
+            t = tally.setdefault(who, [0, 0, 0])
+            if tie:
+                continue
+            if club == winner:
+                t[0] += 1
+                if pick_score == score.strip():
+                    t[2] += 1
+            else:
+                t[1] += 1
+    rows = [(who, w, l, x) for who, (w, l, x) in tally.items()]
+    rows.sort(key=lambda r: (-(r[1] / (r[1] + r[2]) if r[1] + r[2] else 0),
+                             -r[1], -r[3], r[0]))
+    return rows
+
+
+def picks_section(hist):
+    """Hidden until a game has a result, so it never shows an empty table."""
+    rows = pick_table(hist)
+    if not rows:
+        return ""
+    weeks = [g["week"] for g in hist if g.get("result", "").strip()]
+    through = weeks[-1] if weeks else ""
+    any_exact = any(x for _w, _a, _b, x in rows)
+    body = []
+    for n, (who, w, l, x) in enumerate(rows, 1):
+        hit = (f'<i class="prec-x">{x}</i>' if any_exact else "")
+        body.append(f'<li><b>{n}</b><span>{who}</span>'
+                    f'<i class="prec-rec">{w}&ndash;{l}</i>{hit}</li>')
+    note = ('<p class="section-note">Straight-up winners. The second column is '
+            'exact scores.</p>' if any_exact else "")
+    return ('<section class="section picks-now" id="picks"><div class="wrap">'
+            '<h2>Pick Record</h2>'
+            f'<p class="stand-week">Through {through}</p>{note}'
+            f'<ol class="prec-list{"" if any_exact else " prec-list--plain"}">'
+            f'{"".join(body)}</ol>'
+            '</div></section>')
+
+
 def home_nav(sections):
     """Sticky section tabs for the landing page.
 
@@ -1277,6 +1399,7 @@ def build_landing():
         ("power", "Power Rankings", power_section(HIST, PREV)),
         ("standings", "Standings", standings_section()),
         ("leaders", "Stat Leaders", leaders_section()),
+        ("picks", "Pick Record", picks_section(record_picks())),
         ("posts", "Posts", posts_section()),
         ("reports", "Reports", reports),
     ]

@@ -22,6 +22,7 @@ sys.path.insert(0, str(HERE / "content"))
 import teams as T
 import power as POWER
 import standings as STANDINGS
+import picks as PICKS_MOD
 from posts import POSTS
 import preseason2026 as PS26, preseason2025 as PS25
 import midseason2025 as MS25, midseason2024 as MS24
@@ -586,6 +587,131 @@ ICON_JOBS = [
 ]
 
 
+# ---------------------------------------------------------------- staff picks
+
+def _hex(c):
+    c = c.lstrip("#")
+    return tuple(int(c[i:i + 2], 16) for i in (0, 2, 4))
+
+
+def _far_apart(a, b):
+    """Rough perceptual distance, enough to catch two reds sitting together."""
+    (r1, g1, b1), (r2, g2, b2) = _hex(a), _hex(b)
+    rm = (r1 + r2) / 2
+    return (((2 + rm / 256) * (r1 - r2) ** 2 + 4 * (g1 - g2) ** 2
+             + (2 + (255 - rm) / 256) * (b1 - b2) ** 2) ** 0.5) > 120
+
+
+def bar_colours(away, home):
+    """A colour each, guaranteed to be told apart.
+
+    The bar is the only thing saying who someone took, so two clubs in the
+    same red (San Francisco and Washington, say) would make the card lie. When
+    that happens the home side falls back to its second colour.
+    """
+    a, h = PAL[away]["dark"], PAL[home]["dark"]
+    if _far_apart(a, h):
+        return {away: a, home: h}
+    alt = PAL[home]["pick2D"]
+    if _far_apart(a, alt):
+        return {away: a, home: alt}
+    return {away: a, home: PAL[away]["pick2D"]}
+
+
+def _club(name):
+    """Full club name or nickname to a palette slug."""
+    want = name.strip().lower()
+    for slug, d in PAL.items():
+        if want in (d["name"].lower(), d["name"].rsplit(" ", 1)[-1].lower()):
+            return slug
+    raise SystemExit(f"picks.py: no club called {name!r}")
+
+
+PICKS_CSS = f"""
+body{{width:{SOC_W}px;height:{SOC_H}px;overflow:hidden;background:{SOC_GROUND};
+ color:{SOC_FG};font-family:"Zilla Slab",Georgia,serif;display:flex;
+ flex-direction:column}}
+.pad{{padding:0 56px}}
+.top{{display:flex;justify-content:space-between;align-items:center;padding-top:54px}}
+.mast-logo{{display:block;height:70px;width:auto}}
+.kick{{font-family:"Zilla Slab",Georgia,serif;text-transform:none;letter-spacing:0;
+ font-weight:500;font-size:30px;color:{SOC_MUTED}}}
+h1{{font-weight:700;font-size:78px;line-height:1.02;letter-spacing:-.035em;
+ margin:26px 0 10px;max-width:15ch}}
+.vs{{font-weight:300;font-size:37px;line-height:1.2;color:{SOC_MUTED};margin-bottom:32px}}
+.hash{{height:14px;background:repeating-linear-gradient(to right,
+ {SOC_RULE} 0 3px,transparent 3px 24px);margin:0 0 18px}}
+.grow{{flex:1;display:flex;padding-bottom:10px}}
+.grow .grid{{width:100%;height:100%;align-content:space-evenly}}
+.grid{{display:grid;grid-template-columns:1fr 1fr;gap:0 26px}}
+.pick{{display:flex;gap:22px;align-items:stretch}}
+.bar{{width:10px;border-radius:2px;flex:0 0 auto}}
+.col{{display:flex;flex-direction:column;justify-content:center}}
+.pick b{{font-family:"Archivo Narrow",sans-serif;font-weight:700;font-size:72px;
+ line-height:1;font-variant-numeric:tabular-nums}}
+.who{{font-family:"Archivo Narrow",sans-serif;font-weight:600;font-size:27px;
+ text-transform:uppercase;letter-spacing:.12em;margin-top:14px}}
+.club{{font-weight:400;font-size:28px;color:{SOC_MUTED};margin-top:4px}}
+.foot{{margin:auto 56px 0;padding:30px 0 52px;border-top:1px solid {SOC_RULE};
+ display:flex;justify-content:space-between;align-items:baseline;
+ color:{SOC_MUTED};font-weight:400;font-size:29px}}
+"""
+
+
+def picks_card(g, head, week):
+    """One game's card. (filename, html)."""
+    slot = (g.get("slot") or "").strip()
+    game = (g.get("game") or "").strip()
+    raw = (g.get("picks") or "").strip()
+    if not (slot and game and raw):
+        return None
+
+    m = re.match(r"^(.*?)\s+([\d-]+)\s+at\s+(.*?)\s+([\d-]+)$", game)
+    if not m:
+        raise SystemExit(
+            f"picks.py: game should read 'Away 3-2 at Home 3-2', got {game!r}")
+    away, away_rec, home, home_rec = m.groups()
+    line = (f'{PAL[_club(away)]["name"]} ({away_rec}) at '
+            f'{PAL[_club(home)]["name"]} ({home_rec})')
+
+    bars = bar_colours(_club(away), _club(home))
+    cells = []
+    for ln in raw.splitlines():
+        ln = ln.strip()
+        if not ln:
+            continue
+        bits = [b.strip() for b in ln.split(",")]
+        if len(bits) != 3:
+            raise SystemExit(f"picks.py: want 'Name, Winner, Score', got {ln!r}")
+        who, club, score = bits
+        slug = _club(club)
+        d = PAL[slug]
+        cells.append(
+            f'<div class="pick"><span class="bar" style="background:{bars[slug]}"></span>'
+            f'<span class="col"><b>{score}</b><span class="who">{who}</span>'
+            f'<span class="club">{d["name"].rsplit(" ", 1)[-1]}</span></span></div>')
+
+    name = "picks-" + re.sub(r"[^a-z0-9]+", "-", slot.lower()).strip("-") + ".png"
+    html = page(PICKS_CSS,
+        f'<div class="pad"><div class="top">{MAST}'
+        f'<span class="kick">{slot}</span></div>'
+        f'<h1>{head}</h1><p class="vs">{line}</p></div>'
+        f'<div class="hash"></div>'
+        f'<div class="pad grow"><div class="grid">{"".join(cells)}</div></div>'
+        f'<div class="foot"><span>{week}</span><span>3rd &amp; Long</span></div>')
+    return name, html
+
+
+def picks_cards():
+    """Every primetime game on file, or nothing at all."""
+    head = (getattr(PICKS_MOD, "TITLE", "") or "").strip()
+    week = (getattr(PICKS_MOD, "WEEK", "") or "").strip()
+    games = getattr(PICKS_MOD, "GAMES", None) or []
+    if not (head and week and games):
+        return []
+    return [c for c in (picks_card(g, head, week) for g in games) if c]
+
+
 async def main():
     work = jobs()
     async with async_playwright() as pw:
@@ -621,6 +747,17 @@ async def main():
             await pg.evaluate("document.fonts.ready")
             await pg.wait_for_timeout(280)
             await pg.screenshot(path=str(SOCIAL / "power-rankings.png"))
+
+        for name, html in picks_cards():
+            SOCIAL.mkdir(exist_ok=True)
+            f = TMP / ("social-" + name.replace(".png", ".html"))
+            f.write_text(html, encoding="utf-8")
+            await pg.set_viewport_size({"width": SOC_W, "height": SOC_H})
+            await pg.goto("file://" + str(f), wait_until="networkidle")
+            await pg.evaluate("document.fonts.ready")
+            await pg.wait_for_timeout(280)
+            await pg.screenshot(path=str(SOCIAL / name))
+            print("social/" + name)
 
         lead = post_card()
         if lead:
