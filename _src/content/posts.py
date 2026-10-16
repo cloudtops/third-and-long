@@ -28,6 +28,108 @@
 
 POSTS = [
     dict(
+        slug="tnf-recap-seahawks-broncos",
+        kind="Thursday Night Recap",
+        title="Death, Taxes, Thursday Night Football",
+        author="Adam Long",
+        date="Week 6",
+        body=[
+            {"img": [("darnold-throwbacks.jpg",
+                      "Sam Darnold is dragged down by a Broncos rusher, both clubs in throwbacks",
+                      "50% 38%")]},
+
+            "In football, as in life, we can be sure of but a few things. "
+            "Death, taxes. Thursday night football, terrible offensive "
+            "outputs on both sides of the ball. Another absolute TNF stinker "
+            "brought to you courtesy of our overlords at Amazon Prime. I hate "
+            "to say it as the man is truly a legend, but it might be time for "
+            "Al Michaels to hang up the headset. The voice is iconic, but "
+            "unfortunately as Al confronts the twilight of what is truly a "
+            "Hall of Fame career, things have been shaky in the booth to say "
+            "the least. But this is a football website, and you came here to "
+            "hear about football! Not octogenarians. If you wanted that, "
+            "you&rsquo;d watch C-SPAN! Ba-doom-tss. Anyone? No? Alright, "
+            "I&rsquo;ll see myself out.",
+
+            "I digress; on to the ball. We talk BALL here at 3rd &amp; Long. "
+            "The reigning, defending Super Bowl champion Seattle Seahawks "
+            "journeyed to the Mile High City to take on the Denver Broncos to "
+            "kick off Week 6. The product on the field was an utter snoozefest "
+            "for the vast majority of the contest, unless you&rsquo;re one of "
+            "those sick bastards that loves defense. I bet you root for ties, "
+            "too. You disgust me. Anyway, both of these quarterbacks are not "
+            "very good. I don&rsquo;t think anyone would argue with me on "
+            "that. Denver QB Bo Nix genuinely looks like a high school player, "
+            "and Seattle QB Sam Darnold has once again reverted to full "
+            "Pumpkin Mode. Way to get in the Halloween spirit, Sammy! Both "
+            "offenses experienced acute anemia for essentially this entire "
+            "game, save for two first half touchdown runs by Bronco stallions "
+            "RB RJ Harvey and RB JK Dobbins. If there&rsquo;s anything to know "
+            "about the Denver running back room, it&rsquo;s that these guys "
+            "hate first names. The Broncos were actually able to get players "
+            "into the end zone in the first half (they entered Thursday&rsquo;s "
+            "contest with 23 total first half points this SEASON), and went "
+            "into the locker room ahead 14-3. The defense was absolutely "
+            "rocking, led by edge rusher Nik Bonitto, who is still largely "
+            "underrated and is solidly in that highest, elite tier of sack "
+            "artists in our league. Even without their two best secondary "
+            "players, CB Patrick Surtain II and S Talanoa Hufanga, "
+            "Denver&rsquo;s defense looked more similar to their 2025 unit, "
+            "which was one of the stoutest in the NFL. Seattle&rsquo;s offense "
+            "wasn&rsquo;t able to get in a rhythm until the fourth quarter, "
+            "when Seahawks offensive coordinator Brian Fleury finally "
+            "remembered that they have the best player in the entire league "
+            "wearing #11 for their offense. In a down game for the Emerald "
+            "City Route Artist, WR Jaxon Smith-Njigba still had 12 receptions "
+            "for 134 yards. Brian. Just force the ball to him every single "
+            "play. He is uncoverable. Don&rsquo;t run the ball. Don&rsquo;t "
+            "trust Darnold to make a read. Just throw it to JSN every single "
+            "time, and I promise you that these offensive woes will abate. I "
+            "know that sounds facetious, but I&rsquo;m being completely "
+            "serious.",
+
+            "This game did end up being exciting though somehow, as Seattle "
+            "bounced back from a late would-be game-sealing interception by "
+            "the Denver defense and kicked a field goal to send the game to "
+            "extra innings. Take notes Dan Quinn! After receiving (and being "
+            "penalized on) the kickoff, Seattle had a solid drive going until "
+            "Darnold promptly threw another boneheaded interception. Nix and "
+            "the Broncos ran a conservative three plays, and then K Will Lutz "
+            "split the uprights for the game winner to seal a 17-14 Denver "
+            "victory. Shoutout to our own Daniel Brents, the only dissenting "
+            "opinion in our pregame predictions, who (almost) hit the nail on the head "
+            "with his score prediction.",
+
+            "So where do both teams go from here? Denver is sitting at 4-2, "
+            "second in their division, and are allowed to be thrilled with a "
+            "tight victory over the defending champs. But Broncos fans, are "
+            "you really convinced this is a team that can go deep into "
+            "January? I get it, defense wins championships. And this is "
+            "absolutely a defense that can win you a championship. But man, "
+            "Nix is seeing ghosts out there. He&rsquo;s averaging less air "
+            "yards per attempt than any other quarterback in the league. "
+            "I&rsquo;m going to need to see a real explosion from Nix (pause) "
+            "before I really start drinking that Denver Kool-Aid. Seattle "
+            "falls to 3-3, and it&rsquo;s a similar story for them. Their "
+            "defense is outstanding, and is also a unit that can bring a "
+            "second Lombardi in as many years to the Pacific Northwest. But "
+            "Seahawks fans, do you stay the course with Darnold? The man "
+            "brought you to the top of the mountain last year, but I "
+            "don&rsquo;t know a single fan that&rsquo;s not infuriated with "
+            "his play this year. Seven interceptions in 4.1 games this year "
+            "is not a stat that inspires confidence. At least Drew Lock was "
+            "out there slinging it.",
+
+            "<strong>Editor&rsquo;s note:</strong> Holy shit, how did I "
+            "not talk about the most important part of this whole game. "
+            "The uniforms!!! These are probably the two best throwback "
+            "duds in the game. NFL, I hereby petition you to make every "
+            "team wear throwback jerseys every single week. Unless "
+            "you&rsquo;re the Steelers. Don&rsquo;t think we forgot "
+            "about the bumblebees. Yuck.",
+        ],
+    ),
+    dict(
         slug="on-the-hill-five-to-watch",
         kind="On the Hill",
         title="On the Hill",
@@ -37,7 +139,7 @@ POSTS = [
         card_band=830,
         body=[
             {"img": [("texas-tennessee.jpg",
-                      "A Texas defender celebrates in front of the "
+                      "Colin Simmons celebrates in front of the "
                       "Tennessee sideline",
                       "50% 50%")]},
 

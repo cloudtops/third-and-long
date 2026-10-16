@@ -23,6 +23,7 @@ GAMES = [
     dict(
         slot="Thursday Night Football",
         game="Seahawks 3-2 at Broncos 3-2",
+        result="Broncos 17-14",
         picks="""
         Chase Mooney, Seahawks, 21-17
         Noah Irving, Seahawks, 16-13
