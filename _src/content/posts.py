@@ -40,7 +40,7 @@ POSTS = [
 
             "In football, as in life, we can be sure of but a few things. "
             "Death, taxes. Thursday night football, terrible offensive "
-            "outputs on both sides of the ball. Another absolute TNF stinker "
+            "outputs. Another absolute TNF stinker "
             "brought to you courtesy of our overlords at Amazon Prime. I hate "
             "to say it, as the man is truly a legend, but it might be time for "
             "Al Michaels to hang up the headset. The voice is iconic, but "
