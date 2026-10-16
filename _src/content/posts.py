@@ -42,7 +42,7 @@ POSTS = [
             "Death, taxes. Thursday night football, terrible offensive "
             "outputs on both sides of the ball. Another absolute TNF stinker "
             "brought to you courtesy of our overlords at Amazon Prime. I hate "
-            "to say it as the man is truly a legend, but it might be time for "
+            "to say it, as the man is truly a legend, but it might be time for "
             "Al Michaels to hang up the headset. The voice is iconic, but "
             "unfortunately as Al confronts the twilight of what is truly a "
             "Hall of Fame career, things have been shaky in the booth to say "
@@ -58,7 +58,7 @@ POSTS = [
             "for the vast majority of the contest, unless you&rsquo;re one of "
             "those sick bastards that loves defense. I bet you root for ties, "
             "too. You disgust me. Anyway, both of these quarterbacks are not "
-            "very good. I don&rsquo;t think anyone would argue with me on "
+            "very good right now. I don&rsquo;t think anyone would argue with me on "
             "that. Denver QB Bo Nix genuinely looks like a high school player, "
             "and Seattle QB Sam Darnold has once again reverted to full "
             "Pumpkin Mode. Way to get in the Halloween spirit, Sammy! Both "
@@ -72,10 +72,12 @@ POSTS = [
             "into the locker room ahead 14-3. The defense was absolutely "
             "rocking, led by edge rusher Nik Bonitto, who is still largely "
             "underrated and is solidly in that highest, elite tier of sack "
-            "artists in our league. Even without their two best secondary "
+            "artists in our league. Even without their secondary&rsquo;s two best "
             "players, CB Patrick Surtain II and S Talanoa Hufanga, "
             "Denver&rsquo;s defense looked more similar to their 2025 unit, "
-            "which was one of the stoutest in the NFL. Seattle&rsquo;s offense "
+            "which was one of the stoutest in the NFL.",
+
+            "Seattle&rsquo;s offense "
             "wasn&rsquo;t able to get in a rhythm until the fourth quarter, "
             "when Seahawks offensive coordinator Brian Fleury finally "
             "remembered that they have the best player in the entire league "
@@ -86,10 +88,15 @@ POSTS = [
             "trust Darnold to make a read. Just throw it to JSN every single "
             "time, and I promise you that these offensive woes will abate. I "
             "know that sounds facetious, but I&rsquo;m being completely "
-            "serious.",
+            "serious. RB George Holani exorcised his Week 5 demons by not "
+            "fumbling, and also scoring a clutch touchdown in the fourth "
+            "quarter. WR Rashid Shaheed made a dazzling, highlight-reel "
+            "2-Point Conversion catch in the back of the end zone to cut "
+            "the Bronco lead to three. Shades of Omar Cooper Jr. vs. Penn "
+            "State last year.",
 
-            "This game did end up being exciting though somehow, as Seattle "
-            "bounced back from a late would-be game-sealing interception by "
+            "Seattle "
+            "bounced back again from a late would-be game-sealing interception by "
             "the Denver defense and kicked a field goal to send the game to "
             "extra innings. Take notes Dan Quinn! After receiving (and being "
             "penalized on) the kickoff, Seattle had a solid drive going until "
@@ -116,7 +123,7 @@ POSTS = [
             "Seahawks fans, do you stay the course with Darnold? The man "
             "brought you to the top of the mountain last year, but I "
             "don&rsquo;t know a single fan that&rsquo;s not infuriated with "
-            "his play this year. Seven interceptions in 4.1 games this year "
+            "his play this season. Seven interceptions in 4.1 games in 2026 "
             "is not a stat that inspires confidence. At least Drew Lock was "
             "out there slinging it.",
 
