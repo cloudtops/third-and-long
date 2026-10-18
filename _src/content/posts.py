@@ -28,6 +28,50 @@
 
 POSTS = [
     dict(
+        slug="stroud-deserves-an-apology",
+        kind="Guest Column",
+        title="CJ Stroud Deserves an Apology",
+        author="Daniel Brents",
+        date="Week 6",
+        body=[
+            {"img": [("stroud-london.jpg",
+                      "CJ Stroud celebrates with Texans teammates at Wembley, "
+                      "all three in white road uniforms",
+                      "50% 38%")]},
+
+            "CJ did not have the best end to his 2025 season; his playoff "
+            "performances were bad, and there is no sugarcoating it. This "
+            "offseason has been brutal for all the Stroud boys out there as "
+            "the public used the last two games to condemn our fearless "
+            "leader. The countless memes, photoshops, and media digs lasted "
+            "the entire offseason.",
+
+            "Then Stroud turns down the contract extension, and the people "
+            "go crazy. Coleridge Bernard bet on himself, and as of Week 6, "
+            "he has proven the doubters wrong. The Texans&rsquo; record does "
+            "not reflect the level of play coming from the quarterback "
+            "position. Stroud just went across the pond and dropped 312 with "
+            "three touchdowns on the Jags&rsquo; heads. Stroud looked "
+            "confident, he was making difficult throws with ease, and led "
+            "his offense down the field for a game-winning drive. He&rsquo;s "
+            "been having a sneaky great year with 1,700 yards, 9 touchdowns, "
+            "and only one interception.",
+
+            "What&rsquo;s impressed me the most about CJ is the maturity at "
+            "such a young age. With everything that was going on in the "
+            "offseason, my GOAT stood fearless in the face of scrutiny. He "
+            "cut his hair and locked in, and I believe we are back to the "
+            "Stroud we thought we had at the beginning of his career. The "
+            "Texans still need to get better protection for Stroud, and the "
+            "inconsistency from Caley can be frustrating, but this offense "
+            "is really impressive when things are all working.",
+
+            "Anyways, if you ever doubted CJ Stroud, please apologize out "
+            "loud to yourself right now. All that&rsquo;s left to say is "
+            "PAY THAT MAN.",
+        ],
+    ),
+    dict(
         slug="tnf-recap-seahawks-broncos",
         kind="Thursday Night Recap",
         title="Death, Taxes, Thursday Night Football",
