@@ -28,6 +28,125 @@
 
 POSTS = [
     dict(
+        slug="week-6-texans-jaguars",
+        kind="Game of the Week",
+        title="Houston 34, Jacksonville 31",
+        author="Adam Long",
+        date="Week 6",
+        teams=("texans", "jaguars"),
+        records=("2-4", "4-2"),
+        venue="Wembley Stadium, London, England",
+        body=[
+            {"img": [("fairbairn-wembley.jpg",
+                      "Ka&rsquo;imi Fairbairn&rsquo;s game-winning kick clears "
+                      "a wall of leaping Jaguars at Wembley",
+                      "50% 40%")]},
+
+            "I&rsquo;d like for you to imagine for a moment, a foggy autumn "
+            "morning in London. As you sit sipping your tea, nestled in a "
+            "comfy chair in your favorite caf&eacute; overlooking the River "
+            "Thames, you notice a crowd of people in strange kits meandering "
+            "along past your perch. This rowdy group is clad in sports "
+            "jerseys, unfamiliar sports jerseys to you, a lifelong Londoner. "
+            "Your closet is full of Arsenal shirts, and the gaudy dark teal "
+            "duds in front of you offend your dainty European eyes. These "
+            "people are diehard fans of the Jacksonville Jaguars, a team just "
+            "over 4,200 miles (sorry, 6,800 kilometers, you dorks) away from "
+            "London, a club who plays a sport light years away from the "
+            "football that you know and love.",
+
+            "It is very interesting to me, as someone who has never really "
+            "looked at the NFL&rsquo;s commitment to scheduling more and more "
+            "international games every year as a net positive for our game, "
+            "that the people of London have really taken to their surrogate "
+            "home team. The Jaguars now hold their British residency for two "
+            "weeks a year across the pond, and this year is the first year I "
+            "can remember when international games haven&rsquo;t been, for "
+            "lack of a better word, shit. The decision for the NFL to hold "
+            "important divisional games thousands of miles away from both "
+            "teams&rsquo; home stadiums seems absurd, but it may just turn "
+            "out to be another Goodell Gamble that delights NFL shareholders "
+            "and disenfranchises NFL fans.",
+
+            "Anyway, you&rsquo;re probably here to hear about the game, not "
+            "to listen to me think out loud about the future of our league "
+            "and what schedules may look like in a decade (I can&rsquo;t wait "
+            "for the Rio de Janeiro Royals to take on the Berlin Tigers "
+            "before their Week 29 bye). So let&rsquo;s talk about the game, "
+            "god damn it. Don&rsquo;t let both teams&rsquo; records coming "
+            "into this game fool you, these are two good football teams. The "
+            "1-4 Houston Texans came into this game as 2.5 point underdogs, "
+            "although their rival Jaguars held a 4-1 mark through five weeks. "
+            "The Jaguars have looked like one of the league&rsquo;s most "
+            "complete teams of the young season, and the Texans have looked "
+            "competitive albeit not able to deal finishing blows to get "
+            "W&rsquo;s. Both teams entered Sunday coming off wins last week, "
+            "the Jaguars getting their fourth in a nail biter vs. "
+            "Philadelphia, and Houston getting their first win of the season "
+            "in a thorough drubbing of the lowly Titans.",
+
+            "A bit of a snoozer early in this one, the only touchdown of the "
+            "first quarter came on a short strike from Texans QB CJ Stroud to "
+            "TE Foster Moreau. Jacksonville QB Trevor Lawrence threw an "
+            "interception early in the second quarter, but rebounded nicely "
+            "with two touchdown passes to RB Bhayshul Tuten. Stroud and the "
+            "Texans answered the bell, adding a K Ka&rsquo;imi Fairbairn "
+            "field goal and Stroud&rsquo;s second scoring pass of the "
+            "contest, again to Moreau. Houston headed to their locker room "
+            "leading by three.",
+
+            "Things grew considerably more exciting in the second half. The "
+            "Texans offense controlled the ball down the field, capping off a "
+            "strong drive with a Stroud-to-WR Jaylin Noel touchdown. Two "
+            "punts ensued, and then the Jaguars roared back. Lawrence hit a "
+            "pop pass to rookie TE Nate Boerkircher, who climbed the ladder "
+            "and secured his first professional touchdown catch with one "
+            "hand, a highlight-reel play for the young man. Stroud again "
+            "retorted by commanding his Texan offense to paydirt, courtesy of "
+            "a 25-yard scamper from RB Jawhar Jordan.",
+
+            "Enter Travis Hunter. 2025&rsquo;s second overall pick and former "
+            "Heisman Trophy winner has shown flashes of greatness in his "
+            "young career, but Sunday was truly his coming out party. "
+            "Arguably the most impactful two-way player since Green "
+            "Bay&rsquo;s "
+            "B.J. Raji, Hunter has clearly learned a lot from his former head "
+            "coach and mentor Deion Sanders. As soon as Jacksonville got the "
+            "ball back following the Jordan touchdown, the Travis Hunter show "
+            "started. He had three receptions on that drive, one explosive "
+            "catch and run for 26 yards, a 12-yard catch that moved the "
+            "chains, and a 7-yard grab for a Jaguar touchdown. Fast forward a "
+            "few minutes later, and Stroud had driven his team down the field "
+            "yet again and was knocking on the door of the end zone with a "
+            "chance to go up 10. Stroud rolled to his right and floated a "
+            "pass to WR Xavier Hutchinson, but Hunter jumped the route to "
+            "secure his second career interception. For all of you living "
+            "under a rock for the last five or so years, Travis Hunter excels "
+            "at both wide receiver and cornerback.",
+
+            "The Jags once again produced on offense, converting on a 60-yard "
+            "field goal try from arguably the best placekicker in the league, "
+            "K Cam Little. I haven&rsquo;t talked a lot about Stroud in "
+            "particular during this recap, and that&rsquo;s because "
+            "<a href='/posts/stroud-deserves-an-apology'>someone else can do "
+            "it better than I can</a>. He was sensational today, and has been "
+            "sensational all season. Despite the Win-Loss record for the "
+            "Texans, Stroud is, at least in my eyes, in the thick of the MVP "
+            "race. He shook off the late pick and rebounded by steering the "
+            "Houston ship to victory by way of a 49-yard Fairbairn field goal "
+            "as time expired.",
+
+            "What a game! Really woke me up this morning. The AFC South is a "
+            "difficult egg to crack so far this year, if Jacksonville had won "
+            "this morning and resigned Houston to 1-5 while themselves "
+            "climbing to 5-1, they probably would&rsquo;ve had this division "
+            "locked up. Now, especially with the Texans actually looking like "
+            "we thought they would in the preseason, who knows? The winner "
+            "of this division was absolutely playing in this game today. "
+            "Which team is it? Flip a coin.",
+        ],
+    ),
+    dict(
         slug="stroud-deserves-an-apology",
         kind="Guest Column",
         title="CJ Stroud Deserves an Apology",
