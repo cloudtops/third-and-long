@@ -36,6 +36,7 @@ GAMES = [
     dict(
         slot="Sunday Night Football",
         game="Cowboys 2-3 at Packers 3-2",
+        result="Packers 23-13",
         picks="""
         Chase Mooney, Packers, 24-17
         Noah Irving, Cowboys, 27-24
