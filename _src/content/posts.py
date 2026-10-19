@@ -65,7 +65,7 @@ POSTS = [
             "lack of a better word, shit. The decision for the NFL to hold "
             "important divisional games thousands of miles away from both "
             "teams&rsquo; home stadiums seems absurd, but it may just turn "
-            "out to be another Goodell Gamble that delights NFL shareholders "
+            "out to be another Goodell Gamble that delights NFL owners "
             "and disenfranchises NFL fans.",
 
             "Anyway, you&rsquo;re probably here to hear about the game, not "

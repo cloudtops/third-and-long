@@ -29,38 +29,37 @@
 # "1,204" and "12 (T-1st)" all work as values. List as many or as few per
 # category as you like. A misspelled team stops the build and names it.
 
-WEEK = "Through Thursday, Week 6"
+WEEK = "After Week 6"
 
 LEADERS = """
 Passing Yards
-1. Matthew Stafford (LAR), 1572
-2. Jared Goff (DET), 1485
-3. Jordan Love (GB), 1408
+1. Matthew Stafford (LAR), 1794
+2. CJ Stroud (HOU), 1714
+3. Jordan Love (GB), 1684
 
 Passing TDs
-1. Brock Purdy (SF), 13
-T-2. Kirk Cousins (LV), Jared Goff (DET), 12
-4. Joe Burrow (CIN), 11
+T-1. Kirk Cousins (LV), Trevor Lawrence (JAX), 14
+3. Brock Purdy (SF), 13
+T-4. Jared Goff (DET), Tyler Shough (NO), Aaron Rodgers (PIT), 12
 
 Rushing Yards
-1. Bijan Robinson (ATL), 580
-2. Kenneth Walker III (KC), 537
-3. James Cook (BUF), 532
+1. Kenneth Walker III (KC), 665
+2. Bijan Robinson (ATL), 641
+3. James Cook (BUF), 627
 
 Rushing TDs
 1. Josh Allen (BUF), 8
-T-2. Jahmyr Gibbs (DET), Derrick Henry (BAL), 7
-T-4. Jonathan Taylor (IND), Javonte Williams (DAL), 6
+T-2. Jahmyr Gibbs (DET), Derrick Henry (BAL), Jonathan Taylor (IND), 7
 
 Receiving Yards
 1. Jaxon Smith-Njigba (SEA), 717
-2. Chris Olave (NO), 537
-3. CeeDee Lamb (DAL), 507
+2. Chris Olave (NO), 580
+3. CeeDee Lamb (DAL), 577
 
 Receiving TDs
 1. Jaxon Smith-Njigba (SEA), 7
 2. Christian Watson (GB), 6
-3. Amon-Ra St. Brown (DET), 5
+T-3. Amon-Ra St. Brown (DET), Isaiah Likely (NYG), 5
 
 Team DVOA
 1. San Francisco 49ers, 52.2%

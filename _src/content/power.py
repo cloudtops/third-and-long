@@ -15,56 +15,60 @@
 #
 # All 32 teams must be present, or the build stops and names the ones missing.
 
-WEEK = "After Week 5"
+WEEK = "After Week 6"
 
 RANKS = """
 1. San Francisco 49ers (5-0)
-2. Kansas City Chiefs (4-0)
-3. Seattle Seahawks (3-2)
-4. Buffalo Bills (4-1)
-5. Jacksonville Jaguars (4-1)
-6. Baltimore Ravens (4-1)
-7. Minnesota Vikings (5-0)
-8. Denver Broncos (3-2)
-9. New England Patriots (2-3)
-10. Chicago Bears (3-2)
-11. Carolina Panthers (2-2)
-12. Los Angeles Rams (2-3)
-13. Detroit Lions (3-2)
+2. Kansas City Chiefs (5-0)
+3. Buffalo Bills (5-1)
+4. Minnesota Vikings (5-0)
+5. Jacksonville Jaguars (4-2)
+6. Denver Broncos (4-2)
+7. Seattle Seahawks (3-3)
+8. New England Patriots (4-2)
+9. Green Bay Packers (4-2)
+10. Chicago Bears (4-2)
+11. Houston Texans (2-4)
+12. Baltimore Ravens (4-2)
+13. Carolina Panthers (3-2)
 14. Cincinnati Bengals (3-2)
-15. Atlanta Falcons (2-3)
-16. Las Vegas Raiders (3-2)
-17. Pittsburgh Steelers (3-2)
-18. Green Bay Packers (3-2)
-19. Houston Texans (1-4)
-20. Indianapolis Colts (2-3)
-21. Dallas Cowboys (2-3)
-22. Cleveland Browns (3-2)
-23. Philadelphia Eagles (2-3)
-24. New York Jets (2-3)
-25. New York Giants (3-1-1)
-26. New Orleans Saints (1-4)
-27. Tampa Bay Buccaneers (1-4)
-28. Miami Dolphins (0-5)
-29. Los Angeles Chargers (0-5)
-30. Arizona Cardinals (1-4)
+15. Detroit Lions (3-2)
+16. Las Vegas Raiders (3-3)
+17. Pittsburgh Steelers (4-2)
+18. Cleveland Browns (4-2)
+19. Atlanta Falcons (2-4)
+20. Los Angeles Rams (2-4)
+21. New Orleans Saints (2-4)
+22. Arizona Cardinals (2-4)
+23. Indianapolis Colts (2-4)
+24. Philadelphia Eagles (2-4)
+25. New York Giants (3-2-1)
+26. Dallas Cowboys (2-4)
+27. New York Jets (2-4)
+28. Tennessee Titans (1-5)
+29. Tampa Bay Buccaneers (1-5)
+30. Miami Dolphins (0-5)
 31. Washington Commanders (1-3-1)
-32. Tennessee Titans (0-5)
+32. Los Angeles Chargers (0-6)
 """
 
 # The weekly write-up above the board. Blank-line-separated paragraphs.
 NOTES = """
-Please, no one make fun of me. I&rsquo;ve been through enough with my dogshit team this week. I&rsquo;m not going to say anything about the Commanders-Giants game in this recap, nobody needs to relive that. If you really care that much I wrote a whole article about it (read it <a href="/posts/dan-quinn-shadow-realm">here</a>, you masochists).
+Well, there you have it, folks. Another topsy-turvy weekend of NFL football. Things starting to look a little clearer for you yet after six weeks of games? Me neither. Some serious movement going on in these power rankings this week, but I am starting to get a better idea of who most of these teams actually are. A lot of the initial mirages, either for better or worse, are in fact beginning to subside. All that being said, a +.500 correct rate in my Pick &rsquo;Em league still eludes me. So take everything I&rsquo;m saying with a few tablespoons of salt. Without further ado, let&rsquo;s talk a little ball.
 
-Anyway, a whole lot of moving and shaking going on in the big leagues this weekend. Upsets, blowouts, a few really exciting close games, and the most ridiculously idiotic finish to a football game you&rsquo;ll see this decade. Wait, no, I said I&rsquo;m not talking about that. Let&rsquo;s talk about all the teams that actually know how to play the sport of football!
+If you&rsquo;d like to read my full thoughts on Thursday&rsquo;s matchup between Seattle and Denver, check it out <a href="/posts/tnf-recap-seahawks-broncos">here</a>. If you don&rsquo;t, that&rsquo;s fine. Just know that every time you don&rsquo;t click on one of our hyperlinks to a different article, a puppy dies. If you&rsquo;d like to read my full thoughts on what was my Game of the Week for Week 6, click <a href="/posts/week-6-texans-jaguars">here</a>. A nice coincidence for me that the first two games of the week are already checked off in full article form. That&rsquo;s the 3rd &amp; Long difference! Anyway, we&rsquo;ll kick it off with Bears/Falcons. A thunderous return for QB Caleb Williams, who set a new career watermark for single game completion percentage. Chicago burst out to a 31-7 lead before taking their foot off the gas, although they successfully thwarted Atlanta&rsquo;s comeback attempt. Chicago rolled to a 31-23 victory and improved to 4-2 on the year, and the sky is the limit for this team with their golden boy back under center. In a game that very nearly put me to sleep, Cleveland defeated Baltimore 13-10. QB Lamar Jackson did not play, still inactive from a nagging ankle injury. Do you really want me to recap this? Please don&rsquo;t make me. The Browns won and improved to 4-2, although the offense is still awful. Defense is great. That&rsquo;s all you&rsquo;re gonna get from me on this one.
 
-We start off with the funniest thing I can imagine, which was the Cowboys getting completely overwhelmed by the formerly 0-4 Buccaneers and their UDFA rookie QB Jalon Daniels in JerryWorld. This Cowboys team will not win a game unless their offense scores 30+, their defense is that awful. Christian Parker, your days are numbered in Dallas. Anyway, you can read more about Jalon (Yes, Jalon. Not Jayden. Shut up about it already!!!!) Daniels and his performance in this week&rsquo;s <a href="/posts/rookie-radar-jalon-daniels">Rookie Radar</a>. On an equally hilarious note, the Eagles crossed the pond and blew a lead with 0:06 remaining, falling to the London Jaguars and continuing their slide into mediocrity. The Post-Sirianni Era is rapidly approaching. On to the NFC North, where the Packers beat up on the rival Bears to the tune of 31-7. Jordan Love was the best player in football this weekend, and looked like the player we saw in 2025, not whoever the hell he is so far this season. Tyson Bagent was atrocious, and this was probably the most unfortunate Sunday of Ben Johnson&rsquo;s tenure in the Windy City to this point. Texans-Titans was a snoozefest, but CJ Stroud and the Texans got their first win of the season against what just might be the worst team to play football this decade. Cam Ward, I am your strongest soldier, and just wrote an entire article LAST WEEK about why people shouldn&rsquo;t give up on you, but this is getting to the point where I cannot possibly keep defending the product on the field. I looked at the schedule and I honestly think it&rsquo;s more likely than not that Tennessee finishes 0-17. My sincerest condolences, Jeremiah Smith.
+We interrupt this program to bring you breaking news from the city of Indianapolis, Indiana. The 2026 Tennessee Titans have won a football game. I repeat, the 2026 Tennessee Titans have won a football game! Cam Ward haters, where you at now? Oh, he only threw for 102 yards? The Titans only won this game on the strength of their defense and special teams? Okay, yeah, fair. But wins are the only quarterback stat that matters, baby! Colts fans, time to get the paper bags out? Off we go to the northeast, where the New England Patriots defeated the New York Jets in a game that looked close but didn&rsquo;t really feel close. Drake Maye is now officially revived. One week is a fluke, two weeks is an eye raise, three weeks is a trend. Dude is back. Someone who is also back, but not back at the same time is WR AJ Brown. Not a great showing for the superstar receiver in his first game returning from injury. Want a real superstar receiver? Look across the sideline to Jets&rsquo; rookie WR Omar Cooper Jr. This guy was special last year at Indiana and looks to continue that trend in the pros after returning from his own injury. Anyway, the Patriots are good, the Jets are bad, and water is wet.
 
-Cincy vs. Miami is next, a game that actually was closer than initially expected. I&rsquo;m not going to blow smoke up your ass here, I didn&rsquo;t watch this game. Can you blame me? Cincinnati gets a close W to improve to 3-2, along with every other team in the AFC North, and also every other team in the NFC North! Fun stat. We&rsquo;re Fun Stats guys here at 3rd &amp; Long. I was disappointed to see the Raiders get boat raced by the Patriots, it appears the Silver &amp; Black&rsquo;s 3-0 start was simply a Vegas mirage. Drake Maye has now officially retired from Jersey Mike&rsquo;s and is back to playing MVP-level football. That was really weird there for a little bit. Down in the Big Easy the Saints dropped their third straight home game to the Minnesota Vikings, who improved to 5-0 and actually got solid offensive production from their offense, not their kicker Will Reichard. Defensive coordinator Brian Flores blitzed Tyler Shough and the Saints at a 85.2% rate. I don&rsquo;t even need to say anything else. Read that again.
+Tyler Shough and the Saints defeated the Giants, propelled to victory by the right arm of Shough and the re-animated corpse of RB Alvin Kamara. Kamara is probably a Hall of Famer, right? Hall of Very Good, at the very least. The Saints jumped out to a 34-10 victory before pulling their starters and allowing for QB JJ McCarthy to nearly engineer a comeback of his own. No, not a career comeback, just a this-game comeback. I have no hope for you, Nine. The Giants are probably the worst football team with a winning record I have ever seen through six weeks. Yes, I&rsquo;m still salty about last week. At least I&rsquo;m honest about it.
 
-The New York Jets defeated the Cleveland Browns, who remembered that they are the Cleveland Browns and as such, suck at playing football. WR Denzel Boston looks great, so you have that going for you. Which is nice. Anyway, the main story here is that Jets rookie LB David Bailey, the number two overall pick in the draft, is solidly NOT a bust after registering 3.0 separate quarterback takedowns against future Walter Payton Man of the Year Award-winner QB Deshaun Watson. Indy and Pittsburgh played in Western PA, where I was surprised and delighted to learn that the Colts&rsquo; record when traveling to the Steel City was 1-17 since the AFL-NFL merger in 1970. It is now 1-18, as QB Aaron Rodgers and RB Jaylen Warren actually have this offense rolling for multiple weeks in a row. Looking at the schedule, 7-2 for Pittsburgh does not seem out of the realm of possibility. In the nation&rsquo;s capital, the Commanders battled the Giants, and <span role="presentation" aria-hidden="true" style="background:var(--ink);color:transparent;border-radius:2px;padding:.1em .14em;line-height:1.75;-webkit-box-decoration-break:clone;box-decoration-break:clone">xxxx xxxxxxxxx xxxx xxxxxx xxxxxxx xxxx xxxxxxxxxx xxxx xxxxxxx xxxxx xxxxxxxx xxx xxxxxxxxx</span><span role="presentation" style="display:block;height:.5rem"></span>
+In the City of Brotherly Love, QB Bryce Young continued his incendiary pace en route to a 25-16 Carolina victory. Instead of lambasting the performance that the Eagles gave today, I just want to mention that I feel absolutely awful for Jalen Hurts. His is a very scary situation, and I speak for all of us at 3rd &amp; Long in wishing him a very safe and speedy recovery. Guys like Hurts make the NFL a better product for everyone, and he seems like an exemplary human being in addition to being a truly great quarterback. I can&rsquo;t tell you how many times I&rsquo;ve thrown a shoe at my TV after the Commanders go down four scores on another Hurts tush push. But it&rsquo;s those emotions, negative or positive, that make football such a special thing for so many of us. It&rsquo;s the reason why we even cheer at all for our hapless clubs, and the reason that when our teams do win, victory feels so sweet. Can&rsquo;t wait to see you back out there again as soon as you&rsquo;re all good, Jalen, football will truly be better for it. The Panthers improved to 3-2, and the Eagles fell to 2-4.
 
-On to the late window! Denver improved to 3-2 against the hapless Chargers, who fell to 0-5 on the year. Not all sunshine and daisies in the Rockies, though, as Denver needs to start learning how to score points in the first half or else they are going to miss the playoffs. QB Bo Nix is missing wide open receivers downfield in order to throw checkdowns to running backs (RB RJ Harvey leads the Broncos in receptions through five weeks), and needs to figure it out quickly. Detroit beat the piss out of the Cardinals, and QB Jared Goff quietly continued an under-the-radar MVP campaign by throwing another three touchdown passes with zero interceptions (He has not thrown a pick this season). RB Jahmyr Gibbs went for 200+ from scrimmage, and WR Jameson Williams scored twice. Ben Johnson who? This offense can still roll! In what was my game of the week until Monday night, the 49ers came to town and got gifted a division win over the archrival Seahawks. #1 vs. #3 in my power rankings, and this game lived up to all of the hype. Seattle honestly played much better than San Francisco overall, but four (!!) costly turnovers cost the Hawks a chance to spoil the Niners&rsquo; undefeated record. WR Jaxon Smith-Njigba is the best player in the NFL by such a hilariously wide margin that he&rsquo;s still the best player in the NFL even when he only has one leg. I expect another great game between these teams when they meet again later on this season, and hopefully a playoff classic in January. Sunday night saw the Falcons fall to the Ravens in a great Bird Bowl that went to overtime, where QB Snoop Huntley played the hero for Baltimore and QB Tua Turndaballova played the fool for Atlanta. I imagine that if QB Michael Penix Jr. wouldn&rsquo;t have hurt his rib that Atlanta would&rsquo;ve got the win, but you know, horseshoes and hand grenades or whatever.
+Down to sunny Tampa, where the Pittsburgh Steelers completed a furious comeback in overtime against the red-hot (?) Buccaneers. Steeler QB Aaron Rodgers continues to oscillate rapidly between looking like a 75-year-old and looking like it&rsquo;s 2011 again. It shouldn&rsquo;t have to be said at this point, but if you mock Rodgers&rsquo; signature celebration after sacking him, your team is going to get torched. Pittsburgh rallied from a 16-3 deficit and won the game, courtesy of a touchdown pass from Rodgers to rookie WR Germie Bernard, who was everywhere today. In the biggest upset of the week, Arizona defeated the Los Angeles Rams on a last second field goal from K Chad Ryland. There&rsquo;s no easy way to say this. The Rams are in hell. Everyone who gave the Rams the August Lombardi are looking pretty silly now, as the preseason Super Bowl favorites sit at 2-4. The funniest part is that most of their losses have come due to special teams errors, which is so silly and such an avoidable thing. McVay will likely have his club rolling again upon the return of reigning Defensive Player of the Year Myles Garrett and a favorable upcoming schedule, but man. Having your punter kicking PAT&rsquo;s is a bad look. Flowers for the Cardinal defense, which actually looked elite today after getting thoroughly toasted throughout the year. First year head coach Mike LaFleur completed the SoFi Sweep, defeating both Los Angeles teams on the road in one season.
 
-You can read all about Monday night&rsquo;s <a href="/posts/week-5-bills-rams">Game of the Week</a> here. Thanks for reading and following along with us for another week of football. We are starting to gain some real traction here at 3rd &amp; Long, and we greatly appreciate all of your support. We know you have a million places to get your NFL takes, and we thank you very much for choosing to follow along with us! Eat a dick, Portnoy!
+Chiefs vs. Chargers was a snoozefest. Not a ton for you guys on this one that you don&rsquo;t already know. Justin Herbert is a bad quarterback, and the Chiefs are a Super Bowl frontrunner. It&rsquo;s so infuriating watching Herbert evade three sacks on one play and promptly throw the football directly to a linebacker with no receiver within 15 yards of him. The Chargers are the last winless team in football, and as such fall to #32 in the power rankings. This team might be worse than those Andy Reid/Pat Mahomes State Farm commercials. Just gouge my eyes out already. The Bills and Raiders played in the runner-up contender for Game of the Week, a shootout in the desert that was highlighted by a Josh Allen-esque touchdown pass from, well, Josh Allen. Raiders QB Kirk Cousins is elite again, and was incredibly efficient doling out passes to the best tight end tandem in the league, TE Brock Bowers and TE Michael Mayer. The Bills are a Super Bowl contender, but they go as Allen goes. Allen is Sisyphus, but the Buffalo defense is the boulder.
+
+Sunday night was largely unexciting, unless you&rsquo;re a Packers fan, in which case you were likely ecstatic with the play of your defense and the return to form of QB Jordan Love. Or if you, like me, just hate the Cowboys and watching them get embarrassed in primetime is almost better than your own team winning. The &ldquo;Greatest Offense There Is&rdquo; put up seven points in this game when it mattered, and QB Dak Prescott looked lost against the blitz. Never thought I would write that sentence. Dallas, like the Rams, is also in hell. The Cowboys should probably fire coach Brian Schottenheimer at the bye, but far be it from Jerry to admit that he was wrong. 6-11 incoming. Green Bay looks like the Green Bay that we expected coming into the season, and will only get better when Great Guy and All Around Family Man RB Josh Jacobs returns next week. Love is playing at an elite level, the defense is stifling, and the WR duo of Christian Watson and Matthew Golden looks like one of the most electric in the league.
+
+Thanks for reading if you got this far, see you all next week!
 """

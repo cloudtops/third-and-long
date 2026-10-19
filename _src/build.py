@@ -847,8 +847,14 @@ def power_section(hist, prev):
     rows = parse_power()
     if not rows:
         return ""
+    # same split as the pick record: the heading names both halves of the
+    # section (the written rundown, then the board), the nav tab stays short.
+    # The other '<h2>Power Rankings</h2>' in this file is the archive grid on
+    # the midseason/preseason report pages, which has no rundown above it.
     return ('<section class="section power-now" id="power"><div class="wrap">'
-            '<h2>Power Rankings</h2>'
+            # nbsp before the slash so a phone-width wrap leaves it at the end
+            # of line one instead of hanging it at the start of line two
+            '<h2>Weekly Rundown&nbsp;/ Power Rankings</h2>'
             f'<p class="stand-week">{POWER_MOD.WEEK}</p>'
             f'{notes_block(parse_notes())}'
             f'{power_board(rows, prev)}'
@@ -1333,8 +1339,11 @@ def picks_section(hist):
                     f'<i class="prec-rec">{w}&ndash;{l}</i>{hit}</li>')
     note = ('<p class="section-note">Straight-up winners. The second column is '
             'exact scores.</p>' if any_exact else "")
+    # the heading carries the full name; the nav tab stays short so the row
+    # of tabs doesn't wrap on a phone. The label in the sections list is the
+    # tab, this is the heading, and they are deliberately different.
     return ('<section class="section picks-now" id="picks"><div class="wrap">'
-            '<h2>Pick Record</h2>'
+            '<h2>Primetime Pick Record</h2>'
             f'<p class="stand-week">Through {through}</p>{note}'
             f'<ol class="prec-list{"" if any_exact else " prec-list--plain"}">'
             f'{"".join(body)}</ol>'
