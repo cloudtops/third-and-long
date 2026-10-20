@@ -38,8 +38,7 @@ Passing Yards
 3. Jordan Love (GB), 1684
 
 Passing TDs
-T-1. Kirk Cousins (LV), Trevor Lawrence (JAX), 14
-3. Brock Purdy (SF), 13
+T-1. Kirk Cousins (LV), Trevor Lawrence (JAX), Brock Purdy (SF), 14
 T-4. Jared Goff (DET), Tyler Shough (NO), Aaron Rodgers (PIT), 12
 
 Rushing Yards
@@ -49,7 +48,7 @@ Rushing Yards
 
 Rushing TDs
 1. Josh Allen (BUF), 8
-T-2. Jahmyr Gibbs (DET), Derrick Henry (BAL), Jonathan Taylor (IND), 7
+T-2. Jahmyr Gibbs (DET), Derrick Henry (BAL), Jonathan Taylor (IND), Christian McCaffrey (SF), Javonte Williams (DAL), 7
 
 Receiving Yards
 1. Jaxon Smith-Njigba (SEA), 717
@@ -59,12 +58,12 @@ Receiving Yards
 Receiving TDs
 1. Jaxon Smith-Njigba (SEA), 7
 2. Christian Watson (GB), 6
-T-3. Amon-Ra St. Brown (DET), Isaiah Likely (NYG), 5
+T-3. Amon-Ra St. Brown (DET), Isaiah Likely (NYG), George Kittle (SF), 5
 
 Team DVOA
-1. San Francisco 49ers, 52.2%
-2. Jacksonville Jaguars, 30.1%
-3. Buffalo Bills, 24.2%
+1. San Francisco 49ers, 46.1%
+2. Kansas City Chiefs, 28.9%
+3. Jacksonville Jaguars, 27.7%
 
 Sacks
 1. Will Anderson Jr. (HOU), 7.5

@@ -49,11 +49,12 @@ GAMES = [
     dict(
         slot="Monday Night Football",
         game="Commanders 1-3-1 at 49ers 5-0",
+        result="49ers 23-17",
         picks="""
-        Chase Mooney, 49ers, 31-13
+        Chase Mooney, 49ers, 24-10
         Noah Irving, 49ers, 31-13
-        Daniel Brents, 49ers, 28-10
-        Noah Labao, 49ers, 35-13
+        Daniel Brents, 49ers, 28-24
+        Noah Labao, 49ers, 28-13
         Henry Houghton, 49ers, 34-23
         Adam Long, Commanders, 31-27
         """,

@@ -18,7 +18,7 @@
 WEEK = "After Week 6"
 
 RANKS = """
-1. San Francisco 49ers (5-0)
+1. San Francisco 49ers (6-0)
 2. Kansas City Chiefs (5-0)
 3. Buffalo Bills (5-1)
 4. Minnesota Vikings (5-0)
@@ -48,7 +48,7 @@ RANKS = """
 28. Tennessee Titans (1-5)
 29. Tampa Bay Buccaneers (1-5)
 30. Miami Dolphins (0-5)
-31. Washington Commanders (1-3-1)
+31. Washington Commanders (1-4-1)
 32. Los Angeles Chargers (0-6)
 """
 
@@ -70,5 +70,7 @@ Chiefs vs. Chargers was a snoozefest. Not a ton for you guys on this one that yo
 
 Sunday night was largely unexciting, unless you&rsquo;re a Packers fan, in which case you were likely ecstatic with the play of your defense and the return to form of QB Jordan Love. Or if you, like me, just hate the Cowboys and watching them get embarrassed in primetime is almost better than your own team winning. The &ldquo;Greatest Offense There Is&rdquo; put up seven points in this game when it mattered, and QB Dak Prescott looked lost against the blitz. Never thought I would write that sentence. Dallas, like the Rams, is also in hell. The Cowboys should probably fire coach Brian Schottenheimer at the bye, but far be it from Jerry to admit that he was wrong. 6-11 incoming. Green Bay looks like the Green Bay that we expected coming into the season, and will only get better when Great Guy and All Around Family Man RB Josh Jacobs returns next week. Love is playing at an elite level, the defense is stifling, and the WR duo of Christian Watson and Matthew Golden looks like one of the most electric in the league.
 
-Thanks for reading if you got this far, see you all next week!
+We closed out the week in the Bay Area, where San Francisco jumped out to a 20-3 lead in the first half and outgained the clearly outmatched Commanders by 213 yards. After WR Mike Evans went down the Niner offense stalled, and Washington remembered that they have a perfect, infallible, incredible unicorn of a quarterback and dominated the 49ers throughout the entire second half. Not enough to get the W, as Dan Quinn once again tried his absolutely hardest to lose this game, but at least QB Jayden Daniels looked great for a second week in a row. It&rsquo;s so depressing as a Commander fan to see who I think is a Top 5 quarterback in this league paired with a Bottom 5 roster and coaching staff. I know you probably want me to mention him throwing the ball away on fourth down in the first half, but I&rsquo;m not going to. I think he saw the flag on the ground and was trying to do his best Aaron Rodgers free play impression. Sending hugs to my guy WR Terry McLaurin who was carted off early in this one, I&rsquo;m hoping against hope that last night wasn&rsquo;t his final time suiting up in the burgundy and gold. Anyway, San Francisco improves to 6-0, and Washington falls to a disappointing 1-4-1.
+
+Alrighty, there ya go! All my reads on all the games from this week. Looking ahead to Week 7, we have some absolute classics on the docket. Browns/Titans, Jets/Dolphins, Cowboys/Eagles. What&rsquo;s not to love? See you then!
 """

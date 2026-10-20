@@ -1033,7 +1033,12 @@ def parse_standings():
                 rows.append((slug, d["name"], rec, pct, w, w - l))
             # win pct, then win differential, then wins. The differential
             # matters early: 0-0 must outrank 0-1, and both are .000.
-            rows.sort(key=lambda r: (-r[3], -r[5], -r[4], r[1]))
+            # Clubs level on all three keep the order they were typed in,
+            # so head-to-head and division tiebreaks can be encoded by
+            # pasting the official table in its own order. Alphabetical
+            # used to win here, which quietly reordered three divisions.
+            order = {s: i for i, s in enumerate(found)}
+            rows.sort(key=lambda r: (-r[3], -r[5], -r[4], order[r[0]]))
             groups.append((conf, f"{conf.upper()} {div}", rows))
     return groups
 
