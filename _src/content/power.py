@@ -18,12 +18,12 @@
 WEEK = "After Week 6"
 
 RANKS = """
-1. San Francisco 49ers (6-0)
-2. Kansas City Chiefs (5-0)
+1. Kansas City Chiefs (5-0)
+2. San Francisco 49ers (6-0)
 3. Buffalo Bills (5-1)
 4. Minnesota Vikings (5-0)
-5. Denver Broncos (4-2)
-6. Jacksonville Jaguars (4-2)
+5. Jacksonville Jaguars (4-2)
+6. Denver Broncos (4-2)
 7. Seattle Seahawks (3-3)
 8. New England Patriots (4-2)
 9. Green Bay Packers (4-2)
@@ -44,11 +44,11 @@ RANKS = """
 24. Philadelphia Eagles (2-4)
 25. New York Giants (3-2-1)
 26. Dallas Cowboys (2-4)
-27. New York Jets (2-4)
-28. Tennessee Titans (1-5)
-29. Tampa Bay Buccaneers (1-5)
-30. Miami Dolphins (0-5)
-31. Washington Commanders (1-4-1)
+27. Washington Commanders (1-4-1)
+28. New York Jets (2-4)
+29. Tennessee Titans (1-5)
+30. Tampa Bay Buccaneers (1-5)
+31. Miami Dolphins (0-5)
 32. Los Angeles Chargers (0-6)
 """
 
