@@ -28,6 +28,150 @@
 
 POSTS = [
     dict(
+        slug="on-the-hill-playoff-expansion",
+        kind="On the Hill",
+        title="On the Hill",
+        sub="Playoff Expansion",
+        author="Henry Houghton",
+        date="Week 7",
+        card_band=830,
+        body=[
+            {"img": [("indiana-hands-on-helmet.jpg",
+                      "An Indiana receiver stands with his hands on his "
+                      "helmet after a loss at home",
+                      "50% 35%")]},
+
+            "What a week in college football! Five of the AP&rsquo;s top-7 "
+            "teams fell this weekend, marking an unprecedented day of upsets "
+            "since the poll was introduced in 1936. Back in 2014, we saw five "
+            "of the top-8 teams go down in a single weekend, but never have "
+            "this many top-ranked teams fallen in a single day. If the "
+            "weekend proved anything, it&rsquo;s that college football is as "
+            "unpredictable as ever&hellip; and with the College Football "
+            "Playoff Committee announcing plans on October 15th to expand the "
+            "playoff from 12 teams to 24, the sport may be entering its most "
+            "transformative era yet.",
+
+            "## Playoff Expansion",
+
+            "When is enough going to be enough? According to multiple "
+            "sources, CFP leadership and ESPN officials have reached an "
+            "agreement to expand the playoff field from 12 to 24 teams "
+            "beginning in the 2027 season. This is bad news for anybody who "
+            "likes good things. Sure, I can understand the argument for fans "
+            "getting to watch more football&hellip; but what does this mean "
+            "for regular-season games? Power 5 teams will have no reason to "
+            "schedule big in-conference games (other than mandatory "
+            "opponents) and even less of a reason to schedule strong "
+            "out-of-conference opponents. If you grind out a few wins against "
+            "mid-tier in-conference opponents and play a bunch of cupcake "
+            "out-of-conference games to fill in the gaps, good chance "
+            "you&rsquo;ll be sitting in the top 4-5 range of your conference "
+            "and have a great chance to make the playoff.",
+
+            "In theory, I like the idea of more mid-major programs earning a "
+            "spot in the playoff and trying their luck against the big dogs. "
+            "But more often than not, these teams are getting spanked once "
+            "they face a blue-blood program. We saw a strong James Madison "
+            "program put up a solid fight in the 2025 CFB Playoff against "
+            "Oregon, but adding more of these games seems more like a "
+            "cash-grab and a participation trophy for some of these schools, "
+            "rather than a legit opportunity to win it all.",
+
+            "Just like everything else in the world, it all comes down to "
+            "money. ESPN will continue to make billions of dollars off of the "
+            "expanded format and schools will profit from more opportunities "
+            "to play football games. It is what it is. As a fan, it seems "
+            "crazy that I&rsquo;m complaining about more football games being "
+            "played&hellip; but there is something special about midseason, "
+            "in-conference games that ultimately decide your postseason fate. "
+            "These are the games that the fans look forward to all season and "
+            "leave the longest legacy. I hate the idea of an 8-4 SEC team who "
+            "is ranked 24th in the country making the playoff. Like yeah, "
+            "they are probably one of the best 24 teams in the country and "
+            "have played an incredibly hard schedule, but did they really "
+            "earn the opportunity to play for a national championship? "
+            "Football does not need to turn into March Madness. I was more "
+            "than happy with a 4-team playoff and think most collegiate "
+            "programs probably were too.",
+
+            "One of the most important uncertainties that the expansion "
+            "threatens is conference championship games. Last year, the CFB "
+            "Playoff committee told us that teams shouldn&rsquo;t be punished "
+            "for earning a spot and then losing a conference championship "
+            "game. So if losing the game doesn&rsquo;t matter, what is the "
+            "point of playing it? Sure, bragging rights and potentially "
+            "better seeding. But aren&rsquo;t the #3 and #4 ranked teams in "
+            "the conference getting the better end of the deal because they "
+            "don&rsquo;t have to play an extra game, risk injury/fatigue, and "
+            "waste their time on a game that has minimal playoff "
+            "implications? If you&rsquo;re ranked inside the top-20 teams, I "
+            "would think you&rsquo;d be a lock for the playoff. Realistically, "
+            "the SEC and the Big 10 will both have 4-5 teams each who will "
+            "make the playoff. I&rsquo;m really not sure how playing in a "
+            "conference championship is a &ldquo;reward&rdquo; for the best "
+            "teams in each conference anymore.",
+
+            "## Game of the Week: (#3) Ohio State 19 &ndash; (#6) Indiana 15",
+
+            "Our last two national champions and top-dogs of the Big 10 "
+            "squared off on Saturday in what was one of the most highly "
+            "anticipated matchups of the 2026-27 season. Anytime Gus Johnson "
+            "is on the call, you know it&rsquo;s gonna be wild. In what "
+            "started as a grid-locked, defensive battle, the scoring heated "
+            "up a bit at the end of the game for an insane finish. Heading "
+            "into the 4th quarter, Ohio State was up 13-7 and it was still "
+            "clearly anyone&rsquo;s game. Superstar WR Jeremiah Smith had "
+            "been relatively quiet all day and was due for a big play at any "
+            "moment. Smith&rsquo;s time came just 2-minutes into the 4th "
+            "quarter when Julian Sayin tossed up a 38-yard moon ball towards "
+            "the endzone where Smith boxed out two defenders and came down "
+            "with the TD.",
+
+            "Just when Ohio State thought they had some momentum, Indiana "
+            "came flying back the following drive and punched in a quick TD "
+            "followed with a 2-point conversion and cut the lead to 19-15. On "
+            "Ohio State&rsquo;s next drive, Buckeye fans&rsquo; hearts "
+            "stopped when Sayin was hit in mid-throwing motion and came down "
+            "hard on his shoulder. Sayin went straight to the locker room and "
+            "was replaced by true freshman Luke Fahey. Both teams traded "
+            "possessions after a couple three-and-outs and finally, the "
+            "Hoosiers had the ball, down 4, and a chance to win the game. "
+            "Indiana QB Josh Hoover led an impressive drive down to the "
+            "Buckeyes&rsquo; 27-yard line where they faced a 4th-and-4 with "
+            "the game on the line. Hoover took the snap in shotgun and "
+            "launched what looked like a beautiful toss to the back left "
+            "corner of the endzone to WR Nick Marsh. Marsh had the defender "
+            "beat by at least 2 steps but the open space failed to be enough "
+            "as Marsh caught the ball with his left foot out-of-bounds. "
+            "Indiana failed to score the go-ahead touchdown and Ohio State "
+            "went on to win a thriller in Bloomington.",
+
+            "For the defending national champions and coach Curt Cignetti, "
+            "this marks their first loss in 666 days (number coincidence? I "
+            "think not!) and 22-straight games. Even for a Big 10 team, what "
+            "an incredible streak of dominant football. Cignetti and the "
+            "Hoosiers have a relatively safe schedule for the remainder of "
+            "the season and still have very strong odds to reach the college "
+            "football playoff and Big 10 championship. As far as the Ohio "
+            "State Buckeyes, they got revenge from last year&rsquo;s Big 10 "
+            "championship loss, but at what cost? Coach Ryan Day confirmed "
+            "that Sayin would be out for at least &ldquo;several weeks&rdquo; "
+            "which puts a big question mark on the Buckeyes&rsquo; future as "
+            "they get ready to face USC, Oregon, Northwestern, Nebraska, and "
+            "Michigan.",
+
+            "## Games to Watch: Week 8",
+
+            "(#7) Ole Miss at (#19) Texas<br>"
+            "Texas A&amp;M at (#13) Alabama<br>"
+            "(#6) Indiana at Michigan<br>"
+            "(#18) LSU at Auburn<br>"
+            "(#11) Tennessee at South Carolina<br>"
+            "(#16) USC at Wisconsin",
+        ],
+    ),
+    dict(
         slug="week-6-texans-jaguars",
         kind="Game of the Week",
         title="Houston 34, Jacksonville 31",
