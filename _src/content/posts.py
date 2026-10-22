@@ -28,6 +28,113 @@
 
 POSTS = [
     dict(
+        slug="rookie-radar-omar-cooper-jr",
+        kind="Rookie Radar",
+        title="Omar Cooper Jr., WR, New York Jets",
+        author="Noah Labao",
+        date="Week 6",
+        team="jets",
+        body=[
+            {"img": [("omar-cooper-jets.jpg",
+                      "Omar Cooper Jr. celebrates with the ball as Patriots "
+                      "defenders look on behind him",
+                      "60% 35%")]},
+
+            {"quote": "&ldquo;Touchdown! Wow! Omar Cooper! "
+                      "Unbelievable!&rdquo;",
+             "cite": "Gus Johnson, Indiana @ Penn State"},
+
+            "Four weeks on injured reserve with a high-ankle sprain had "
+            "buried the Jets&rsquo; first-round investment before it ever got "
+            "going. Then Omar Cooper Jr. came back and reminded the Gang "
+            "Green exactly why they traded up into the first round to get "
+            "him. Against the Patriots he led the Jets with six catches for "
+            "103 yards and the first touchdown of his career, a 48-yard "
+            "strike from Geno Smith in the third quarter that briefly dragged "
+            "a flagging offense back into the game. It wasn&rsquo;t enough in "
+            "a 26-19 road loss, but it made him just the third Jet since the "
+            "merger to post a 100-yard receiving game within his first two "
+            "career outings, joining Garrett Wilson and Derrick Gaffney, and "
+            "earned him a Pepsi Rookie of the Week nomination.",
+
+            "## College Bio: Indiana Hoosiers (2022 to 2025)",
+
+            "Cooper saved his best for the brightest stage. After two quiet "
+            "early seasons, he broke out as a deep threat in 2024 (21.2 yards "
+            "per catch) and then became a volume star in 2025, leading the "
+            "receiving corps on Indiana&rsquo;s first-ever national "
+            "championship team with 69 catches for 937 yards and 13 "
+            "touchdowns. He left Bloomington among the most productive "
+            "pass-catchers in program history, fourth on the "
+            "Hoosiers&rsquo; career receiving-touchdown list with 22, and a "
+            "favorite target of Heisman winner Fernando Mendoza down the "
+            "stretch of the title run.",
+
+            "## High School Recruiting Profile: Lawrence North HS "
+            "(Indianapolis, IN)",
+
+            "A hometown product, Cooper starred at Lawrence North in "
+            "Indianapolis as a three-sport athlete (football, basketball, and "
+            "the long jump) before committing to stay in-state at Indiana. A "
+            "four-star recruit by some services, he piled up 132 catches for "
+            "2,856 yards and 22 touchdowns across his prep career, with a "
+            "senior line of 43 grabs for 702 yards and seven scores to go "
+            "with a well-rounded basketball stat sheet. The multi-sport "
+            "athleticism shows up in his game today.",
+
+            "The measurables back up the tape: a compact 6-foot, 199 pounds "
+            "with 4.42 speed and a 37-inch vertical, good for a 9.16 Relative "
+            "Athletic Score.",
+
+            "## Scheme Fit: Why He Works in New York",
+
+            "The Jets&rsquo; offense needed a receiver who could win now, and "
+            "Cooper slotted in as exactly that in his first extended look. "
+            "He&rsquo;s a polished route runner with reliable hands and the "
+            "deep speed to stretch a defense, versatile enough to line up "
+            "outside or in the slot; he was a vertical outside threat early "
+            "at Indiana before thriving from the slot in his breakout year. "
+            "Paired with Geno Smith, who&rsquo;s on a record pace, Cooper "
+            "gives the Jets a chain-mover who can also take the top off, and "
+            "the 48-yarder against New England was a glimpse of the ceiling. "
+            "Health is the only real question after the ankle; the role is "
+            "there for the taking.",
+
+            "## Similarity Comp: Rashee Rice",
+
+            "The closest template is Rashee Rice: a sturdy, do-it-all "
+            "receiver who wins with physicality, polished routes, and "
+            "run-after-catch juice rather than elite size. Like Rice, Cooper "
+            "is comfortable working the slot or the boundary, plays bigger "
+            "than his frame, and turns short and intermediate targets into "
+            "chunk plays. If he stays healthy and the target share grows, a "
+            "Rice-style high-volume, chain-moving role is a reasonable "
+            "projection for what he becomes in New York.",
+
+            "## On The Radar",
+
+            "Three more rookies worth circling before this week&rsquo;s "
+            "slate:",
+
+            [
+                "Germie Bernard, WR, Pittsburgh Steelers - Week 6: 11 catches "
+                "on 12 targets for 87 yards and the game-winning overtime "
+                "touchdown against Tampa Bay, a poised closing act from the "
+                "former Alabama receiver.",
+
+                "David Bailey, EDGE, New York Jets - Week 6: kept his hot "
+                "start rolling off the edge for the Jets, backing up his "
+                "three-sack Week 5 breakout as one of the rookie "
+                "class&rsquo;s most disruptive pass rushers.",
+
+                "Carnell Tate, WR, Tennessee Titans - Week 6: another "
+                "productive afternoon for the No. 4 pick, staying among the "
+                "rookie receiving leaders and earning a Pepsi Rookie of the "
+                "Week nomination alongside Cooper.",
+            ],
+        ],
+    ),
+    dict(
         slug="on-the-hill-playoff-expansion",
         kind="On the Hill",
         title="On the Hill",
