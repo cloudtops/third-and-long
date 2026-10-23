@@ -28,6 +28,328 @@
 
 POSTS = [
     dict(
+        slug="bake-or-shake-weeks-1-3",
+        kind="Bake or Shake",
+        title="Bake or Shake",
+        sub="The Gospel According to Baker Mayfield",
+        author="Nathanael Kjormoe",
+        date="Weeks 1&ndash;3",
+        team="buccaneers",
+        card_band=830,
+        body=[
+            {"img": [("nate-candle.jpg",
+                      "Nate in a creamsicle Buccaneers jersey and bucket hat "
+                      "beside a Saint Baker Mayfield prayer candle",
+                      "50% 42%")]},
+
+            "Per the Accountable Sports Journalism: Guidelines for Covering "
+            "Sports Responsibly, a sports journalist should:",
+
+            [
+                "Avoid conflicts of interest.",
+                "Establish a clear distinction between fact and personal "
+                "opinion.",
+                "Promote positive sports values, fair play, and an "
+                "environment of peace and understanding.",
+            ],
+
+            "This op-ed&hellip; will be none of those things!",
+
+            "Here on Bake or Shake, we discuss one thing and one thing only: "
+            "the greatness of Baker Fucking Mayfield.",
+
+            "If you&rsquo;re looking for an unbiased, factual, straightforward "
+            "piece of sports journalism, please continue looking. Because "
+            "you&rsquo;ve come to the wrong place.",
+
+            "Each week, I&rsquo;ll take the time to analyze Baker "
+            "Mayfield&rsquo;s on-field performance and decide whether Baker "
+            "did indeed BAKE, or whether he needs to SHAKE that performance "
+            "off.",
+
+            "With Baker potentially returning in Week 7 against the Panthers, "
+            "this seems like the perfect time to look back at his first three "
+            "performances of the season before continuing through this "
+            "glorious Baker run we&rsquo;re all lucky enough to witness.",
+
+            "Buckle up. It hasn&rsquo;t been the easiest start, but hey, "
+            "greatness was never supposed to be easy.",
+
+            "## Week 1: Cincinnati Bengals",
+
+            "Let&rsquo;s begin with Baker&rsquo;s season opener against the "
+            "Cincinnati Bengals.",
+
+            "Heading into this game, Baker made some hefty statements. When "
+            "asked about the upcoming season, he proclaimed, &ldquo;I think "
+            "we&rsquo;re going to shock a lot of people this year,&rdquo; "
+            "continuing, &ldquo;So I&rsquo;m excited to just get on the road "
+            "and do that.&rdquo;",
+
+            "And oh boy, did he certainly surprise me&hellip;",
+
+            "Baker threw for a respectable 216 yards, completing 23 of 28 "
+            "passes for an 82.1% completion rate (DAMN!). If that were his "
+            "only stat line, we&rsquo;d have ourselves a certified BAKE!",
+
+            "Unfortunately, Mr. Mayfield also took four sacks and lost three "
+            "fumbles, including a particularly devastating one near the goal "
+            "line that cost the Bucs a potential touchdown.",
+
+            "Now, was this Baker&rsquo;s fault? Certainly fucking not. Well, "
+            "maybe a little. But that&rsquo;s beside the point.",
+
+            "Tampa Bay&rsquo;s offensive line allowed a 38.9% pressure rate, "
+            "surrendering four sacks, 11 total pressures, and 6 hurries. At "
+            "this point, the offensive line was less of a protective unit and "
+            "more of a welcoming committee for Cincinnati&rsquo;s defensive "
+            "front.",
+
+            "Now, PFF may have ranked Tampa&rsquo;s offensive line third in "
+            "the league heading out of Week 1, but anybody who watched Baker "
+            "run for his life would know that&rsquo;s a bullshit grade.",
+
+            "Despite his impressive accuracy, Baker couldn&rsquo;t carry the "
+            "entire team on his back, as he has so many times before. Tampa "
+            "Bay fell to Cincinnati 33&ndash;27 on the road.",
+
+            "It pains me to say this, but three lost fumbles are difficult to "
+            "defend, even for a man of Baker&rsquo;s stature.",
+
+            "<strong>Week 1 Verdict: SHAKE</strong>",
+
+            "Shake it off, baby. We&rsquo;ll get &rsquo;em next time.",
+
+            "## Week 2: Cleveland Browns",
+
+            "Moving into Week 2, Baker had a lot of carrying to do, but still "
+            "plenty of time to do it.",
+
+            "Our lord and savior led the Tampa Bay Buccaneers into battle "
+            "against his former team, the Cleveland Browns. Surely this would "
+            "be the week Baker reminded Cleveland of the greatness they so "
+            "foolishly let walk out the door.",
+
+            "Well&hellip; not exactly.",
+
+            "Baker finished with 182 passing yards, completing 21 of 34 "
+            "attempts for a 61.8% completion rate. He also threw one singular "
+            "interception, but before you start pointing fingers at our "
+            "beloved quarterback, let&rsquo;s examine the evidence.",
+
+            "With 1:19 remaining in the first quarter, Baker knew his team "
+            "needed a spark. Facing 1st-and-10, he targeted Ted Hurst III and "
+            "delivered what I can only describe as a dart.",
+
+            "Unfortunately, Browns cornerback Myles Harden undercut the "
+            "route, intercepted the pass, and returned it 25 yards.",
+
+            "Was Baker perhaps a little too confident in that throw? Maybe. "
+            "Could Hurst have prevented the interception by not running such "
+            "a lazy fucking route? I&rsquo;d certainly like to think so.",
+
+            "Regardless, I refuse to let one interception define the "
+            "performance of a former first-overall pick.",
+
+            "And Baker responded.",
+
+            "In the second half, Mayfield threw for 137 yards, one touchdown, "
+            "and ZERO turnovers.",
+
+            "HOT DAMN! That&rsquo;s Baking.",
+
+            "That&rsquo;s the resilience we&rsquo;ve come to expect from "
+            "Baker Mayfield. Throw a pick? Who gives a shit? Get back out "
+            "there and sling that football.",
+
+            "Unfortunately, Baker&rsquo;s resilience couldn&rsquo;t overcome "
+            "his team&rsquo;s shortcomings, and the Buccaneers suffered their "
+            "second consecutive loss, falling 23&ndash;19 to the Browns.",
+
+            "The fucking Browns.",
+
+            "There were certainly flashes of greatness in this one, "
+            "particularly in the second half. But with one touchdown, one "
+            "interception, and another loss, I must once again deliver a "
+            "verdict that brings me absolutely no joy.",
+
+            "<strong>Week 2 Verdict: SHAKE</strong>",
+
+            "Two weeks down. Two losses. Two Shakes.",
+
+            "I&rsquo;m beginning to dislike this job.",
+
+            "## Week 3: Minnesota Vikings",
+
+            "A concerning trend was beginning to emerge as the Tampa Bay Bucs "
+            "entered Week 3 against the then-undefeated, and still "
+            "undefeated, Minnesota Vikings.",
+
+            "Now, some may argue this was Baker&rsquo;s worst performance of "
+            "the season.",
+
+            "Personally? I saw a gutsy performance under nearly insurmountable "
+            "odds against one of the league&rsquo;s toughest defenses.",
+
+            "Baker threw for 217 yards, completing 17 of 34 passes, with one "
+            "costly drop from our &ldquo;star running back&rdquo; Bucky "
+            "Irving.",
+
+            "Yes, a 50% completion rate isn&rsquo;t exactly something to "
+            "celebrate. But before you start criticizing Baker&rsquo;s "
+            "accuracy, I&rsquo;d encourage you to examine the circumstances.",
+
+            "Baker was under duress all night, taking SIX sacks for 31 yards "
+            "lost.",
+
+            "Six. Fucking. Sacks.",
+
+            "Remember that concerning trend I mentioned earlier?",
+
+            "It&rsquo;s Tampa Bay&rsquo;s offensive line, which apparently "
+            "believes protecting its franchise quarterback is more of a "
+            "suggestion than a responsibility.",
+
+            "Through three games, the Buccaneers had allowed a staggering 13 "
+            "sacks, averaging 4.33 per game and ranking DEAD FUCKING LAST in "
+            "the NFL.",
+
+            "It&rsquo;s a near-impossible task to ask any quarterback to "
+            "perform under that much pressure, even if that quarterback "
+            "happens to be first-overall pick Baker Mayfield.",
+
+            "But the most inexcusable moment came with 1:54 remaining in the "
+            "fourth quarter.",
+
+            "Facing 4th-and-13 and trailing 20&ndash;16, Minnesota&rsquo;s "
+            "pass rush forced Baker to scramble backward nearly 20 yards.",
+
+            "(Lol, classic Baker.)",
+
+            "Rather than surrender to the inevitable sack, Baker did what "
+            "Baker does best.",
+
+            "He played fuckin ball.",
+
+            "Attempting a desperation throw to keep his team&rsquo;s hopes "
+            "alive, Baker&rsquo;s throwing hand collided with Vikings "
+            "linebacker Blake Cashman, dislocating his right thumb.",
+
+            "The heart displayed on that play was nothing short of "
+            "impressive. Was scrambling backward 20 yards the smartest "
+            "decision? Probably not. Was it the most Baker Mayfield thing "
+            "imaginable? Absolutely.",
+
+            "Unfortunately, the resulting injury was considerably less "
+            "inspiring.",
+
+            "Tampa Bay fell to Minnesota 23&ndash;16, dropping to 0&ndash;3 "
+            "and leaving Baker with an injured throwing hand.",
+
+            "Three games. Thirteen sacks. Three losses. And now our franchise "
+            "quarterback is hurt.",
+
+            "At this point, I don&rsquo;t know whether to blame the offensive "
+            "line, the football gods, or my own hubris.",
+
+            "While Baker showed incredible tenacity and grit, three straight "
+            "losses and a dislocated thumb are certainly not baking.",
+
+            "<strong>Week 3 Verdict: for the love of god, FUCKING SHAKE IT "
+            "OFF.</strong>",
+
+            "And somebody PLEASE get this man some protection.",
+
+            "## Three Weeks In: Is There Hope?",
+
+            "Now, I know what you&rsquo;re thinking.",
+
+            "Three games. Three losses. Three Shake verdicts.",
+
+            "What the hell happened to the greatness of Baker Fucking "
+            "Mayfield?",
+
+            "Well, my friends, I&rsquo;m glad you asked.",
+
+            "Despite Tampa Bay&rsquo;s miserable start, there are some "
+            "legitimate positives that absolutely should not be overlooked.",
+
+            "In Week 1, Baker reminded everyone just how accurate an elite "
+            "quarterback can be, completing an astonishing 82.1% of his "
+            "passes.",
+
+            "Against Cleveland, he demonstrated the resilience that makes him "
+            "so damn entertaining. Following an early interception, Baker "
+            "responded with 137 second-half passing yards, a touchdown, and "
+            "zero additional turnovers.",
+
+            "And let&rsquo;s not forget the legs.",
+
+            "While Baker isn&rsquo;t your traditional running quarterback, we "
+            "all love watching that beautiful bastard scramble downfield. "
+            "Through three games, he contributed 65 rushing yards and a "
+            "rushing touchdown against Cincinnati.",
+
+            "Perhaps most importantly, Baker has continued to keep his team "
+            "competitive despite circumstances that would have lesser "
+            "quarterbacks questioning their life choices.",
+
+            "All three losses came by a single score.",
+
+            "Six points against Cincinnati. Four against Cleveland. Seven "
+            "against Minnesota.",
+
+            "That&rsquo;s not a team getting blown off the field. That&rsquo;s "
+            "a team that&rsquo;s painfully close to figuring things out.",
+
+            "And who better to lead that turnaround than Baker Mayfield?",
+
+            "## Final Thoughts",
+
+            "Look, I&rsquo;m not going to sit here and pretend Baker has been "
+            "perfect.",
+
+            "He hasn&rsquo;t.",
+
+            "There are turnovers to clean up, throws he&rsquo;d like back, "
+            "and decisions that even I, a devoted member of the Church of "
+            "Baker Mayfield, have a difficult time defending.",
+
+            "And trust me, my devotion runs deep. I have a literal prayer "
+            "candle with Baker Mayfield&rsquo;s face on it. At this point, I "
+            "might have to light that bad boy and say a few Hail Mayfields in "
+            "hopes of turning this season around.",
+
+            "But what I refuse to do is ignore the grit, resilience, and "
+            "determination this man has displayed while playing behind an "
+            "offensive line that apparently has a personal vendetta against "
+            "him.",
+
+            "Baker Mayfield is a competitor. He&rsquo;s a leader. And most "
+            "importantly, he&rsquo;s the kind of quarterback who makes "
+            "football worth watching.",
+
+            "If Tampa Bay can figure out how to protect its quarterback for "
+            "more than three seconds, and his receivers can start creating "
+            "some separation, there&rsquo;s no reason this season can&rsquo;t "
+            "turn around.",
+
+            "Whether Baker returns in Week 7 against Carolina or Week 8 "
+            "against Atlanta, one thing is certain:",
+
+            "I&rsquo;ll be watching. I&rsquo;ll be defending. And I&rsquo;ll "
+            "be ready to witness the glorious return of Baker Fucking "
+            "Mayfield.",
+
+            "Three weeks. Three Shakes.",
+
+            "But the oven&rsquo;s just getting warmed up, baby. It&rsquo;s "
+            "time to Bake!",
+
+            "Ya boi,<br>Nathanael Alan Kjormoe.",
+        ],
+    ),
+    dict(
         slug="rookie-radar-omar-cooper-jr",
         kind="Rookie Radar",
         title="Omar Cooper Jr., WR, New York Jets",
