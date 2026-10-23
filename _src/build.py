@@ -267,6 +267,17 @@ def post_sub(post):
 # restamp its hash onto every page on the site for one post type. The cards
 # borrow the site's own tokens, so they track light and dark for free, and the
 # club colour comes from .tc t-<slug>, which styles.css already defines.
+POST_SPACE_CSS = """<style>
+/* Breathing room under section headings and lists inside a piece.
+   Lives here rather than in EXTRA because EXTRA compiles into
+   styles.css, whose hash is stamped into every page, and both of
+   these elements only ever appear inside a post. */
+.post-body .post-h{margin-bottom:1.35rem}
+.post-body .post-list{margin-bottom:1.6rem}
+.post-body .post-list:last-child{margin-bottom:0}
+</style>"""
+
+
 FANTASY_CSS = """<style>
 .fan-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));
  gap:1px;background:var(--rule);border:1px solid var(--rule);margin:2rem 0}
@@ -384,6 +395,7 @@ def build_post(post):
     # anyone you send it to
     extra = ('<meta name="robots" content="noindex, nofollow">\n'
              if post.get("noindex") else "")
+    extra += POST_SPACE_CSS
     if any(isinstance(b, dict) and "picks" in b for b in post["body"]):
         extra += FANTASY_CSS
     html = (
@@ -1324,8 +1336,10 @@ def pick_table(hist):
             else:
                 t[1] += 1
     rows = [(who, w, l, x) for who, (w, l, x) in tally.items()]
-    rows.sort(key=lambda r: (-(r[1] / (r[1] + r[2]) if r[1] + r[2] else 0),
-                             -r[1], -r[3], r[0]))
+    # Wins first, then fewer losses, then exact scores, then name. Win
+    # percentage used to lead, which put anyone who had made a single
+    # correct pick above a regular sitting at 3-1.
+    rows.sort(key=lambda r: (-r[1], r[2], -r[3], r[0]))
     return rows
 
 
