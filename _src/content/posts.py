@@ -28,11 +28,143 @@
 
 POSTS = [
     dict(
+        slug="tnf-recap-patriots-bears",
+        kind="Thursday Night Recap",
+        title="Caleb Williams is the Best Quarterback in the NFL Right Now",
+        author="Adam Long",
+        date="Week 7",
+        body=[
+            {"img": [("caleb-williams-snow.jpg",
+                      "Caleb Williams jogs off the field in the snow giving a "
+                      "thumbs up",
+                      "58% 28%")]},
+
+            "Okay, okay, I know what you&rsquo;re thinking. Adam, you all say "
+            "in unison, you&rsquo;re a day late with your weekly Thursday "
+            "Night Recap! Well, contrary to popular belief, I do in fact have "
+            "a job. So I would like to start by apologizing for my "
+            "transgressions against all you loyal 3rd &amp; Long fans out "
+            "there. Luckily, we have a whole crew of talented contributors "
+            "aboard this ship now, so the plan as of now is to have a new "
+            "article for every day of the week! We&rsquo;re out here doing "
+            "this shit for the love of the game, and the love of the game "
+            "alone.",
+
+            "Anyway, what was I talking about? Oh right, there was a football "
+            "game on Thursday night! And despite what you may have heard "
+            "about Thursday Night Football, this one was actually pretty "
+            "entertaining. We had a real high stakes, high drama matchup on "
+            "our hands in the Windy City, where 2024 first-overall pick QB "
+            "Caleb Williams led his team against 2024 third-overall pick, "
+            "Patriots QB Drake Maye. Both teams were red-hot coming into this "
+            "primetime contest, Maye and the Patriots had ripped off three "
+            "straight wins to get their record to 4-2, and the Bears were "
+            "able to weather Williams&rsquo; hamstring injury to keep the "
+            "ship afloat at 4-2 as well. Both teams are looking to replicate "
+            "their successes from 2025, in which both second year "
+            "quarterbacks took massive leaps and propelled their teams deep "
+            "into January (and even February, in Maye&rsquo;s case).",
+
+            "Now, let me go off on a bit of a tangent here. Seeing as you can "
+            "read (nice work!), you probably read the title of this article. "
+            "I really think that Williams is the NFL&rsquo;s best "
+            "quarterback? A guy who&rsquo;s missed three and a half games "
+            "this year due to injury? Adam, you ask me incredulously, have "
+            "you ever heard of a guy called Allen? Jackson? Stroud? Burrow? "
+            "Yes. I have heard of all of these gentlemen. Wouldn&rsquo;t "
+            "really be much of an amateur sportswriter if I hadn&rsquo;t. Why "
+            "do I think a guy who has won one singular playoff game is better "
+            "than a guy named Mahomes who&rsquo;s won three rings? Two words. "
+            "Eye test. When I watch Caleb Williams play football, I watch "
+            "something that is difficult for me to describe. Call it arm "
+            "talent, call it leadership, call it the It-Factor. I know there "
+            "are other signal callers in the league who have these "
+            "intangibles as well, but there&rsquo;s something else with the "
+            "guy who wears #18 in Chicago. I&rsquo;m going to say this now, "
+            "so I have it in writing, but Caleb Williams is going to win "
+            "multiple Super Bowls and firmly cement himself as the greatest "
+            "player in the history of the Chicago Bears. Respect to Urlacher, "
+            "Butkus, Ditka (RIP), Sayers, and Sweetness, but I don&rsquo;t think the "
+            "ceiling for a Bears player has ever been higher. He has every "
+            "skill necessary for greatness. I&rsquo;m saying all of this, "
+            "shouting from the rooftops, and you can&rsquo;t chalk it up to "
+            "bias because I&rsquo;m not even a Bears fan. When I watch "
+            "Williams play, I see early-2010s Aaron Rodgers.",
+
+            "You probably also clicked on this article to get a recap of what "
+            "actually happened in the game between New England and Chicago. "
+            "So I guess I owe that to you, although what I really want to do "
+            "is keep talking about how good Caleb Williams is. Good football "
+            "gets me fired up, man. I feel like Gruden out here. Anyway, Maye "
+            "and the Patriots received the opening kickoff, which they "
+            "promptly turned over on downs due to a sack courtesy of elite "
+            "edge rusher Kyler Gordon. Now, despite that last sentence, Kyler "
+            "Gordon actually plays corner, which is one of the most "
+            "interesting stories of the young NFL season. Caleb and Da Bears "
+            "rolled down the field and scored on a field goal, and also added "
+            "on an RB De&rsquo;Andre Swift touchdown run to make the lead "
+            "10-0 at the end of one. Maye answered right back with a "
+            "touchdown drive of his own, scoring on a gutsy seven-yard rush "
+            "to convert on 2nd &amp; Goal. Add in a Bears field goal, an "
+            "absolute meatball from Maye throwing into the end zone, and "
+            "you&rsquo;ve got a recipe for 13-7 Chicago halfway through the "
+            "second. Chicago WR Luther Burden III was fully unleashed in this "
+            "game, going for 130 yards and a score, and he earned that score "
+            "on a 24-yard screen pass. Now this is usually the sentence where "
+            "I say something like &ldquo;Both teams went to halftime looking "
+            "ahead to the second half&rdquo; or something boring like that, "
+            "but not in this one. 0:16 left in the half. Maye hits RB "
+            "Rhamondre Stevenson on a check down, and he jogs through the "
+            "Bears&rsquo; defense to score from 48 yards out. He&rsquo;s not "
+            "even the fast Patriots running back! Chicago, what the hell was "
+            "going on out there! Ben Johnson nearly had an aneurysm on the "
+            "sideline, and the teams headed to their respective locker rooms "
+            "to the tune of 20-14.",
+
+            "Dueling touchdowns started the second half, one from Williams to "
+            "TE Colston Loveland, and one from Maye to TE Eli Raridon. "
+            "Raridon has been excellent so far in his young career, and I was "
+            "especially excited to see him score immediately following a "
+            "boneheaded penalty that he committed. Bears&rsquo; K Cairo "
+            "Santos was bitten by the doink bug and couldn&rsquo;t convert "
+            "from 53 yards out. Maye and the Pats went three and out, and "
+            "Chicago got the ball back, up six points with a chance to put "
+            "the icing on the cake. There were two plays on this drive in "
+            "particular that cemented the idea in my head for the title of "
+            "this article. Both were third down conversions from Williams to "
+            "WR Rome Odunze, where Caleb attempted and completed two throws "
+            "that defied all reason. It was pure command of the game, gutsy, "
+            "gunslinging quarterbacking in its truest sense. Those two throws "
+            "showed me everything I needed to see from this kid. Now, credit "
+            "where credit is due only works if the opposite is true. Williams "
+            "had the Bears in field goal range when he decided to NOT be the "
+            "best quarterback in the NFL for a snap. He took a bad sack on "
+            "third down that knocked them out of Santos&rsquo; range, so Ben "
+            "Johnson had a real decision to make. One of the reasons that "
+            "Johnson is also one of the NFL&rsquo;s best coaches is that he "
+            "has the utmost trust in his players. Cairo Santos&rsquo; career "
+            "long was 55 yards up until Thursday night. He had just missed a "
+            "kick off the upright from 53. This kick to ice the game was from "
+            "58. Johnson trusted his guy, and Santos nailed it. There "
+            "would&rsquo;ve been a lot of chatter from the peanut gallery had "
+            "Santos missed that kick and given the ball back to Maye at "
+            "midfield down six, but luckily for the Bears, they won&rsquo;t "
+            "have to hear a peep all week.",
+
+            "So Chicago wins the game and improves their season mark to 5-2. "
+            "Tough sledding in their division, as Minnesota is undefeated and "
+            "both Green Bay and Detroit only have two losses themselves. With "
+            "that being said, give me Chicago in a heartbeat to take the "
+            "North. You know what, I&rsquo;m feeling crazy. Give me Chicago "
+            "to win the NFC.",
+        ],
+    ),
+    dict(
         slug="bake-or-shake-weeks-1-3",
         kind="Bake or Shake",
         title="Bake or Shake",
         sub="The Gospel According to Baker Mayfield",
-        author="Nathanael Kjormoe",
+        author="Nate Kjormoe",
         date="Weeks 1&ndash;3",
         team="buccaneers",
         card_band=830,
