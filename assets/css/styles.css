@@ -397,7 +397,7 @@ a.site-name{text-decoration:none}
 .bar-link{
   font-family:var(--f-cond);font-weight:600;font-size:.8rem;
   text-transform:uppercase;letter-spacing:.14em;
-  color:var(--hero-muted);text-decoration:none;
+  color:var(--hero-muted-2);text-decoration:none;
 }
 .bar-link:hover{color:var(--hero-fg)}
 
@@ -405,7 +405,10 @@ a.site-name{text-decoration:none}
 .hero-blurb{
   margin:1.6rem 0 0;max-width:56ch;
   font-size:clamp(1rem,2vw,1.15rem);line-height:1.55;
-  color:var(--hero-muted);font-weight:300;
+  /* was --hero-muted at weight 300: 5.93:1 on the default ground, and thin
+     strokes on a dark field read dimmer than the ratio suggests. 400 at
+     --hero-muted-2 is 9.53:1 and still clearly secondary to the wordmark. */
+  color:var(--hero-muted-2);font-weight:400;
 }
 .hero-sub{
   font-family:var(--f-cond);font-weight:600;font-size:.9rem;
@@ -875,7 +878,11 @@ a.ed h3{
 
 /* the club's second colour, and the tick strip under the hero. Both default
    to what the site already used, so nothing changes until a team is picked. */
-:root{--pick2:var(--pick);--hash-tick:var(--hero-rule)}
+/* a second step between the hero muted and the hero foreground, derived so
+   it follows whichever club theme is active rather than being pinned to one
+   colour. Used for secondary text sitting on the dark hero ground. */
+:root{--pick2:var(--pick);--hash-tick:var(--hero-rule);
+ --hero-muted-2:color-mix(in srgb,var(--hero-muted) 55%,var(--hero-fg))}
 
 :root{--up:#1F7A3D;--down:#C0392B}
 @media (prefers-color-scheme:dark){
